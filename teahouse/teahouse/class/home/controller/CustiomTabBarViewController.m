@@ -1,0 +1,80 @@
+//
+//  CustiomTabBarViewController.m
+//  teahouse
+//
+//  Created by yuxin on 2016/12/26.
+//  Copyright © 2016年 yuxin. All rights reserved.
+//
+
+#import "CustiomTabBarViewController.h"
+#import "HomeViewController.h"
+#import "StoreViewController.h"
+#import "TeaViewController.h"
+#import "UserCenterViewController.h"
+#import "CustomNavigationController.h"
+#import "LoginViewController.h"
+@interface CustiomTabBarViewController ()
+<
+    UITabBarControllerDelegate
+>
+{
+    HomeViewController *homeViewController;
+}
+@end
+
+@implementation CustiomTabBarViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.delegate = self;
+    [self addchild];
+}
+
+- (void)addchild{
+    homeViewController = [[HomeViewController alloc] init];
+    [self addChildView:homeViewController title:@"首页" image:@"icon_tab1_normal" selectedImage:@"icon_tab1_selected"];
+    [self addChildView:[[StoreViewController alloc] init] title:@"商城" image:@"icon_tab2_normal" selectedImage:@"icon_tab2_selected"];
+    [self addChildView:[[TeaViewController alloc] init] title:@"文化" image:@"icon_tab3_normal" selectedImage:@"icon_tab3_selected"];
+    [self addChildView:[[UserCenterViewController alloc] init] title:@"用户" image:@"icon_tab4_normal" selectedImage:@"icon_tab4_selected"];
+    self.selectedIndex = 0;
+}
+
+/**
+ 设置tabbar
+
+ @param childViewController 子控制器
+ @param title 标题名
+ @param image tabbar图片
+ @param selectedImage 选中tabbar的图片
+ */
+- (void)addChildView:(UIViewController *)childViewController title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
+    
+    childViewController.navigationItem.title = title;
+    childViewController.tabBarItem.title = title;
+    //设置未选中状态下tabbar文字和图片
+    //设置选中状态下的tabbar文字和图片
+    [childViewController.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11],NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];//未选中文字效果
+    [childViewController.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11],NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateSelected];//选中文字效果
+    
+    
+    childViewController.tabBarItem.image = [UIImage imageNamed:image];
+    childViewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomNavigationController *navigationController = [[CustomNavigationController alloc] initWithRootViewController:childViewController];
+    [self addChildViewController:navigationController];
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    UIViewController *vc = [viewController.childViewControllers firstObject];
+    if ([vc isKindOfClass:[HomeViewController class]]) {
+        [homeViewController backTop];
+    }else if ([vc isKindOfClass:[UserCenterViewController class]]) {
+        if (![[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
+            [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
+        }
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+@end

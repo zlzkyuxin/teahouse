@@ -1,0 +1,89 @@
+8
+
+dir
+17
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1/trunk/teahouse/Pods
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1
+
+
+
+2016-12-27T01:54:31.349735Z
+3
+kenggreat
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3b3a1245-6717-46ba-a9f0-88d9e05c50e8
+
+JSONKit-NoWarning
+dir
+
+MBProgressHUD
+dir
+
+IQKeyboardManager
+dir
+
+MJRefresh
+dir
+
+dyci
+dir
+
+Masonry
+dir
+
+JSONModel
+dir
+
+Local Podspecs
+dir
+
+Manifest.lock
+file
+
+
+
+
+2016-12-27T06:25:26.000000Z
+ce84d35558ec46a345e30ec016dfea78
+2016-12-27T01:54:31.349735Z
+3
+kenggreat
+has-props
+
+UMengAnalytics-NO-IDFA
+dir
+
+AFNetworking
+dir
+
+Pods.xcodeproj
+dir
+
+Aspects
+dir
+
+TMCache
+dir
+
+Target Support Files
+dir
+
+SDWebImage
+dir
+
+Headers
+dir
+

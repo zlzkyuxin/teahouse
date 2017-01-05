@@ -1,0 +1,873 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		122206281E12417F00C1954E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122206271E12417F00C1954E /* SearchViewController.m */; };
+		1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285BB1B1E134F5900D85715 /* CustomNavigationController.m */; };
+		1285BB221E13908600D85715 /* TopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285BB211E13908600D85715 /* TopViewModel.m */; };
+		129FEB341E14EB2200B45C54 /* searchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 129FEB331E14EB2200B45C54 /* searchButton.m */; };
+		12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */; };
+		12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE81E109CB800CD3C33 /* StoreViewController.m */; };
+		12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */; };
+		12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */; };
+		12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F3FB141E11EEB900D0AAE1 /* TopView.m */; };
+		12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DC6F1E0D464E00B372CE /* AppDelegate.m */; };
+		12F7DC781E0D464E00B372CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F7DC771E0D464E00B372CE /* Assets.xcassets */; };
+		12F7DC7B1E0D464E00B372CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */; };
+		12F7DC861E0D464E00B372CE /* teahouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DC851E0D464E00B372CE /* teahouseTests.m */; };
+		12F7DC911E0D464E00B372CE /* teahouseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DC901E0D464E00B372CE /* teahouseUITests.m */; };
+		12F7DCB21E0D471200B372CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12F7DCB01E0D471200B372CE /* Info.plist */; };
+		12F7DCB31E0D471200B372CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DCB11E0D471200B372CE /* main.m */; };
+		12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DCB51E0D4D4F00B372CE /* GuideViewController.m */; };
+		12F7DCB91E0D764500B372CE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DCB81E0D764500B372CE /* HomeViewController.m */; };
+		12F9C7C31E1634C50074D0CF /* LoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C21E1634C50074D0CF /* LoopBanner.m */; };
+		12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C51E164C800074D0CF /* ScanCodeView.m */; };
+		12FABFCA1E10A03B009D010E /* YXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FABFC91E10A03B009D010E /* YXButton.m */; };
+		15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */; };
+		19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */; };
+		19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBF11E11491B00AD3836 /* NoticeViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12F7DC821E0D464E00B372CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12F7DC601E0D464D00B372CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12F7DC671E0D464E00B372CE;
+			remoteInfo = teahouse;
+		};
+		12F7DC8D1E0D464E00B372CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12F7DC601E0D464D00B372CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12F7DC671E0D464E00B372CE;
+			remoteInfo = teahouse;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		122206261E12417F00C1954E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		122206271E12417F00C1954E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		1285BB1A1E134F5900D85715 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
+		1285BB1B1E134F5900D85715 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		1285BB201E13908600D85715 /* TopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewModel.h; sourceTree = "<group>"; };
+		1285BB211E13908600D85715 /* TopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewModel.m; sourceTree = "<group>"; };
+		129FEB321E14EB2200B45C54 /* searchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchButton.h; sourceTree = "<group>"; };
+		129FEB331E14EB2200B45C54 /* searchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchButton.m; sourceTree = "<group>"; };
+		12AFBEE41E109BEE00CD3C33 /* CustiomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustiomTabBarViewController.h; sourceTree = "<group>"; };
+		12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustiomTabBarViewController.m; sourceTree = "<group>"; };
+		12AFBEE71E109CB800CD3C33 /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		12AFBEE81E109CB800CD3C33 /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		12AFBEEA1E109CC700CD3C33 /* TeaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaViewController.h; sourceTree = "<group>"; };
+		12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaViewController.m; sourceTree = "<group>"; };
+		12AFBEED1E109CD700CD3C33 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		12F3FB131E11EEB900D0AAE1 /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		12F3FB141E11EEB900D0AAE1 /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
+		12F7DC681E0D464E00B372CE /* teahouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teahouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F7DC6E1E0D464E00B372CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		12F7DC6F1E0D464E00B372CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		12F7DC771E0D464E00B372CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12F7DC7A1E0D464E00B372CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		12F7DC811E0D464E00B372CE /* teahouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teahouseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F7DC851E0D464E00B372CE /* teahouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = teahouseTests.m; sourceTree = "<group>"; };
+		12F7DC871E0D464E00B372CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F7DC8C1E0D464E00B372CE /* teahouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teahouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F7DC901E0D464E00B372CE /* teahouseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = teahouseUITests.m; sourceTree = "<group>"; };
+		12F7DC921E0D464E00B372CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F7DCB01E0D471200B372CE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = other/Info.plist; sourceTree = "<group>"; };
+		12F7DCB11E0D471200B372CE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = other/main.m; sourceTree = "<group>"; };
+		12F7DCB41E0D4D4F00B372CE /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		12F7DCB51E0D4D4F00B372CE /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		12F7DCB71E0D764500B372CE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		12F7DCB81E0D764500B372CE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		12F9C7C11E1634C50074D0CF /* LoopBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopBanner.h; sourceTree = "<group>"; };
+		12F9C7C21E1634C50074D0CF /* LoopBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopBanner.m; sourceTree = "<group>"; };
+		12F9C7C41E164C800074D0CF /* ScanCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanCodeView.h; sourceTree = "<group>"; };
+		12F9C7C51E164C800074D0CF /* ScanCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanCodeView.m; sourceTree = "<group>"; };
+		12FABFC81E10A03B009D010E /* YXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXButton.h; sourceTree = "<group>"; };
+		12FABFC91E10A03B009D010E /* YXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXButton.m; sourceTree = "<group>"; };
+		12FABFCB1E10AE00009D010E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		12FABFCD1E10AEDD009D010E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		19E0CBED1E1140AD00AD3836 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		19E0CBF01E11491B00AD3836 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		19E0CBF11E11491B00AD3836 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teahouse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		447CF1FF65F6CF331ACE1CD8 /* Pods-teahouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teahouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teahouse/Pods-teahouse.debug.xcconfig"; sourceTree = "<group>"; };
+		D6EFBE840BFE7E45CA5FFD48 /* Pods-teahouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teahouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-teahouse/Pods-teahouse.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12F7DC651E0D464E00B372CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F7DC7E1E0D464E00B372CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F7DC891E0D464E00B372CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12448B716C011951303D805F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12F7DC5F1E0D464D00B372CE = {
+			isa = PBXGroup;
+			children = (
+				12F7DC6A1E0D464E00B372CE /* teahouse */,
+				12F7DC841E0D464E00B372CE /* teahouseTests */,
+				12F7DC8F1E0D464E00B372CE /* teahouseUITests */,
+				12F7DC691E0D464E00B372CE /* Products */,
+				D20E2EEFC55574BB9E5CE008 /* Pods */,
+				12448B716C011951303D805F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		12F7DC691E0D464E00B372CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DC681E0D464E00B372CE /* teahouse.app */,
+				12F7DC811E0D464E00B372CE /* teahouseTests.xctest */,
+				12F7DC8C1E0D464E00B372CE /* teahouseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12F7DC6A1E0D464E00B372CE /* teahouse */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DC6E1E0D464E00B372CE /* AppDelegate.h */,
+				12F7DC6F1E0D464E00B372CE /* AppDelegate.m */,
+				12F7DC9E1E0D471200B372CE /* class */,
+				12F7DC771E0D464E00B372CE /* Assets.xcassets */,
+				12F7DCAF1E0D471200B372CE /* other */,
+				12F7DC6B1E0D464E00B372CE /* Supporting Files */,
+			);
+			path = teahouse;
+			sourceTree = "<group>";
+		};
+		12F7DC6B1E0D464E00B372CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DCB01E0D471200B372CE /* Info.plist */,
+				12F7DCB11E0D471200B372CE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		12F7DC841E0D464E00B372CE /* teahouseTests */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DC851E0D464E00B372CE /* teahouseTests.m */,
+				12F7DC871E0D464E00B372CE /* Info.plist */,
+			);
+			path = teahouseTests;
+			sourceTree = "<group>";
+		};
+		12F7DC8F1E0D464E00B372CE /* teahouseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DC901E0D464E00B372CE /* teahouseUITests.m */,
+				12F7DC921E0D464E00B372CE /* Info.plist */,
+			);
+			path = teahouseUITests;
+			sourceTree = "<group>";
+		};
+		12F7DC9E1E0D471200B372CE /* class */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DC9F1E0D471200B372CE /* home */,
+				12F7DCA31E0D471200B372CE /* shop */,
+				12F7DCA71E0D471200B372CE /* tea */,
+				12F7DCAB1E0D471200B372CE /* user */,
+				12FABFC71E10A01B009D010E /* tool */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		12F7DC9F1E0D471200B372CE /* home */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DCA01E0D471200B372CE /* controller */,
+				12F7DCA11E0D471200B372CE /* model */,
+				12F7DCA21E0D471200B372CE /* view */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		12F7DCA01E0D471200B372CE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DCB41E0D4D4F00B372CE /* GuideViewController.h */,
+				12F7DCB51E0D4D4F00B372CE /* GuideViewController.m */,
+				1285BB1A1E134F5900D85715 /* CustomNavigationController.h */,
+				1285BB1B1E134F5900D85715 /* CustomNavigationController.m */,
+				12AFBEE41E109BEE00CD3C33 /* CustiomTabBarViewController.h */,
+				12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */,
+				12F7DCB71E0D764500B372CE /* HomeViewController.h */,
+				12F7DCB81E0D764500B372CE /* HomeViewController.m */,
+				19E0CBED1E1140AD00AD3836 /* ScanViewController.h */,
+				19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */,
+				19E0CBF01E11491B00AD3836 /* NoticeViewController.h */,
+				19E0CBF11E11491B00AD3836 /* NoticeViewController.m */,
+				122206261E12417F00C1954E /* SearchViewController.h */,
+				122206271E12417F00C1954E /* SearchViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		12F7DCA11E0D471200B372CE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1285BB201E13908600D85715 /* TopViewModel.h */,
+				1285BB211E13908600D85715 /* TopViewModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		12F7DCA21E0D471200B372CE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				12F3FB131E11EEB900D0AAE1 /* TopView.h */,
+				12F3FB141E11EEB900D0AAE1 /* TopView.m */,
+				12F9C7C11E1634C50074D0CF /* LoopBanner.h */,
+				12F9C7C21E1634C50074D0CF /* LoopBanner.m */,
+				12F9C7C41E164C800074D0CF /* ScanCodeView.h */,
+				12F9C7C51E164C800074D0CF /* ScanCodeView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		12F7DCA31E0D471200B372CE /* shop */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DCA41E0D471200B372CE /* controller */,
+				12F7DCA51E0D471200B372CE /* model */,
+				12F7DCA61E0D471200B372CE /* view */,
+			);
+			path = shop;
+			sourceTree = "<group>";
+		};
+		12F7DCA41E0D471200B372CE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				12AFBEE71E109CB800CD3C33 /* StoreViewController.h */,
+				12AFBEE81E109CB800CD3C33 /* StoreViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		12F7DCA51E0D471200B372CE /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		12F7DCA61E0D471200B372CE /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		12F7DCA71E0D471200B372CE /* tea */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DCA81E0D471200B372CE /* controller */,
+				12F7DCA91E0D471200B372CE /* model */,
+				12F7DCAA1E0D471200B372CE /* view */,
+			);
+			path = tea;
+			sourceTree = "<group>";
+		};
+		12F7DCA81E0D471200B372CE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				12AFBEEA1E109CC700CD3C33 /* TeaViewController.h */,
+				12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		12F7DCA91E0D471200B372CE /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		12F7DCAA1E0D471200B372CE /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		12F7DCAB1E0D471200B372CE /* user */ = {
+			isa = PBXGroup;
+			children = (
+				12F7DCAC1E0D471200B372CE /* controller */,
+				12F7DCAD1E0D471200B372CE /* model */,
+				12F7DCAE1E0D471200B372CE /* view */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		12F7DCAC1E0D471200B372CE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				12AFBEED1E109CD700CD3C33 /* UserCenterViewController.h */,
+				12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		12F7DCAD1E0D471200B372CE /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		12F7DCAE1E0D471200B372CE /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		12F7DCAF1E0D471200B372CE /* other */ = {
+			isa = PBXGroup;
+			children = (
+				12FABFCD1E10AEDD009D010E /* PrefixHeader.pch */,
+				12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		12FABFC71E10A01B009D010E /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				12FABFC81E10A03B009D010E /* YXButton.h */,
+				12FABFC91E10A03B009D010E /* YXButton.m */,
+				12FABFCB1E10AE00009D010E /* Header.h */,
+				129FEB321E14EB2200B45C54 /* searchButton.h */,
+				129FEB331E14EB2200B45C54 /* searchButton.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		D20E2EEFC55574BB9E5CE008 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				447CF1FF65F6CF331ACE1CD8 /* Pods-teahouse.debug.xcconfig */,
+				D6EFBE840BFE7E45CA5FFD48 /* Pods-teahouse.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12F7DC671E0D464E00B372CE /* teahouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F7DC951E0D464E00B372CE /* Build configuration list for PBXNativeTarget "teahouse" */;
+			buildPhases = (
+				A542EE5350A745046945EA4D /* [CP] Check Pods Manifest.lock */,
+				12F7DC641E0D464E00B372CE /* Sources */,
+				12F7DC651E0D464E00B372CE /* Frameworks */,
+				12F7DC661E0D464E00B372CE /* Resources */,
+				8642BB4CE907E9C6195265C3 /* [CP] Embed Pods Frameworks */,
+				6BECBD3E4030C260343D78C9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = teahouse;
+			productName = teahouse;
+			productReference = 12F7DC681E0D464E00B372CE /* teahouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		12F7DC801E0D464E00B372CE /* teahouseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F7DC981E0D464E00B372CE /* Build configuration list for PBXNativeTarget "teahouseTests" */;
+			buildPhases = (
+				12F7DC7D1E0D464E00B372CE /* Sources */,
+				12F7DC7E1E0D464E00B372CE /* Frameworks */,
+				12F7DC7F1E0D464E00B372CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12F7DC831E0D464E00B372CE /* PBXTargetDependency */,
+			);
+			name = teahouseTests;
+			productName = teahouseTests;
+			productReference = 12F7DC811E0D464E00B372CE /* teahouseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		12F7DC8B1E0D464E00B372CE /* teahouseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F7DC9B1E0D464E00B372CE /* Build configuration list for PBXNativeTarget "teahouseUITests" */;
+			buildPhases = (
+				12F7DC881E0D464E00B372CE /* Sources */,
+				12F7DC891E0D464E00B372CE /* Frameworks */,
+				12F7DC8A1E0D464E00B372CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12F7DC8E1E0D464E00B372CE /* PBXTargetDependency */,
+			);
+			name = teahouseUITests;
+			productName = teahouseUITests;
+			productReference = 12F7DC8C1E0D464E00B372CE /* teahouseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12F7DC601E0D464D00B372CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = yuxin;
+				TargetAttributes = {
+					12F7DC671E0D464E00B372CE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ELQL529Z4C;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+					12F7DC801E0D464E00B372CE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ELQL529Z4C;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 12F7DC671E0D464E00B372CE;
+					};
+					12F7DC8B1E0D464E00B372CE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ELQL529Z4C;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 12F7DC671E0D464E00B372CE;
+					};
+				};
+			};
+			buildConfigurationList = 12F7DC631E0D464E00B372CE /* Build configuration list for PBXProject "teahouse" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12F7DC5F1E0D464D00B372CE;
+			productRefGroup = 12F7DC691E0D464E00B372CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12F7DC671E0D464E00B372CE /* teahouse */,
+				12F7DC801E0D464E00B372CE /* teahouseTests */,
+				12F7DC8B1E0D464E00B372CE /* teahouseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12F7DC661E0D464E00B372CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F7DC7B1E0D464E00B372CE /* LaunchScreen.storyboard in Resources */,
+				12F7DC781E0D464E00B372CE /* Assets.xcassets in Resources */,
+				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F7DC7F1E0D464E00B372CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F7DC8A1E0D464E00B372CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6BECBD3E4030C260343D78C9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teahouse/Pods-teahouse-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8642BB4CE907E9C6195265C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teahouse/Pods-teahouse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A542EE5350A745046945EA4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12F7DC641E0D464E00B372CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12FABFCA1E10A03B009D010E /* YXButton.m in Sources */,
+				122206281E12417F00C1954E /* SearchViewController.m in Sources */,
+				1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */,
+				19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */,
+				12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */,
+				12F7DCB31E0D471200B372CE /* main.m in Sources */,
+				12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */,
+				19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */,
+				12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */,
+				129FEB341E14EB2200B45C54 /* searchButton.m in Sources */,
+				1285BB221E13908600D85715 /* TopViewModel.m in Sources */,
+				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
+				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
+				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
+				12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */,
+				12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */,
+				12F7DCB91E0D764500B372CE /* HomeViewController.m in Sources */,
+				12F9C7C31E1634C50074D0CF /* LoopBanner.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F7DC7D1E0D464E00B372CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F7DC861E0D464E00B372CE /* teahouseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F7DC881E0D464E00B372CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F7DC911E0D464E00B372CE /* teahouseUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12F7DC831E0D464E00B372CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12F7DC671E0D464E00B372CE /* teahouse */;
+			targetProxy = 12F7DC821E0D464E00B372CE /* PBXContainerItemProxy */;
+		};
+		12F7DC8E1E0D464E00B372CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12F7DC671E0D464E00B372CE /* teahouse */;
+			targetProxy = 12F7DC8D1E0D464E00B372CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12F7DC7A1E0D464E00B372CE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12F7DC931E0D464E00B372CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12F7DC941E0D464E00B372CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12F7DC961E0D464E00B372CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 447CF1FF65F6CF331ACE1CD8 /* Pods-teahouse.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ELQL529Z4C;
+				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/teahouse1/trunk/teahouse/teahouse/other/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoomlion.zlzk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12F7DC971E0D464E00B372CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6EFBE840BFE7E45CA5FFD48 /* Pods-teahouse.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ELQL529Z4C;
+				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/teahouse1/trunk/teahouse/teahouse/other/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoomlion.zlzk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		12F7DC991E0D464E00B372CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ELQL529Z4C;
+				INFOPLIST_FILE = teahouseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuxin.teahouseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/teahouse.app/teahouse";
+			};
+			name = Debug;
+		};
+		12F7DC9A1E0D464E00B372CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ELQL529Z4C;
+				INFOPLIST_FILE = teahouseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuxin.teahouseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/teahouse.app/teahouse";
+			};
+			name = Release;
+		};
+		12F7DC9C1E0D464E00B372CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ELQL529Z4C;
+				INFOPLIST_FILE = teahouseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuxin.teahouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = teahouse;
+			};
+			name = Debug;
+		};
+		12F7DC9D1E0D464E00B372CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ELQL529Z4C;
+				INFOPLIST_FILE = teahouseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuxin.teahouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = teahouse;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12F7DC631E0D464E00B372CE /* Build configuration list for PBXProject "teahouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F7DC931E0D464E00B372CE /* Debug */,
+				12F7DC941E0D464E00B372CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12F7DC951E0D464E00B372CE /* Build configuration list for PBXNativeTarget "teahouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F7DC961E0D464E00B372CE /* Debug */,
+				12F7DC971E0D464E00B372CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12F7DC981E0D464E00B372CE /* Build configuration list for PBXNativeTarget "teahouseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F7DC991E0D464E00B372CE /* Debug */,
+				12F7DC9A1E0D464E00B372CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12F7DC9B1E0D464E00B372CE /* Build configuration list for PBXNativeTarget "teahouseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F7DC9C1E0D464E00B372CE /* Debug */,
+				12F7DC9D1E0D464E00B372CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12F7DC601E0D464D00B372CE /* Project object */;
+}

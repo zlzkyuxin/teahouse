@@ -1,0 +1,115 @@
+//
+//  ScanCodeView.m
+//  teahouse
+//
+//  Created by yuxin on 2016/12/30.
+//  Copyright © 2016年 yuxin. All rights reserved.
+//
+
+#import "ScanCodeView.h"
+#import <AVFoundation/AVFoundation.h>
+/*
+ 扫描内容的Y值
+ */
+#define scanContent_Y self.frame.size.height * 0.24
+/*
+ 扫描内容的X值
+ */
+#define scanContent_X self.frame.size.width * 0.15
+@interface ScanCodeView()
+@property (nonatomic , strong)CALayer *basedLayer;
+@property (nonatomic , strong)AVCaptureDevice *device;
+//扫描线
+@property (nonatomic , strong)UIImageView *animation_line;
+@property (nonatomic , strong)NSTimer *timer;
+@end
+
+@implementation ScanCodeView
+
+/*
+ 扫描动画线的高度
+ */
+static CGFloat const animation_line_H = 12;
+/*
+ 扫描内容外部View的alpha值
+ */
+static CGFloat const scanBorderOutsideViewAlpha = 0.4;
+/*
+ 定时器和动画的时间
+ */
+static CGFloat const timer_animation_Duration = 0.05;
+
+- (instancetype)initWithFrame:(CGRect)frame outsideViewLayer:(CALayer *)outsideViewLayer {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _basedLayer = outsideViewLayer;
+        [self setScanBorder];
+    }
+    return self;
+}
+
++ (instancetype)scanCodeViewWithFrame:(CGRect)frame outsideViewLayer:(CALayer *)outsideViewLayer {
+    return [[self alloc] initWithFrame:frame outsideViewLayer:outsideViewLayer];
+}
+/*
+ 创建扫描边框
+ */
+- (void)setScanBorder {
+    UIView *scanContentView = [[UIView alloc] init];
+    CGFloat scanContentViewX = scanContent_X;
+    CGFloat scanContentViewY = scanContent_Y;
+    CGFloat scanContentViewW = self.frame.size.width - 2 * scanContent_X;
+    CGFloat scanContentViewH = scanContentViewW;
+    scanContentView.frame = CGRectMake(scanContentViewX, scanContentViewY, scanContentViewW, scanContentViewH);
+    scanContentView.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6].CGColor;
+    scanContentView.layer.borderWidth = 0.7;
+    scanContentView.backgroundColor = [UIColor clearColor];
+    [self.basedLayer addSublayer:scanContentView.layer];
+    
+    /*
+     添加扫描动画
+     */
+    _animation_line = [[UIImageView alloc] init];
+    _animation_line.image = [UIImage imageNamed:@"scanCodeLine"];
+    _animation_line.frame = CGRectMake(scanContent_X * 0.3, scanContent_Y, self.frame.size.width - scanContent_X * 0.6, animation_line_H);
+    [self.basedLayer addSublayer:_animation_line.layer];
+    
+    /*
+     添加定时器
+     */
+    _timer = [NSTimer scheduledTimerWithTimeInterval:timer_animation_Duration target:self selector:@selector(animtion_line_action) userInfo:nil repeats:YES];
+    
+    
+}
+
+
+
+
+#pragma mark 定时器方法
+- (void)animtion_line_action {
+    __block CGRect frame = _animation_line.frame;
+    static BOOL flag = YES;
+    if (flag) {
+        frame.origin.y = scanContent_Y;
+        flag = NO;
+        [UIView animateWithDuration:timer_animation_Duration animations:^{
+            frame.origin.y += 5;
+            _animation_line.frame = frame;
+        } completion:nil];
+    }else {
+        if (_animation_line.frame.origin.y >= scanContent_Y) {
+            
+        }
+    }
+}
+
+/*
+ 移除定时器
+ */
+- (void)removeTimer {
+    [_timer invalidate];
+    [_animation_line removeFromSuperview];
+    _animation_line = nil;
+}
+
+@end

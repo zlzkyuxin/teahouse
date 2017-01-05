@@ -1,0 +1,58 @@
+8
+
+dir
+17
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1/trunk/teahouse/teahouse/Assets.xcassets/searchBar
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1
+
+
+
+2016-12-30T00:12:30.962612Z
+7
+kenggreat
+
+
+svn:special svn:externals svn:needs-lock
+
+scan_white.imageset
+dir
+
+search_white.imageset
+dir
+
+voice_white.imageset
+dir
+
+search_gray.imageset
+dir
+
+voice_gray.imageset
+dir
+
+Contents.json
+file
+
+
+
+
+2016-12-28T03:12:55.000000Z
+31cc68f34934a99c0b0c1bebde56309c
+2016-12-30T00:12:30.962612Z
+7
+kenggreat
+
+notice_black.imageset
+dir
+
+scan_black.imageset
+dir
+
+notice_white.imageset
+dir
+
+search_black.imageset
+dir
+
+voice_black.imageset
+dir
+

@@ -1,0 +1,13 @@
+//
+//  YXButton.h
+//  teahouse
+//
+//  Created by yuxin on 2016/12/26.
+//  Copyright © 2016年 yuxin. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface YXButton : UIButton
+
+@end

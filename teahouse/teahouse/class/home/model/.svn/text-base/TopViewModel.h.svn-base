@@ -1,0 +1,23 @@
+//
+//  TopViewModel.h
+//  teahouse
+//
+//  Created by yuxin on 2016/12/28.
+//  Copyright © 2016年 yuxin. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface TopViewModel : NSObject
+
+@property (nonatomic , copy)NSString *btnTitle;
+
+@property (nonatomic , copy)NSString *btnImage;
+
+@property (nonatomic , copy)NSString *titleColor;
+
++ (instancetype)modelWithTitle:(NSString *)title image:(NSString *)btnImage color:(NSString *)titleColor;
+
+- (instancetype)initWithTitle:(NSString *)title image:(NSString *)btnImage color:(NSString *)titleColor;
+
+@end

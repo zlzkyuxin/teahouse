@@ -1,0 +1,25 @@
+//
+//  TopViewModel.m
+//  teahouse
+//
+//  Created by yuxin on 2016/12/28.
+//  Copyright © 2016年 yuxin. All rights reserved.
+//
+
+#import "TopViewModel.h"
+
+@implementation TopViewModel
+
++ (instancetype)modelWithTitle:(NSString *)title image:(NSString *)btnImage color:(NSString *)titleColor {
+    return [[self alloc] initWithTitle:title image:btnImage color:titleColor];
+}
+
+- (instancetype)initWithTitle:(NSString *)title image:(NSString *)btnImage color:(NSString *)titleColor {
+    if (self = [super init]) {
+        self.btnTitle = title;
+        self.btnImage = btnImage;
+        self.titleColor = titleColor;
+    }
+    return self;
+}
+@end

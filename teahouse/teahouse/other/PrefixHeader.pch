@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  teahouse
+//
+//  Created by yuxin on 2016/12/26.
+//  Copyright © 2016年 yuxin. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "header.h"
+#import "MJExtension.h"
+
+#endif /* PrefixHeader_pch */

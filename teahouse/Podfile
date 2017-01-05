@@ -1,0 +1,15 @@
+platform :ios, '7.0'
+target ‘teahouse’ do
+pod "AFNetworking", "2.5.0"
+pod "JSONKit-NoWarning"
+pod "JSONModel"
+pod "Masonry"
+pod "TMCache"
+pod "MBProgressHUD"
+pod "MJRefresh"
+pod 'IQKeyboardManager'
+pod 'SDWebImage'
+pod 'MJExtension'
+pod 'UMengAnalytics-NO-IDFA'
+
+end

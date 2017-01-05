@@ -1,0 +1,72 @@
+8
+
+dir
+17
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1/trunk/teahouse
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1
+
+
+
+2016-12-30T08:55:35.887542Z
+17
+kenggreat
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3b3a1245-6717-46ba-a9f0-88d9e05c50e8
+
+teahouseTests
+dir
+
+Podfile
+file
+
+
+
+
+2016-12-27T06:25:27.000000Z
+3fc6e411663de001595044cafd7924db
+2016-12-26T14:27:04.992089Z
+2
+kenggreat
+has-props
+
+Pods
+dir
+
+teahouse.xcworkspace
+dir
+
+teahouse.xcodeproj
+dir
+
+Podfile.lock
+file
+
+
+
+
+2016-12-27T06:25:27.000000Z
+ce84d35558ec46a345e30ec016dfea78
+2016-12-27T01:54:31.349735Z
+3
+kenggreat
+has-props
+
+teahouse
+dir
+
+teahouseUITests
+dir
+

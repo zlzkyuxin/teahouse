@@ -1,0 +1,54 @@
+8
+
+dir
+17
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1/trunk/teahouse/teahouse/Assets.xcassets/scan/scanTopLeft.imageset
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1
+
+
+
+2016-12-30T08:55:35.887542Z
+17
+kenggreat
+
+
+svn:special svn:externals svn:needs-lock
+
+Contents.json
+file
+
+
+
+
+2016-12-30T08:24:34.000000Z
+1b73324654031150bf4abe3e7844f84d
+2016-12-30T08:55:35.887542Z
+17
+kenggreat
+
+QRCodeTopLeft@2x.png
+file
+
+
+
+
+2016-12-30T08:24:34.000000Z
+fe1486fba67098ae77eb28fa7561fdd8
+2016-12-30T08:55:35.887542Z
+17
+kenggreat
+has-props
+
+QRCodeTopLeft@3x.png
+file
+
+
+
+
+2016-12-30T08:24:34.000000Z
+04fa8080f533b0ef46a2269f0e042c4b
+2016-12-30T08:55:35.887542Z
+17
+kenggreat
+has-props
+
