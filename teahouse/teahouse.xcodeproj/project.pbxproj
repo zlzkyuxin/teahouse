@@ -774,7 +774,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
-				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/teahouse1/trunk/teahouse/teahouse/other/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/yuxin/teahouseGitHub/teahouse/teahouse/other/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -792,7 +792,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
-				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/teahouse1/trunk/teahouse/teahouse/other/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/yuxin/teahouseGitHub/teahouse/teahouse/other/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

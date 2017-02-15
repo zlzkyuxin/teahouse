@@ -68,6 +68,7 @@
     if ([vc isKindOfClass:[HomeViewController class]]) {
         [homeViewController backTop];
     }else if ([vc isKindOfClass:[UserCenterViewController class]]) {
+        self.hidesBottomBarWhenPushed = YES;
         if (![[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
             [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
         }

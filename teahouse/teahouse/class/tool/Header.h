@@ -11,6 +11,9 @@
 
 #define ShopDetailsURL @"http://192.168.1.101:8888/TeaAPP/images/original/"
 
+//weakSelf
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
 /**
  *  获取屏幕宽度与高度
  */
