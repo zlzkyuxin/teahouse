@@ -8,6 +8,7 @@
 
 #import "GuideViewController.h"
 #import "CustiomTabBarViewController.h"
+#import "LoginViewController.h"
 @interface GuideViewController ()
 <
     UIScrollViewDelegate
@@ -160,6 +161,10 @@
 }
 
 - (void)touchesBegan {
-    [UIApplication sharedApplication].windows.lastObject.rootViewController = [[CustiomTabBarViewController alloc] init];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
+        [UIApplication sharedApplication].windows.lastObject.rootViewController = [[CustiomTabBarViewController alloc] init];
+    }else {
+        [UIApplication sharedApplication].windows.lastObject.rootViewController = [[LoginViewController alloc] init];
+    }
 }
 @end

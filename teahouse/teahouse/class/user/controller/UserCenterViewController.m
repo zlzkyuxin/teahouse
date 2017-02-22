@@ -25,6 +25,9 @@
     [super viewWillAppear:animated];
     //隐藏navigationbar
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"islogin"] && ![[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"]) {
+        [self presentViewController:[LoginViewController new] animated:YES completion:nil];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -33,6 +36,7 @@
 
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
 }
 
 @end

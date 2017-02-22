@@ -132,7 +132,7 @@
     _model = model;
     [self layoutSubviewsss];
     //图片
-    [_goodsIamge sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@.png",ShopDetailsURL,_model.detailsImageName ]]];
+    [_goodsIamge sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@.png",ShopDetailsURL,_model.detailsImageName]]];
     //类别
     _categoryLabel.text = _model.categoryName;
     [_categoryLabel setFont:[UIFont systemFontOfSize:11]];

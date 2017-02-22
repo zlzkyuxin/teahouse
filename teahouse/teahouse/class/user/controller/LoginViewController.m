@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "CustiomTabBarViewController.h"
+#import "LoginModel.h"
 
 @interface LoginViewController ()
 @property (nonatomic , strong)UITextField *userName;
@@ -30,7 +32,7 @@
     [self.view addSubview:loginIcon];
     [loginIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
-        make.top.equalTo(weakSelf.view).offset(100);
+        make.top.equalTo(weakSelf.view).offset(80);
         make.width.mas_equalTo(@100);
         make.height.mas_equalTo(@100);
     }];
@@ -49,6 +51,7 @@
     userIcon.image = [UIImage imageNamed:@"userIcon"];
     //用户名
     UITextField *userName = [UITextField new];
+    self.userName = userName;
     [self.view addSubview:userName];
     [userName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(userIcon.mas_right).offset(15);
@@ -83,6 +86,7 @@
     passIcon.image = [UIImage imageNamed:@"password"];
     //密码
     UITextField *passWord = [UITextField new];
+    self.passWord = passWord;
     [self.view addSubview:passWord];
     [passWord mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(userName);
@@ -105,30 +109,117 @@
         make.height.equalTo(userLine);
     }];
     passLine.backgroundColor = SETRGBColor(94, 233, 231);
-    
+    //登录
     UIButton *doSubmit = [UIButton new];
     [self.view addSubview:doSubmit];
-    
-    
+    [doSubmit mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(passLine);
+        make.right.equalTo(passLine);
+        make.top.equalTo(passLine.mas_bottom).offset(40);
+        make.height.mas_equalTo(@35);
+    }];
+    [doSubmit setTitle:@"登录" forState:UIControlStateNormal];
+    [doSubmit setBackgroundColor:[UIColor whiteColor]];
+    doSubmit.layer.cornerRadius = 15;
+    doSubmit.layer.masksToBounds = YES;
+    [doSubmit setTitleColor:SETRGBColor(94, 233, 231) forState:UIControlStateNormal];
+    [doSubmit addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    //找回密码
     UIButton *rePassword = [UIButton new];
     [self.view addSubview:rePassword];
-    
+    [rePassword mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(doSubmit.mas_bottom).offset(20);
+        make.left.equalTo(doSubmit).offset(10);
+        make.width.mas_equalTo(@80);
+        make.height.mas_equalTo(@20);
+    }];
+    [rePassword.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    [rePassword setTitle:@"找回密码?" forState:UIControlStateNormal];
+    [rePassword setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rePassword addTarget:self action:@selector(rePassword) forControlEvents:UIControlEventTouchUpInside];
+    //注册
     UIButton *regist = [UIButton new];
     [self.view addSubview:regist];
+    [regist mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(doSubmit).offset(-10);
+        make.top.equalTo(rePassword);
+        make.width.equalTo(rePassword);
+        make.height.equalTo(rePassword);
+    }];
+    [regist setTitle:@"注册" forState:UIControlStateNormal];
+    regist.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [regist setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [regist.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    regist.layer.borderWidth = 1;
+    regist.layer.cornerRadius = 10;
+    regist.layer.masksToBounds = YES;
+    regist.layer.borderColor = [UIColor whiteColor].CGColor;
+    [regist addTarget:self action:@selector(regist) forControlEvents:UIControlEventTouchUpInside];
+    //底部三方登录
+    UIView *leftLine = [UIView new];
+    [self.view addSubview:leftLine];
+    [leftLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(passLine);
+        make.top.equalTo(rePassword.mas_bottom).offset(50);
+        make.width.mas_equalTo(@80);
+        make.height.mas_equalTo(@2);
+    }];
+    [leftLine setBackgroundColor:SETRGBColor(94, 233, 231)];
     
+    UIView *rightLine = [UIView new];
+    [self.view addSubview:rightLine];
+    [rightLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(passLine);
+        make.top.equalTo(leftLine);
+        make.width.equalTo(leftLine);
+        make.height.equalTo(leftLine);
+    }];
+    [rightLine setBackgroundColor:SETRGBColor(94, 233, 231)];
     
+    UILabel *centerLabel = [UILabel new];
+    [self.view addSubview:centerLabel];
+    [centerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(leftLine.mas_right);
+        make.right.equalTo(rightLine.mas_left);
+        make.top.equalTo(rePassword.mas_bottom).offset(40);
+        make.height.mas_equalTo(@22);
+    }];
+    centerLabel.text = @"合作账号登录";
+    [centerLabel setTextColor:[UIColor whiteColor]];
+    centerLabel.textAlignment = NSTextAlignmentCenter;
+    centerLabel.font = [UIFont systemFontOfSize:12];
 }
-
+//登录
 - (void)login {
+    NSDictionary *loadDic = [[NSDictionary alloc] init];
+    if (_userName != nil && _passWord != nil) {
+        loadDic = @{@"key":@"login",@"userName":_userName.text,@"password":_passWord.text};
+    }
+    [[TeaHouseNetWorking shareNetWorking] POST:@"login.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+        NSLog(@"%@",result);
+        if ([result[@"code"] intValue] == 200) {
+            NSDictionary *list = result[@"list"];
+            for (NSDictionary *dict in list) {
+                LoginModel *model = [LoginModel mj_objectWithKeyValues:dict];
+                [[NSUserDefaults standardUserDefaults] setValue:model forKey:@"userInfo"];
+                [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"islogin"];
+            }
+            [self presentViewController:[[CustiomTabBarViewController alloc] init] animated:NO completion:nil];
+        }
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+//注册
+- (void)regist {
     
 }
+//找回密码
+- (void)rePassword {
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UIViewController *rootVC = self.presentingViewController;
-    while (rootVC.presentingViewController) {
-        rootVC = rootVC.presentingViewController;
-    }
-    [rootVC dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

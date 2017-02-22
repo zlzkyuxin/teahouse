@@ -9,7 +9,34 @@
 #ifndef Header_h
 #define Header_h
 
-#define ShopDetailsURL @"http://192.168.1.101:8888/TeaAPP/images/original/"
+//字体
+#define APP_FONT(fsize) [UIFont systemFontOfSize:fsize]
+
+//是否可用手机号
+#define IsAvailablePhoneNumber(phoneNumber) [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^1([3578]\\d|4[57])\\d{8}$"] evaluateWithObject:phoneNumber]
+
+//容错
+#define ARRAY_OBJ_AT(index) My_objectAtIndex:(index) File:__FILE__ Line:__LINE__
+#define ARRAY_ADD_OBJ(obj) My_addObject:(obj) File:__FILE__ Line:__LINE__
+#define ARRAY_ADD_OBJS_FROM_ARRAY(objs) My_addObjectsFromArray:(objs) File:__FILE__ Line:__LINE__
+#define ARRAY_INSERT_OBJ_AT(obj,index)My_insertObject:(obj) atIndex:index File:__FILE__ Line:__LINE__
+#define ARRAY_REMOVEOBJ_AT(index) My_removeObjectAtIndex:(index) File:__FILE__ Line:__LINE__
+#define ARRAY_REMOVE_ALLOBJ My_removeAllObjects_File:__FILE__ Line:__LINE__
+#define ARRAY_REMOVE_OBJ(obj) My_removeObject:(obj) File:__FILE__ Line:__LINE__
+#define ARRAY_JOIN_BY(sep) MY_joinByString:(sep) File:__FILE__ Line:__LINE__
+
+#define DICT_SET_VK(value,key) My_setObject:value forKey:key File:__FILE__ Line:__LINE__
+#define DICT_SET_DICT(dict) My_setDict:dict File:__FILE__ Line:__LINE__
+#define DICT_HAS_K(key) My_hasKey:key File:__FILE__ Line:__LINE__
+#define DICT_REMOVEOBJ_K(key) My_removeObjectForKey:key File:__FILE__ Line:__LINE__
+#define DICT_REMOVEOBJS_KS(keys) My_removeObjectsForKeys:keys File:__FILE__ Line:__LINE__
+#define DICT_OBJ_FOR_K(key) My_objectForKey:(key) File:__FILE__ Line:__LINE__
+#define DICT_ALL_KS My_allKeys_File:__FILE__ Line:__LINE__
+#define DICT_ALL_VS My_allValues_File:__FILE__ Line:__LINE__
+#define DICT_REMOVE_ALLOBJ My_removeAllObjects_File:__FILE__ Line:__LINE__
+
+#define COUNT My_count_File:__FILE__ Line:__LINE__
+
 
 //weakSelf
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
