@@ -10,10 +10,15 @@
 		1221798F1E1B5388007A2285 /* ScanResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1221798E1E1B5388007A2285 /* ScanResultController.m */; };
 		122206281E12417F00C1954E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122206271E12417F00C1954E /* SearchViewController.m */; };
 		125A2AAF1E5D3F92006D15DA /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AAE1E5D3F92006D15DA /* LoginModel.m */; };
+		125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */; };
+		125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */; };
 		1276DD141E1B88B80009F551 /* HotGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD131E1B88B80009F551 /* HotGoodsModel.m */; };
 		1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */; };
 		1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD191E1BC01C0009F551 /* HotGoodsTableViewCell.m */; };
 		1276DD1D1E1CC9960009F551 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD1C1E1CC9960009F551 /* LoginViewController.m */; };
+		1283BCF91E5EB3DD00D65400 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1283BCF81E5EB3DD00D65400 /* RegistViewController.m */; };
+		1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1283BCFB1E5EB40400D65400 /* RepasswordViewController.m */; };
+		1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1283BCFE1E5EC0B900D65400 /* BaseViewController.m */; };
 		1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285BB1B1E134F5900D85715 /* CustomNavigationController.m */; };
 		129FEB341E14EB2200B45C54 /* searchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 129FEB331E14EB2200B45C54 /* searchButton.m */; };
 		12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */; };
@@ -63,6 +68,10 @@
 		122206271E12417F00C1954E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		125A2AAD1E5D3F92006D15DA /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
 		125A2AAE1E5D3F92006D15DA /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
+		125A2AB01E5D6C45006D15DA /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
+		125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
+		125A2AB31E5D74BE006D15DA /* GoodsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailModel.h; sourceTree = "<group>"; };
+		125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailModel.m; sourceTree = "<group>"; };
 		1276DD121E1B88B80009F551 /* HotGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotGoodsModel.h; sourceTree = "<group>"; };
 		1276DD131E1B88B80009F551 /* HotGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotGoodsModel.m; sourceTree = "<group>"; };
 		1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaHouseNetWorking.h; sourceTree = "<group>"; };
@@ -71,6 +80,12 @@
 		1276DD191E1BC01C0009F551 /* HotGoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotGoodsTableViewCell.m; sourceTree = "<group>"; };
 		1276DD1B1E1CC9960009F551 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1276DD1C1E1CC9960009F551 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1283BCF71E5EB3DD00D65400 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		1283BCF81E5EB3DD00D65400 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		1283BCFA1E5EB40400D65400 /* RepasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepasswordViewController.h; sourceTree = "<group>"; };
+		1283BCFB1E5EB40400D65400 /* RepasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepasswordViewController.m; sourceTree = "<group>"; };
+		1283BCFD1E5EC0B900D65400 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		1283BCFE1E5EC0B900D65400 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		1285BB1A1E134F5900D85715 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
 		1285BB1B1E134F5900D85715 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		129FEB321E14EB2200B45C54 /* searchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchButton.h; sourceTree = "<group>"; };
@@ -301,6 +316,8 @@
 			children = (
 				12AFBEE71E109CB800CD3C33 /* StoreViewController.h */,
 				12AFBEE81E109CB800CD3C33 /* StoreViewController.m */,
+				125A2AB01E5D6C45006D15DA /* GoodsDetailViewController.h */,
+				125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -308,6 +325,8 @@
 		12F7DCA51E0D471200B372CE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				125A2AB31E5D74BE006D15DA /* GoodsDetailModel.h */,
+				125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -365,10 +384,16 @@
 		12F7DCAC1E0D471200B372CE /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1283BCFD1E5EC0B900D65400 /* BaseViewController.h */,
+				1283BCFE1E5EC0B900D65400 /* BaseViewController.m */,
 				12AFBEED1E109CD700CD3C33 /* UserCenterViewController.h */,
 				12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */,
 				1276DD1B1E1CC9960009F551 /* LoginViewController.h */,
 				1276DD1C1E1CC9960009F551 /* LoginViewController.m */,
+				1283BCF71E5EB3DD00D65400 /* RegistViewController.h */,
+				1283BCF81E5EB3DD00D65400 /* RegistViewController.m */,
+				1283BCFA1E5EB40400D65400 /* RepasswordViewController.h */,
+				1283BCFB1E5EB40400D65400 /* RepasswordViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -620,6 +645,8 @@
 				122206281E12417F00C1954E /* SearchViewController.m in Sources */,
 				1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */,
 				19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */,
+				1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */,
+				1283BCF91E5EB3DD00D65400 /* RegistViewController.m in Sources */,
 				1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */,
 				12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */,
 				12F7DCB31E0D471200B372CE /* main.m in Sources */,
@@ -632,6 +659,7 @@
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
 				12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */,
+				1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */,
 				125A2AAF1E5D3F92006D15DA /* LoginModel.m in Sources */,
 				12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */,
 				1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */,
@@ -639,6 +667,8 @@
 				1276DD1D1E1CC9960009F551 /* LoginViewController.m in Sources */,
 				12F9C7C31E1634C50074D0CF /* LoopBanner.m in Sources */,
 				12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */,
+				125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */,
+				125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

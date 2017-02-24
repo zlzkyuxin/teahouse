@@ -16,8 +16,8 @@
 #import "TopView.h"
 #import "LoopBanner.h"
 #import "HotGoodsModel.h"
-#import "TeaHouseNetWorking.h"
 #import "HotGoodsTableViewCell.h"
+#import "GoodsDetailViewController.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
@@ -174,8 +174,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"首页-点击了第%ld组,第%ld行",(long)indexPath.section,(long)indexPath.row);
-    [self.navigationController pushViewController:[[NoticeViewController alloc] init] animated:YES];
+    GoodsDetailViewController *gdVC = [GoodsDetailViewController new];
+    HotGoodsModel *model = dataArray[indexPath.row];
+    gdVC.title = model.goodsName;
+    gdVC.goodsId = model.goodsID;
+    [self.navigationController pushViewController:gdVC animated:YES];
 }
 
 #pragma mark UIScrollerView代理

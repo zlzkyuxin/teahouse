@@ -27,8 +27,19 @@
     }else {
         viewController.hidesBottomBarWhenPushed = YES;
     }
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f) {
+        viewController.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    if (self.viewControllers.count > 0) {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
+//        item.tintColor = [UIColor whiteColor];
+        viewController.navigationItem.leftBarButtonItem = item;
+
+    }
+
     [super pushViewController:viewController animated:animated];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

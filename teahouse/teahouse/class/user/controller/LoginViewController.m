@@ -8,12 +8,16 @@
 
 #import "LoginViewController.h"
 #import "CustiomTabBarViewController.h"
+#import "RegistViewController.h"
+#import "RepasswordViewController.h"
 #import "LoginModel.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<MBProgressHUDDelegate>
+{
+    LoginModel *userInfo;
+}
 @property (nonatomic , strong)UITextField *userName;
 @property (nonatomic , strong)UITextField *passWord;
-
 @end
 
 @implementation LoginViewController
@@ -24,8 +28,7 @@
 }
 
 - (void)initView {
-    [self.view setBackgroundColor:SETRGBColor(51, 203, 204)];
-    
+    [super addBackground];
     WS(weakSelf)
     //登录图标
     UIImageView *loginIcon = [UIImageView new];
@@ -38,7 +41,15 @@
     }];
     loginIcon.layer.cornerRadius = 50;
     loginIcon.layer.masksToBounds = YES;
-    loginIcon.image = [UIImage imageNamed:@"loginIcon"];
+    
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
+    if (dic) {
+        userInfo = [LoginModel mj_objectWithKeyValues:dic];
+        NSString *iconImage = [NSString stringWithFormat:@"%@userImage/%@_original.png",ImageURL,userInfo.userImage];
+        [loginIcon sd_setImageWithURL:[NSURL URLWithString:iconImage]];
+    }else {
+        loginIcon.image = [UIImage imageNamed:@"loginIcon"];
+    }
     //用户图标
     UIImageView *userIcon = [UIImageView new];
     [self.view addSubview:userIcon];
@@ -61,7 +72,7 @@
     }];
     userName.textColor = [UIColor whiteColor];
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:@"请输入用户名或手机号码"];
-    [att addAttribute:NSForegroundColorAttributeName value:SETRGBColor(94, 233, 231) range:NSMakeRange(0, att.length)];
+    [att addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, att.length)];
     userName.attributedPlaceholder = att;
     userName.font = [UIFont systemFontOfSize:14];
     //用户底部线条
@@ -73,7 +84,7 @@
         make.top.equalTo(userIcon.mas_bottom).offset(10);
         make.height.mas_equalTo(@1);
     }];
-    userLine.backgroundColor = SETRGBColor(94, 233, 231);
+    userLine.backgroundColor = SETRGBColor(155, 169, 161);
     //密码图标
     UIImageView *passIcon = [UIImageView new];
     [self.view addSubview:passIcon];
@@ -96,7 +107,7 @@
     }];
     passWord.textColor = [UIColor whiteColor];
     NSMutableAttributedString *att1 = [[NSMutableAttributedString alloc] initWithString:@"请设置6-16位密码"];
-    [att1 addAttribute:NSForegroundColorAttributeName value:SETRGBColor(94, 233, 231) range:NSMakeRange(0, att1.length)];
+    [att1 addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, att1.length)];
     passWord.attributedPlaceholder = att1;
     passWord.font = [UIFont systemFontOfSize:14];
     //密码底部线条
@@ -108,7 +119,7 @@
         make.top.equalTo(passIcon.mas_bottom).offset(10);
         make.height.equalTo(userLine);
     }];
-    passLine.backgroundColor = SETRGBColor(94, 233, 231);
+    passLine.backgroundColor = SETRGBColor(155, 169, 161);
     //登录
     UIButton *doSubmit = [UIButton new];
     [self.view addSubview:doSubmit];
@@ -164,7 +175,7 @@
         make.width.mas_equalTo(@80);
         make.height.mas_equalTo(@2);
     }];
-    [leftLine setBackgroundColor:SETRGBColor(94, 233, 231)];
+    [leftLine setBackgroundColor:SETRGBColor(155, 169, 161)];
     
     UIView *rightLine = [UIView new];
     [self.view addSubview:rightLine];
@@ -174,7 +185,7 @@
         make.width.equalTo(leftLine);
         make.height.equalTo(leftLine);
     }];
-    [rightLine setBackgroundColor:SETRGBColor(94, 233, 231)];
+    [rightLine setBackgroundColor:SETRGBColor(155, 169, 161)];
     
     UILabel *centerLabel = [UILabel new];
     [self.view addSubview:centerLabel];
@@ -195,30 +206,46 @@
     if (_userName != nil && _passWord != nil) {
         loadDic = @{@"key":@"login",@"userName":_userName.text,@"password":_passWord.text};
     }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.delegate = self;
+    hud.alpha = 0.7;
+    hud.label.text = @"正在登录中...";
+    hud.label.font = [UIFont systemFontOfSize:12];
     [[TeaHouseNetWorking shareNetWorking] POST:@"login.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         NSLog(@"%@",result);
         if ([result[@"code"] intValue] == 200) {
             NSDictionary *list = result[@"list"];
-            for (NSDictionary *dict in list) {
-                LoginModel *model = [LoginModel mj_objectWithKeyValues:dict];
-                [[NSUserDefaults standardUserDefaults] setValue:model forKey:@"userInfo"];
-                [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"islogin"];
-            }
+            
+            [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"list"];
+            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"islogin"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             [self presentViewController:[[CustiomTabBarViewController alloc] init] animated:NO completion:nil];
+        }else if([result[@"code"] intValue] == 300){
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"密码错误";
+            [hud hideAnimated:YES afterDelay:2];
+        }else {
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"登录失败";
+            [hud hideAnimated:YES afterDelay:2];
         }
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"网络错误";
+        [hud hideAnimated:YES afterDelay:2];
     }];
 }
 //注册
 - (void)regist {
-    
+    [self presentViewController:[RegistViewController new] animated:YES completion:nil];
 }
 //找回密码
 - (void)rePassword {
-
+    [self presentViewController:[RepasswordViewController new] animated:YES completion:nil];
 }
 
 
