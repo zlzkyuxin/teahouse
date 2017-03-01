@@ -16,5 +16,7 @@
 #import "IQKeyboardManager.h"
 #import "MBProgressHUD.h"
 #import "UIImageView+WebCache.h"
+#import "TipsHud.h"
+#import "AvoidCrash.h"
 
 #endif /* PrefixHeader_pch */

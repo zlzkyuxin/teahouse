@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GuideViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,11 @@
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self checkIsFirstEnterInto];
     [_window makeKeyAndVisible];
+    
+    //容错
+    [AvoidCrash becomeEffective];
+    //监听通知:AvoidCrashNotification, 获取AvoidCrash捕获的崩溃日志的详细信息
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealwithCrashMessage:) name:AvoidCrashNotification object:nil];
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
@@ -34,6 +40,20 @@
 //        
 //    }
     _window.rootViewController = [[GuideViewController alloc] init];
+}
+
+- (void)dealwithCrashMessage:(NSNotification *)note {
+    
+    //注意:所有的信息都在userInfo中
+    //你可以在这里收集相应的崩溃信息进行相应的处理(比如传到自己服务器)
+    
+#ifdef DEBUG
+    [[TipsHud sharedInstance] showTips:@"容错机制开启，参数或为nil，查看日志"];
+    NSLog(@"\n\n在AppDelegate中 方法:dealwithCrashMessage打印\n\n\n\n\n%@\n\n\n\n",note.userInfo);
+#else
+    
+#endif
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

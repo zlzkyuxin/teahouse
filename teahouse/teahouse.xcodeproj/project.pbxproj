@@ -26,6 +26,17 @@
 		12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */; };
 		12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */; };
 		12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BB705C1E5BC7D5005D62EC /* BaseTool.m */; };
+		12E73A851E63AF3A004C7388 /* TipsHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A841E63AF3A004C7388 /* TipsHud.m */; };
+		12E73A9E1E63AFF9004C7388 /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A8B1E63AFF9004C7388 /* AvoidCrash.m */; };
+		12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A8D1E63AFF9004C7388 /* NSArray+AvoidCrash.m */; };
+		12E73AA01E63AFF9004C7388 /* NSAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A8F1E63AFF9004C7388 /* NSAttributedString+AvoidCrash.m */; };
+		12E73AA11E63AFF9004C7388 /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A911E63AFF9004C7388 /* NSDictionary+AvoidCrash.m */; };
+		12E73AA21E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A931E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m */; };
+		12E73AA31E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A951E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m */; };
+		12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A971E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m */; };
+		12E73AA51E63AFF9004C7388 /* NSMutableString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A991E63AFF9004C7388 /* NSMutableString+AvoidCrash.m */; };
+		12E73AA61E63AFF9004C7388 /* NSObject+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A9B1E63AFF9004C7388 /* NSObject+AvoidCrash.m */; };
+		12E73AA71E63AFF9004C7388 /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A9D1E63AFF9004C7388 /* NSString+AvoidCrash.m */; };
 		12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F3FB141E11EEB900D0AAE1 /* TopView.m */; };
 		12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DC6F1E0D464E00B372CE /* AppDelegate.m */; };
 		12F7DC781E0D464E00B372CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F7DC771E0D464E00B372CE /* Assets.xcassets */; };
@@ -100,6 +111,28 @@
 		12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
 		12BB705B1E5BC7D5005D62EC /* BaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTool.h; sourceTree = "<group>"; };
 		12BB705C1E5BC7D5005D62EC /* BaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTool.m; sourceTree = "<group>"; };
+		12E73A831E63AF3A004C7388 /* TipsHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsHud.h; sourceTree = "<group>"; };
+		12E73A841E63AF3A004C7388 /* TipsHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsHud.m; sourceTree = "<group>"; };
+		12E73A8A1E63AFF9004C7388 /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
+		12E73A8B1E63AFF9004C7388 /* AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvoidCrash.m; sourceTree = "<group>"; };
+		12E73A8C1E63AFF9004C7388 /* NSArray+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A8D1E63AFF9004C7388 /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A8E1E63AFF9004C7388 /* NSAttributedString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A8F1E63AFF9004C7388 /* NSAttributedString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A901E63AFF9004C7388 /* NSDictionary+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A911E63AFF9004C7388 /* NSDictionary+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A921E63AFF9004C7388 /* NSMutableArray+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A931E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A941E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A951E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A961E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A971E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A981E63AFF9004C7388 /* NSMutableString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A991E63AFF9004C7388 /* NSMutableString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A9A1E63AFF9004C7388 /* NSObject+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A9B1E63AFF9004C7388 /* NSObject+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AvoidCrash.m"; sourceTree = "<group>"; };
+		12E73A9C1E63AFF9004C7388 /* NSString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AvoidCrash.h"; sourceTree = "<group>"; };
+		12E73A9D1E63AFF9004C7388 /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
 		12F3FB131E11EEB900D0AAE1 /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
 		12F3FB141E11EEB900D0AAE1 /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
 		12F7DC681E0D464E00B372CE /* teahouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teahouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +201,33 @@
 				3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12E73A891E63AFF9004C7388 /* AvoidCrash */ = {
+			isa = PBXGroup;
+			children = (
+				12E73A8A1E63AFF9004C7388 /* AvoidCrash.h */,
+				12E73A8B1E63AFF9004C7388 /* AvoidCrash.m */,
+				12E73A8C1E63AFF9004C7388 /* NSArray+AvoidCrash.h */,
+				12E73A8D1E63AFF9004C7388 /* NSArray+AvoidCrash.m */,
+				12E73A8E1E63AFF9004C7388 /* NSAttributedString+AvoidCrash.h */,
+				12E73A8F1E63AFF9004C7388 /* NSAttributedString+AvoidCrash.m */,
+				12E73A901E63AFF9004C7388 /* NSDictionary+AvoidCrash.h */,
+				12E73A911E63AFF9004C7388 /* NSDictionary+AvoidCrash.m */,
+				12E73A921E63AFF9004C7388 /* NSMutableArray+AvoidCrash.h */,
+				12E73A931E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m */,
+				12E73A941E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.h */,
+				12E73A951E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m */,
+				12E73A961E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.h */,
+				12E73A971E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m */,
+				12E73A981E63AFF9004C7388 /* NSMutableString+AvoidCrash.h */,
+				12E73A991E63AFF9004C7388 /* NSMutableString+AvoidCrash.m */,
+				12E73A9A1E63AFF9004C7388 /* NSObject+AvoidCrash.h */,
+				12E73A9B1E63AFF9004C7388 /* NSObject+AvoidCrash.m */,
+				12E73A9C1E63AFF9004C7388 /* NSString+AvoidCrash.h */,
+				12E73A9D1E63AFF9004C7388 /* NSString+AvoidCrash.m */,
+			);
+			path = AvoidCrash;
 			sourceTree = "<group>";
 		};
 		12F7DC5F1E0D464D00B372CE = {
@@ -426,6 +486,9 @@
 		12FABFC71E10A01B009D010E /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				12E73A891E63AFF9004C7388 /* AvoidCrash */,
+				12E73A831E63AF3A004C7388 /* TipsHud.h */,
+				12E73A841E63AF3A004C7388 /* TipsHud.m */,
 				12FABFC81E10A03B009D010E /* YXButton.h */,
 				12FABFC91E10A03B009D010E /* YXButton.m */,
 				12FABFCB1E10AE00009D010E /* Header.h */,
@@ -640,9 +703,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E73AA11E63AFF9004C7388 /* NSDictionary+AvoidCrash.m in Sources */,
 				12FABFCA1E10A03B009D010E /* YXButton.m in Sources */,
 				1276DD141E1B88B80009F551 /* HotGoodsModel.m in Sources */,
 				122206281E12417F00C1954E /* SearchViewController.m in Sources */,
+				12E73A851E63AF3A004C7388 /* TipsHud.m in Sources */,
 				1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */,
 				19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */,
 				1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */,
@@ -650,11 +715,14 @@
 				1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */,
 				12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */,
 				12F7DCB31E0D471200B372CE /* main.m in Sources */,
+				12E73AA21E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m in Sources */,
 				12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */,
+				12E73AA61E63AFF9004C7388 /* NSObject+AvoidCrash.m in Sources */,
 				19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */,
 				1221798F1E1B5388007A2285 /* ScanResultController.m in Sources */,
 				12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */,
 				129FEB341E14EB2200B45C54 /* searchButton.m in Sources */,
+				12E73AA31E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
@@ -663,12 +731,18 @@
 				125A2AAF1E5D3F92006D15DA /* LoginModel.m in Sources */,
 				12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */,
 				1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */,
+				12E73AA01E63AFF9004C7388 /* NSAttributedString+AvoidCrash.m in Sources */,
 				12F7DCB91E0D764500B372CE /* HomeViewController.m in Sources */,
 				1276DD1D1E1CC9960009F551 /* LoginViewController.m in Sources */,
+				12E73AA71E63AFF9004C7388 /* NSString+AvoidCrash.m in Sources */,
 				12F9C7C31E1634C50074D0CF /* LoopBanner.m in Sources */,
 				12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */,
 				125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */,
 				125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */,
+				12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */,
+				12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */,
+				12E73AA51E63AFF9004C7388 /* NSMutableString+AvoidCrash.m in Sources */,
+				12E73A9E1E63AFF9004C7388 /* AvoidCrash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

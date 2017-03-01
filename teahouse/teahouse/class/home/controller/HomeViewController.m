@@ -95,6 +95,7 @@
             for (NSDictionary *dic in list[@"HotGoods"]) {
                 HotGoodsModel *model = [HotGoodsModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
+                [dataArray ARRAY_ADD_OBJ(model)];
             }
             [homeTableView reloadData];
         }
