@@ -1,0 +1,6 @@
+framework module Pods_teaHouse_swift {
+  umbrella header "Pods-teaHouse_swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

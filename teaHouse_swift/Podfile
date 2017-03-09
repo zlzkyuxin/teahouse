@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+use_frameworks!
+target ‘teaHouse_swift’ do
+pod "AFNetworking", "2.5.0"
+pod "JSONKit-NoWarning"
+pod "JSONModel"
+pod "Masonry"
+pod "TMCache"
+pod "MBProgressHUD"
+pod "MJRefresh"
+pod 'IQKeyboardManager'
+pod 'SDWebImage'
+pod 'MJExtension'
+pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
+pod 'UMengAnalytics-NO-IDFA'
+
+end

@@ -1,0 +1,40 @@
+8
+
+dir
+17
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1/trunk/teahouse/teahouse/Assets.xcassets/homeGuide
+http://1134548344%40qq.com@code.taobao.org/svn/teahouse1
+
+
+
+2016-12-30T07:02:48.120949Z
+13
+kenggreat
+
+
+svn:special svn:externals svn:needs-lock
+
+Contents.json
+file
+
+
+
+
+2016-12-30T06:53:49.000000Z
+31cc68f34934a99c0b0c1bebde56309c
+2016-12-30T07:02:48.120949Z
+13
+kenggreat
+
+home1.imageset
+dir
+
+home2.imageset
+dir
+
+home3.imageset
+dir
+
+home4.imageset
+dir
+

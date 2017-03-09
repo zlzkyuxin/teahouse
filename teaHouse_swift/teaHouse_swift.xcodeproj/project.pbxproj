@@ -1,0 +1,884 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12066B5B1E65157700405C81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12066B5A1E65157700405C81 /* AppDelegate.swift */; };
+		12066B621E65157700405C81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12066B611E65157700405C81 /* Assets.xcassets */; };
+		12066B651E65157700405C81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12066B631E65157700405C81 /* LaunchScreen.storyboard */; };
+		12066B701E65157700405C81 /* teaHouse_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12066B6F1E65157700405C81 /* teaHouse_swiftTests.swift */; };
+		12066B7B1E65157700405C81 /* teaHouse_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12066B7A1E65157700405C81 /* teaHouse_swiftUITests.swift */; };
+		12066B891E6522AA00405C81 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B881E6522AA00405C81 /* AFNetworking.framework */; };
+		12066B8B1E6522B300405C81 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B8A1E6522B300405C81 /* IQKeyboardManager.framework */; };
+		12066B8D1E6522BA00405C81 /* JSONKit_NoWarning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B8C1E6522BA00405C81 /* JSONKit_NoWarning.framework */; };
+		12066B8F1E6522C100405C81 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B8E1E6522C100405C81 /* JSONModel.framework */; };
+		12066B911E6522C800405C81 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B901E6522C800405C81 /* Masonry.framework */; };
+		12066B931E6522CE00405C81 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B921E6522CE00405C81 /* MBProgressHUD.framework */; };
+		12066B981E6522D500405C81 /* MJExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B941E6522D500405C81 /* MJExtension.framework */; };
+		12066B991E6522D500405C81 /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B951E6522D500405C81 /* MJRefresh.framework */; };
+		12066B9A1E6522D500405C81 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B961E6522D500405C81 /* SDWebImage.framework */; };
+		12066B9B1E6522D500405C81 /* TMCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12066B971E6522D500405C81 /* TMCache.framework */; };
+		1215DE821E665E3E00C63C32 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE711E665E3E00C63C32 /* GuideViewController.swift */; };
+		1215DE831E665E3E00C63C32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE7F1E665E3E00C63C32 /* LoginViewController.swift */; };
+		1215DE881E665E4400C63C32 /* teaHouse_pch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE861E665E4400C63C32 /* teaHouse_pch.swift */; };
+		1215DE8C1E665F4100C63C32 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1215DE8B1E665F4100C63C32 /* Info.plist */; };
+		1215DE8E1E665F7300C63C32 /* TeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE8D1E665F7300C63C32 /* TeaViewController.swift */; };
+		1215DE901E665F8300C63C32 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE8F1E665F8300C63C32 /* StoreViewController.swift */; };
+		1215DE921E665F8E00C63C32 /* GoodsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE911E665F8E00C63C32 /* GoodsDetailViewController.swift */; };
+		1215DE941E665FE900C63C32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE931E665FE900C63C32 /* HomeViewController.swift */; };
+		1215DE961E66600800C63C32 /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE951E66600800C63C32 /* CustomNavigationViewController.swift */; };
+		1215DE981E66602E00C63C32 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE971E66602E00C63C32 /* CustomTabBarViewController.swift */; };
+		1215DE9A1E66632600C63C32 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE991E66632600C63C32 /* UserCenterViewController.swift */; };
+		1215DE9C1E666B3E00C63C32 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE9B1E666B3E00C63C32 /* TopView.swift */; };
+		1215DE9E1E666B6C00C63C32 /* searchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE9D1E666B6C00C63C32 /* searchButton.swift */; };
+		1215DEA01E666D2100C63C32 /* YXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215DE9F1E666D2100C63C32 /* YXButton.swift */; };
+		12C8E08B1E680CF40060EAB3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E08A1E680CF40060EAB3 /* ScanViewController.swift */; };
+		12C8E08D1E680DD20060EAB3 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E08C1E680DD20060EAB3 /* NoticeViewController.swift */; };
+		12C8E08F1E680DE00060EAB3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E08E1E680DE00060EAB3 /* SearchViewController.swift */; };
+		12C8E0911E6814BA0060EAB3 /* HotGoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E0901E6814BA0060EAB3 /* HotGoodsModel.swift */; };
+		12C8E0931E6815970060EAB3 /* TeaHouseNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E0921E6815970060EAB3 /* TeaHouseNetWorking.swift */; };
+		3EEEC03F864198B240518827 /* Pods_teaHouse_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA295B5E0639D0870A1F5B72 /* Pods_teaHouse_swift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12066B6C1E65157700405C81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12066B4F1E65157700405C81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12066B561E65157700405C81;
+			remoteInfo = teaHouse_swift;
+		};
+		12066B771E65157700405C81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12066B4F1E65157700405C81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12066B561E65157700405C81;
+			remoteInfo = teaHouse_swift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		12066B571E65157700405C81 /* teaHouse_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teaHouse_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12066B5A1E65157700405C81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		12066B611E65157700405C81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12066B641E65157700405C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		12066B6B1E65157700405C81 /* teaHouse_swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teaHouse_swiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12066B6F1E65157700405C81 /* teaHouse_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teaHouse_swiftTests.swift; sourceTree = "<group>"; };
+		12066B711E65157700405C81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12066B761E65157700405C81 /* teaHouse_swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teaHouse_swiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12066B7A1E65157700405C81 /* teaHouse_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teaHouse_swiftUITests.swift; sourceTree = "<group>"; };
+		12066B7C1E65157700405C81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12066B881E6522AA00405C81 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
+		12066B8A1E6522B300405C81 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "Pods/../build/Debug-iphoneos/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
+		12066B8C1E6522BA00405C81 /* JSONKit_NoWarning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONKit_NoWarning.framework; path = "Pods/../build/Debug-iphoneos/JSONKit-NoWarning/JSONKit_NoWarning.framework"; sourceTree = "<group>"; };
+		12066B8E1E6522C100405C81 /* JSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONModel.framework; path = "Pods/../build/Debug-iphoneos/JSONModel/JSONModel.framework"; sourceTree = "<group>"; };
+		12066B901E6522C800405C81 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "Pods/../build/Debug-iphoneos/Masonry/Masonry.framework"; sourceTree = "<group>"; };
+		12066B921E6522CE00405C81 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/MBProgressHUD/MBProgressHUD.framework"; sourceTree = "<group>"; };
+		12066B941E6522D500405C81 /* MJExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJExtension.framework; path = "Pods/../build/Debug-iphoneos/MJExtension/MJExtension.framework"; sourceTree = "<group>"; };
+		12066B951E6522D500405C81 /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = "Pods/../build/Debug-iphoneos/MJRefresh/MJRefresh.framework"; sourceTree = "<group>"; };
+		12066B961E6522D500405C81 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		12066B971E6522D500405C81 /* TMCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TMCache.framework; path = "Pods/../build/Debug-iphoneos/TMCache/TMCache.framework"; sourceTree = "<group>"; };
+		1215DE711E665E3E00C63C32 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		1215DE7F1E665E3E00C63C32 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1215DE861E665E4400C63C32 /* teaHouse_pch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = teaHouse_pch.swift; sourceTree = "<group>"; };
+		1215DE8B1E665F4100C63C32 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		1215DE8D1E665F7300C63C32 /* TeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaViewController.swift; sourceTree = "<group>"; };
+		1215DE8F1E665F8300C63C32 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		1215DE911E665F8E00C63C32 /* GoodsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsDetailViewController.swift; sourceTree = "<group>"; };
+		1215DE931E665FE900C63C32 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1215DE951E66600800C63C32 /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
+		1215DE971E66602E00C63C32 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		1215DE991E66632600C63C32 /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
+		1215DE9B1E666B3E00C63C32 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		1215DE9D1E666B6C00C63C32 /* searchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchButton.swift; sourceTree = "<group>"; };
+		1215DE9F1E666D2100C63C32 /* YXButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXButton.swift; sourceTree = "<group>"; };
+		12C8E08A1E680CF40060EAB3 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		12C8E08C1E680DD20060EAB3 /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		12C8E08E1E680DE00060EAB3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		12C8E0901E6814BA0060EAB3 /* HotGoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGoodsModel.swift; sourceTree = "<group>"; };
+		12C8E0921E6815970060EAB3 /* TeaHouseNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaHouseNetWorking.swift; sourceTree = "<group>"; };
+		DA295B5E0639D0870A1F5B72 /* Pods_teaHouse_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teaHouse_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C67ECAB803131D30C39572 /* Pods-teaHouse_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teaHouse_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teaHouse_swift/Pods-teaHouse_swift.debug.xcconfig"; sourceTree = "<group>"; };
+		F2DE66200E59BF6D0709CBDA /* Pods-teaHouse_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teaHouse_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-teaHouse_swift/Pods-teaHouse_swift.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12066B541E65157700405C81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12066B981E6522D500405C81 /* MJExtension.framework in Frameworks */,
+				12066B991E6522D500405C81 /* MJRefresh.framework in Frameworks */,
+				12066B9A1E6522D500405C81 /* SDWebImage.framework in Frameworks */,
+				12066B9B1E6522D500405C81 /* TMCache.framework in Frameworks */,
+				12066B931E6522CE00405C81 /* MBProgressHUD.framework in Frameworks */,
+				12066B911E6522C800405C81 /* Masonry.framework in Frameworks */,
+				12066B8F1E6522C100405C81 /* JSONModel.framework in Frameworks */,
+				12066B8D1E6522BA00405C81 /* JSONKit_NoWarning.framework in Frameworks */,
+				12066B8B1E6522B300405C81 /* IQKeyboardManager.framework in Frameworks */,
+				12066B891E6522AA00405C81 /* AFNetworking.framework in Frameworks */,
+				3EEEC03F864198B240518827 /* Pods_teaHouse_swift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12066B681E65157700405C81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12066B731E65157700405C81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12066B4E1E65157700405C81 = {
+			isa = PBXGroup;
+			children = (
+				12066B591E65157700405C81 /* teaHouse_swift */,
+				12066B6E1E65157700405C81 /* teaHouse_swiftTests */,
+				12066B791E65157700405C81 /* teaHouse_swiftUITests */,
+				12066B581E65157700405C81 /* Products */,
+				AB228C1FC6DBFF6E2D2C998B /* Pods */,
+				CF91B551CC033FFC934CF23D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		12066B581E65157700405C81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12066B571E65157700405C81 /* teaHouse_swift.app */,
+				12066B6B1E65157700405C81 /* teaHouse_swiftTests.xctest */,
+				12066B761E65157700405C81 /* teaHouse_swiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12066B591E65157700405C81 /* teaHouse_swift */ = {
+			isa = PBXGroup;
+			children = (
+				12066B5A1E65157700405C81 /* AppDelegate.swift */,
+				1215DE6E1E665E3E00C63C32 /* class */,
+				12066B611E65157700405C81 /* Assets.xcassets */,
+				12066B631E65157700405C81 /* LaunchScreen.storyboard */,
+				1215DE841E665E4400C63C32 /* other */,
+			);
+			path = teaHouse_swift;
+			sourceTree = "<group>";
+		};
+		12066B6E1E65157700405C81 /* teaHouse_swiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				12066B6F1E65157700405C81 /* teaHouse_swiftTests.swift */,
+				12066B711E65157700405C81 /* Info.plist */,
+			);
+			path = teaHouse_swiftTests;
+			sourceTree = "<group>";
+		};
+		12066B791E65157700405C81 /* teaHouse_swiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				12066B7A1E65157700405C81 /* teaHouse_swiftUITests.swift */,
+				12066B7C1E65157700405C81 /* Info.plist */,
+			);
+			path = teaHouse_swiftUITests;
+			sourceTree = "<group>";
+		};
+		1215DE6E1E665E3E00C63C32 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE6F1E665E3E00C63C32 /* home */,
+				1215DE741E665E3E00C63C32 /* shop */,
+				1215DE781E665E3E00C63C32 /* tea */,
+				1215DE7D1E665E3E00C63C32 /* user */,
+				1215DE7C1E665E3E00C63C32 /* tool */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		1215DE6F1E665E3E00C63C32 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE701E665E3E00C63C32 /* controller */,
+				1215DE721E665E3E00C63C32 /* model */,
+				1215DE731E665E3E00C63C32 /* view */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		1215DE701E665E3E00C63C32 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE711E665E3E00C63C32 /* GuideViewController.swift */,
+				1215DE951E66600800C63C32 /* CustomNavigationViewController.swift */,
+				1215DE971E66602E00C63C32 /* CustomTabBarViewController.swift */,
+				1215DE931E665FE900C63C32 /* HomeViewController.swift */,
+				12C8E08A1E680CF40060EAB3 /* ScanViewController.swift */,
+				12C8E08C1E680DD20060EAB3 /* NoticeViewController.swift */,
+				12C8E08E1E680DE00060EAB3 /* SearchViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1215DE721E665E3E00C63C32 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				12C8E0901E6814BA0060EAB3 /* HotGoodsModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1215DE731E665E3E00C63C32 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE9B1E666B3E00C63C32 /* TopView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1215DE741E665E3E00C63C32 /* shop */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE751E665E3E00C63C32 /* controller */,
+				1215DE761E665E3E00C63C32 /* model */,
+				1215DE771E665E3E00C63C32 /* view */,
+			);
+			path = shop;
+			sourceTree = "<group>";
+		};
+		1215DE751E665E3E00C63C32 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE8F1E665F8300C63C32 /* StoreViewController.swift */,
+				1215DE911E665F8E00C63C32 /* GoodsDetailViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1215DE761E665E3E00C63C32 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1215DE771E665E3E00C63C32 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1215DE781E665E3E00C63C32 /* tea */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE791E665E3E00C63C32 /* controller */,
+				1215DE7A1E665E3E00C63C32 /* model */,
+				1215DE7B1E665E3E00C63C32 /* view */,
+			);
+			path = tea;
+			sourceTree = "<group>";
+		};
+		1215DE791E665E3E00C63C32 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE8D1E665F7300C63C32 /* TeaViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1215DE7A1E665E3E00C63C32 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1215DE7B1E665E3E00C63C32 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1215DE7C1E665E3E00C63C32 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE9D1E666B6C00C63C32 /* searchButton.swift */,
+				1215DE9F1E666D2100C63C32 /* YXButton.swift */,
+				12C8E0921E6815970060EAB3 /* TeaHouseNetWorking.swift */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		1215DE7D1E665E3E00C63C32 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE7E1E665E3E00C63C32 /* controller */,
+				1215DE801E665E3E00C63C32 /* model */,
+				1215DE811E665E3E00C63C32 /* view */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		1215DE7E1E665E3E00C63C32 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE7F1E665E3E00C63C32 /* LoginViewController.swift */,
+				1215DE991E66632600C63C32 /* UserCenterViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1215DE801E665E3E00C63C32 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1215DE811E665E3E00C63C32 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1215DE841E665E4400C63C32 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				1215DE8B1E665F4100C63C32 /* Info.plist */,
+				1215DE861E665E4400C63C32 /* teaHouse_pch.swift */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		AB228C1FC6DBFF6E2D2C998B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0C67ECAB803131D30C39572 /* Pods-teaHouse_swift.debug.xcconfig */,
+				F2DE66200E59BF6D0709CBDA /* Pods-teaHouse_swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF91B551CC033FFC934CF23D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12066B941E6522D500405C81 /* MJExtension.framework */,
+				12066B951E6522D500405C81 /* MJRefresh.framework */,
+				12066B961E6522D500405C81 /* SDWebImage.framework */,
+				12066B971E6522D500405C81 /* TMCache.framework */,
+				12066B921E6522CE00405C81 /* MBProgressHUD.framework */,
+				12066B901E6522C800405C81 /* Masonry.framework */,
+				12066B8E1E6522C100405C81 /* JSONModel.framework */,
+				12066B8C1E6522BA00405C81 /* JSONKit_NoWarning.framework */,
+				12066B8A1E6522B300405C81 /* IQKeyboardManager.framework */,
+				12066B881E6522AA00405C81 /* AFNetworking.framework */,
+				DA295B5E0639D0870A1F5B72 /* Pods_teaHouse_swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12066B561E65157700405C81 /* teaHouse_swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12066B7F1E65157700405C81 /* Build configuration list for PBXNativeTarget "teaHouse_swift" */;
+			buildPhases = (
+				C3981AEACB220A7F8B1943CF /* [CP] Check Pods Manifest.lock */,
+				12066B531E65157700405C81 /* Sources */,
+				12066B541E65157700405C81 /* Frameworks */,
+				12066B551E65157700405C81 /* Resources */,
+				DF6DBB96FE2E8C6BF8A167FE /* [CP] Embed Pods Frameworks */,
+				4C4437CF1FE7A7BDB50EE29C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = teaHouse_swift;
+			productName = teaHouse_swift;
+			productReference = 12066B571E65157700405C81 /* teaHouse_swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		12066B6A1E65157700405C81 /* teaHouse_swiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12066B821E65157700405C81 /* Build configuration list for PBXNativeTarget "teaHouse_swiftTests" */;
+			buildPhases = (
+				12066B671E65157700405C81 /* Sources */,
+				12066B681E65157700405C81 /* Frameworks */,
+				12066B691E65157700405C81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12066B6D1E65157700405C81 /* PBXTargetDependency */,
+			);
+			name = teaHouse_swiftTests;
+			productName = teaHouse_swiftTests;
+			productReference = 12066B6B1E65157700405C81 /* teaHouse_swiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		12066B751E65157700405C81 /* teaHouse_swiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12066B851E65157700405C81 /* Build configuration list for PBXNativeTarget "teaHouse_swiftUITests" */;
+			buildPhases = (
+				12066B721E65157700405C81 /* Sources */,
+				12066B731E65157700405C81 /* Frameworks */,
+				12066B741E65157700405C81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12066B781E65157700405C81 /* PBXTargetDependency */,
+			);
+			name = teaHouse_swiftUITests;
+			productName = teaHouse_swiftUITests;
+			productReference = 12066B761E65157700405C81 /* teaHouse_swiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12066B4F1E65157700405C81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = yuxin;
+				TargetAttributes = {
+					12066B561E65157700405C81 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					12066B6A1E65157700405C81 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 12066B561E65157700405C81;
+					};
+					12066B751E65157700405C81 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 12066B561E65157700405C81;
+					};
+				};
+			};
+			buildConfigurationList = 12066B521E65157700405C81 /* Build configuration list for PBXProject "teaHouse_swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12066B4E1E65157700405C81;
+			productRefGroup = 12066B581E65157700405C81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12066B561E65157700405C81 /* teaHouse_swift */,
+				12066B6A1E65157700405C81 /* teaHouse_swiftTests */,
+				12066B751E65157700405C81 /* teaHouse_swiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12066B551E65157700405C81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12066B651E65157700405C81 /* LaunchScreen.storyboard in Resources */,
+				12066B621E65157700405C81 /* Assets.xcassets in Resources */,
+				1215DE8C1E665F4100C63C32 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12066B691E65157700405C81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12066B741E65157700405C81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C4437CF1FE7A7BDB50EE29C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teaHouse_swift/Pods-teaHouse_swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3981AEACB220A7F8B1943CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DF6DBB96FE2E8C6BF8A167FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teaHouse_swift/Pods-teaHouse_swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12066B531E65157700405C81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12C8E0911E6814BA0060EAB3 /* HotGoodsModel.swift in Sources */,
+				1215DE831E665E3E00C63C32 /* LoginViewController.swift in Sources */,
+				1215DE881E665E4400C63C32 /* teaHouse_pch.swift in Sources */,
+				12C8E08B1E680CF40060EAB3 /* ScanViewController.swift in Sources */,
+				12C8E08F1E680DE00060EAB3 /* SearchViewController.swift in Sources */,
+				1215DE901E665F8300C63C32 /* StoreViewController.swift in Sources */,
+				1215DE941E665FE900C63C32 /* HomeViewController.swift in Sources */,
+				1215DEA01E666D2100C63C32 /* YXButton.swift in Sources */,
+				12C8E08D1E680DD20060EAB3 /* NoticeViewController.swift in Sources */,
+				12C8E0931E6815970060EAB3 /* TeaHouseNetWorking.swift in Sources */,
+				1215DE921E665F8E00C63C32 /* GoodsDetailViewController.swift in Sources */,
+				1215DE8E1E665F7300C63C32 /* TeaViewController.swift in Sources */,
+				1215DE981E66602E00C63C32 /* CustomTabBarViewController.swift in Sources */,
+				1215DE9E1E666B6C00C63C32 /* searchButton.swift in Sources */,
+				1215DE9A1E66632600C63C32 /* UserCenterViewController.swift in Sources */,
+				12066B5B1E65157700405C81 /* AppDelegate.swift in Sources */,
+				1215DE961E66600800C63C32 /* CustomNavigationViewController.swift in Sources */,
+				1215DE9C1E666B3E00C63C32 /* TopView.swift in Sources */,
+				1215DE821E665E3E00C63C32 /* GuideViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12066B671E65157700405C81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12066B701E65157700405C81 /* teaHouse_swiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12066B721E65157700405C81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12066B7B1E65157700405C81 /* teaHouse_swiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12066B6D1E65157700405C81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12066B561E65157700405C81 /* teaHouse_swift */;
+			targetProxy = 12066B6C1E65157700405C81 /* PBXContainerItemProxy */;
+		};
+		12066B781E65157700405C81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12066B561E65157700405C81 /* teaHouse_swift */;
+			targetProxy = 12066B771E65157700405C81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12066B631E65157700405C81 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12066B641E65157700405C81 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12066B7D1E65157700405C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12066B7E1E65157700405C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12066B801E65157700405C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0C67ECAB803131D30C39572 /* Pods-teaHouse_swift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/IQKeyboardManager",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JSONKit-NoWarning",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JSONModel",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MBProgressHUD",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MJExtension",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MJRefresh",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/TMCache",
+				);
+				INFOPLIST_FILE = teaHouse_swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "yuxin.teaHouse-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		12066B811E65157700405C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2DE66200E59BF6D0709CBDA /* Pods-teaHouse_swift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/IQKeyboardManager",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JSONKit-NoWarning",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JSONModel",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MBProgressHUD",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MJExtension",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MJRefresh",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/TMCache",
+				);
+				INFOPLIST_FILE = teaHouse_swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "yuxin.teaHouse-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		12066B831E65157700405C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = teaHouse_swiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "yuxin.teaHouse-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/teaHouse_swift.app/teaHouse_swift";
+			};
+			name = Debug;
+		};
+		12066B841E65157700405C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = teaHouse_swiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "yuxin.teaHouse-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/teaHouse_swift.app/teaHouse_swift";
+			};
+			name = Release;
+		};
+		12066B861E65157700405C81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = teaHouse_swiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "yuxin.teaHouse-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = teaHouse_swift;
+			};
+			name = Debug;
+		};
+		12066B871E65157700405C81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = teaHouse_swiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "yuxin.teaHouse-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = teaHouse_swift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12066B521E65157700405C81 /* Build configuration list for PBXProject "teaHouse_swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12066B7D1E65157700405C81 /* Debug */,
+				12066B7E1E65157700405C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12066B7F1E65157700405C81 /* Build configuration list for PBXNativeTarget "teaHouse_swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12066B801E65157700405C81 /* Debug */,
+				12066B811E65157700405C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12066B821E65157700405C81 /* Build configuration list for PBXNativeTarget "teaHouse_swiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12066B831E65157700405C81 /* Debug */,
+				12066B841E65157700405C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12066B851E65157700405C81 /* Build configuration list for PBXNativeTarget "teaHouse_swiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12066B861E65157700405C81 /* Debug */,
+				12066B871E65157700405C81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12066B4F1E65157700405C81 /* Project object */;
+}

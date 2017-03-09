@@ -1,0 +1,78 @@
+PODS:
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - dyci (0.1.6):
+    - dyci/Injections (= 0.1.6)
+  - dyci/Injections (0.1.6)
+  - IQKeyboardManager (4.0.8)
+  - JSONKit-NoWarning (1.2)
+  - JSONModel (1.7.0)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - TMCache (2.1.0)
+  - UMengAnalytics-NO-IDFA (4.2.5)
+
+DEPENDENCIES:
+  - AFNetworking (= 2.5.0)
+  - dyci (from `https://github.com/DyCI/dyci-main.git`)
+  - IQKeyboardManager
+  - JSONKit-NoWarning
+  - JSONModel
+  - Masonry
+  - MBProgressHUD
+  - MJExtension
+  - MJRefresh
+  - SDWebImage
+  - TMCache
+  - UMengAnalytics-NO-IDFA
+
+EXTERNAL SOURCES:
+  dyci:
+    :git: https://github.com/DyCI/dyci-main.git
+
+CHECKOUT OPTIONS:
+  dyci:
+    :commit: 564b0c4579ab7cb5c30a26315fe857b02dd9a9c1
+    :git: https://github.com/DyCI/dyci-main.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  dyci: bf5f4caa4a855a3ca567e2306a4cbba6d9da75e8
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+
+PODFILE CHECKSUM: 322bd48dc3c9b48ce36d572a3b936c9a20603079
+
+COCOAPODS: 1.0.1
