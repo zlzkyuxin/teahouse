@@ -280,7 +280,7 @@ function goodsDetails($goodsID)
 				}
 				$goodsArray[$i]["comment"] = $commentArray;
 			}
-			$i++;
+			// $i++;
 		}
 		$resultArray = array('code' => 200,"msg" => 'success','list' =>$goodsArray);
 		echo json_encode($resultArray);
