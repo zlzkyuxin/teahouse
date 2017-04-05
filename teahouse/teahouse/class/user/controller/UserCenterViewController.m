@@ -46,11 +46,31 @@
 
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    WS(weakSelf)
+    
+    
+    //登出
+    UIButton *logOutBtn = [UIButton new];
+    [self.view addSubview:logOutBtn];
+    
+    [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.view).offset(100);
+        make.right.equalTo(weakSelf.view).offset(-100);
+        make.bottom.equalTo(weakSelf.view).offset(-100);
+        make.height.mas_equalTo(@44);
+    }];
+    
+    [logOutBtn setTitle:@"登出" forState:UIControlStateNormal];
+//    [logOutBtn setBackgroundColor:[UIColor blueColor]];
+    [logOutBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [logOutBtn.layer setCornerRadius:5.f];
+    [logOutBtn.layer setMasksToBounds:YES];
+    [logOutBtn addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self logOut];
+//    [self logOut];
 }
 //登出
 - (void)logOut {

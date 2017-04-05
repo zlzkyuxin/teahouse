@@ -55,7 +55,7 @@
     [self.view addSubview:userIcon];
     [userIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(loginIcon.mas_bottom).offset(40);
-        make.left.equalTo(weakSelf).offset(30);
+        make.left.equalTo(weakSelf.view).offset(30);
         make.width.mas_equalTo(@20);
         make.height.mas_equalTo(@20);
     }];
@@ -75,6 +75,9 @@
     [att addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, att.length)];
     userName.attributedPlaceholder = att;
     userName.font = [UIFont systemFontOfSize:14];
+    
+    userName.text = @"18119601479";
+    
     //用户底部线条
     UIView *userLine = [UIView new];
     [self.view addSubview:userLine];
@@ -84,7 +87,8 @@
         make.top.equalTo(userIcon.mas_bottom).offset(10);
         make.height.mas_equalTo(@1);
     }];
-    userLine.backgroundColor = SETRGBColor(155, 169, 161);
+//    userLine.backgroundColor = SETRGBColor(155, 169, 161);
+    userLine.backgroundColor = [UIColor whiteColor];
     //密码图标
     UIImageView *passIcon = [UIImageView new];
     [self.view addSubview:passIcon];
@@ -110,6 +114,9 @@
     [att1 addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, att1.length)];
     passWord.attributedPlaceholder = att1;
     passWord.font = [UIFont systemFontOfSize:14];
+    
+    passWord.text = @"123456";
+    
     //密码底部线条
     UIView *passLine = [UIView new];
     [self.view addSubview:passLine];
@@ -119,7 +126,8 @@
         make.top.equalTo(passIcon.mas_bottom).offset(10);
         make.height.equalTo(userLine);
     }];
-    passLine.backgroundColor = SETRGBColor(155, 169, 161);
+//    passLine.backgroundColor = SETRGBColor(155, 169, 161);
+    passLine.backgroundColor = [UIColor whiteColor];
     //登录
     UIButton *doSubmit = [UIButton new];
     [self.view addSubview:doSubmit];

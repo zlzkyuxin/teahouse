@@ -33,7 +33,7 @@
     if (self.viewControllers.count > 0) {
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
 //        item.tintColor = [UIColor whiteColor];
-        viewController.navigationItem.leftBarButtonItem = item;
+        viewController.navigationItem.backBarButtonItem = item;
 
     }
 

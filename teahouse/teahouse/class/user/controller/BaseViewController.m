@@ -20,6 +20,7 @@
 }
 
 - (void)addBackground {
+//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     UIImageView *backImage = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     backImage.image = [UIImage imageNamed:@"background.png"];
     [self.view addSubview:backImage];

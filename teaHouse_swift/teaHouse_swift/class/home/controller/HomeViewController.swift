@@ -10,8 +10,10 @@ import UIKit
 import AVFoundation
 import Photos
 
-class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate {
+class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource {
     var topView:TopView!
+    var dataArray = [HotGoodsModel]()
+    var tableView:UITableView!
     
     
     override func viewDidLoad() {
@@ -37,9 +39,25 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate 
     func loadHomeData() {
         let parames = ["key":"showHome"]
         TeaHouseNetWorking.shared.post("Home.php", parameters: parames, success: { (task, responseObject) in
-            print(responseObject!)
-            let model =  HotGoodsModel.mj_object(withKeyValues: responseObject)
-            print(model!)
+            
+            let result = responseObject as! NSDictionary
+            if result["code"] as! String == "200"{
+                let hotGoods = result["list"] as! NSDictionary
+                for hot in hotGoods["HotGoods"] as! NSArray {
+                    let hott = hot as! NSDictionary
+                    let model = HotGoodsModel()
+                    model.goodsID = hott["goodsID"] as? String
+                    model.goodsName = hott["goodsName"] as? String
+                    model.content = hott["content"] as? String
+                    model.beforePrice = hott["beforePrice"] as? String
+                    model.nowPrice = hott["nowPrice"] as? String
+                    model.detailsImageName = hott["detailsImageName"] as? String
+                    model.categoryName = hott["categoryName"] as? String
+
+                    self.dataArray.append(model)
+                }
+            }
+
         }) { (task, error) in
             
         }
@@ -79,6 +97,9 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate 
     func voiceBtnClick() {
         self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

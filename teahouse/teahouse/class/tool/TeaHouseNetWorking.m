@@ -8,7 +8,7 @@
 
 #import "TeaHouseNetWorking.h"
 
-static NSString * const httpBaseURLString = @"http://192.168.1.119:8888/TeaAPP/";
+static NSString * const httpBaseURLString = @"http://10.37.26.26/TeaAPP/";
 
 @implementation TeaHouseNetWorking
 
@@ -20,7 +20,7 @@ static NSString * const httpBaseURLString = @"http://192.168.1.119:8888/TeaAPP/"
         _thNetWorking.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"text/javascript", nil];
         _thNetWorking.responseSerializer = [AFHTTPResponseSerializer serializer];
 //        _thNetWorking.requestSerializer = [AFJSONRequestSerializer serializerWithWritingOptions:NSJSONWritingPrettyPrinted];
-        _thNetWorking.requestSerializer.timeoutInterval = 20;
+        _thNetWorking.requestSerializer.timeoutInterval = 10;
     });
     return _thNetWorking;
 }

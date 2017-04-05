@@ -51,6 +51,8 @@
 		12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C51E164C800074D0CF /* ScanCodeView.m */; };
 		12FABFCA1E10A03B009D010E /* YXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FABFC91E10A03B009D010E /* YXButton.m */; };
 		15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */; };
+		198373791E94936100A50E5B /* RegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 198373781E94936100A50E5B /* RegistTextField.m */; };
+		1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983737B1E94D81200A50E5B /* HTTPViewController.m */; };
 		19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */; };
 		19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBF11E11491B00AD3836 /* NoticeViewController.m */; };
 /* End PBXBuildFile section */
@@ -160,6 +162,11 @@
 		12FABFC91E10A03B009D010E /* YXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXButton.m; sourceTree = "<group>"; };
 		12FABFCB1E10AE00009D010E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		12FABFCD1E10AEDD009D010E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		198373771E94936100A50E5B /* RegistTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistTextField.h; sourceTree = "<group>"; };
+		198373781E94936100A50E5B /* RegistTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistTextField.m; sourceTree = "<group>"; };
+		1983737A1E94D81200A50E5B /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
+		1983737B1E94D81200A50E5B /* HTTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPViewController.m; sourceTree = "<group>"; };
+		1989F2551E8CDD8F0098130C /* teahouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teahouse.entitlements; sourceTree = "<group>"; };
 		19E0CBED1E1140AD00AD3836 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		19E0CBF01E11491B00AD3836 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
@@ -255,6 +262,7 @@
 		12F7DC6A1E0D464E00B372CE /* teahouse */ = {
 			isa = PBXGroup;
 			children = (
+				1989F2551E8CDD8F0098130C /* teahouse.entitlements */,
 				12F7DC6E1E0D464E00B372CE /* AppDelegate.h */,
 				12F7DC6F1E0D464E00B372CE /* AppDelegate.m */,
 				12F7DC9E1E0D471200B372CE /* class */,
@@ -454,6 +462,8 @@
 				1283BCF81E5EB3DD00D65400 /* RegistViewController.m */,
 				1283BCFA1E5EB40400D65400 /* RepasswordViewController.h */,
 				1283BCFB1E5EB40400D65400 /* RepasswordViewController.m */,
+				1983737A1E94D81200A50E5B /* HTTPViewController.h */,
+				1983737B1E94D81200A50E5B /* HTTPViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -498,6 +508,8 @@
 				1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */,
 				12BB705B1E5BC7D5005D62EC /* BaseTool.h */,
 				12BB705C1E5BC7D5005D62EC /* BaseTool.m */,
+				198373771E94936100A50E5B /* RegistTextField.h */,
+				198373781E94936100A50E5B /* RegistTextField.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -721,6 +733,7 @@
 				19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */,
 				1221798F1E1B5388007A2285 /* ScanResultController.m in Sources */,
 				12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */,
+				1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */,
 				129FEB341E14EB2200B45C54 /* searchButton.m in Sources */,
 				12E73AA31E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
@@ -728,6 +741,7 @@
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
 				12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */,
 				1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */,
+				198373791E94936100A50E5B /* RegistTextField.m in Sources */,
 				125A2AAF1E5D3F92006D15DA /* LoginModel.m in Sources */,
 				12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */,
 				1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */,
@@ -890,7 +904,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
-				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/yuxin/teahouseGitHub/teahouse/teahouse/other/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zlzk/Desktop/yuxin/teahouse/teahouse/teahouse/other/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -908,7 +922,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
-				GCC_PREFIX_HEADER = /Users/yuxin/Desktop/yuxin/teahouseGitHub/teahouse/teahouse/other/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/zlzk/Desktop/yuxin/teahouse/teahouse/teahouse/other/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

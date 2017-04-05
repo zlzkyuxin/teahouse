@@ -8,8 +8,9 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-#define ShopDetailsURL @"http://192.168.1.119:8888/TeaAPP/images/original/"
-#define ImageURL @"http://192.168.1.119:8888/TeaAPP/images/"
+#define ShopDetailsURL @"http://10.37.26.26/TeaAPP/images/category/"
+#define ImageURL @"http://10.37.26.26/TeaAPP/images/"
+#define HTTPAgreement @"http://10.37.26.26/TeaAPP/http.php"
 @interface TeaHouseNetWorking : AFHTTPSessionManager
 + (instancetype)shareNetWorking;
 @end

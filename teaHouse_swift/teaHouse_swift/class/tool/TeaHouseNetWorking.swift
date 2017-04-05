@@ -30,7 +30,7 @@ class TeaHouseNetWorking: AFHTTPSessionManager {
 //    let ImageURL = "http://192.168.1.119:8888/TeaAPP/images/"
     
     static let shared: TeaHouseNetWorking = {
-        let baseUrl = NSURL(string: "http://192.168.1.119:8888/TeaAPP/")
+        let baseUrl = NSURL(string: "http://192.168.1.119/TeaAPP/")
         let manager = TeaHouseNetWorking.init(baseURL: baseUrl as URL!, sessionConfiguration: URLSessionConfiguration.default)
         
         manager?.responseSerializer.acceptableContentTypes = NSSet(objects: "application/json", "text/json", "text/javascript", "text/plain", "text/html") as? Set<String>
