@@ -78,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1216D3301EA0F96A009251A7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		1221798D1E1B5388007A2285 /* ScanResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanResultController.h; sourceTree = "<group>"; };
 		1221798E1E1B5388007A2285 /* ScanResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanResultController.m; sourceTree = "<group>"; };
 		122206261E12417F00C1954E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		12FABFC81E10A03B009D010E /* YXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXButton.h; sourceTree = "<group>"; };
 		12FABFC91E10A03B009D010E /* YXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXButton.m; sourceTree = "<group>"; };
 		12FABFCB1E10AE00009D010E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		12FABFCD1E10AEDD009D010E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		192537371EA0AE2900633FFE /* GoodsDetailTableViewCellA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTableViewCellA.h; sourceTree = "<group>"; };
 		192537381EA0AE2900633FFE /* GoodsDetailTableViewCellA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailTableViewCellA.m; sourceTree = "<group>"; };
 		1925373A1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTableViewCellB.h; sourceTree = "<group>"; };
@@ -500,7 +500,7 @@
 		12F7DCAF1E0D471200B372CE /* other */ = {
 			isa = PBXGroup;
 			children = (
-				12FABFCD1E10AEDD009D010E /* PrefixHeader.pch */,
+				1216D3301EA0F96A009251A7 /* PrefixHeader.pch */,
 				12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */,
 			);
 			path = other;
@@ -920,7 +920,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
-				GCC_PREFIX_HEADER = /Users/zlzk/Desktop/yuxin/teahouse/teahouse/teahouse/other/PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/teahouse/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -938,7 +939,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
-				GCC_PREFIX_HEADER = /Users/zlzk/Desktop/yuxin/teahouse/teahouse/teahouse/other/PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/teahouse/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

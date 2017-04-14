@@ -8,7 +8,8 @@
 
 #import "TeaHouseNetWorking.h"
 
-static NSString * const httpBaseURLString = @"http://10.37.26.26/TeaAPP/";
+//static NSString * const httpBaseURLString = @"http://10.37.26.26/TeaAPP/";
+static NSString * const httpBaseURLString = BaseUrl;
 
 @implementation TeaHouseNetWorking
 
