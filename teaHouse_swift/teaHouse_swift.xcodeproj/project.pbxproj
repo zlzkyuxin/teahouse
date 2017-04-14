@@ -41,6 +41,7 @@
 		12C8E08F1E680DE00060EAB3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E08E1E680DE00060EAB3 /* SearchViewController.swift */; };
 		12C8E0911E6814BA0060EAB3 /* HotGoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E0901E6814BA0060EAB3 /* HotGoodsModel.swift */; };
 		12C8E0931E6815970060EAB3 /* TeaHouseNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C8E0921E6815970060EAB3 /* TeaHouseNetWorking.swift */; };
+		192537361EA050DB00633FFE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192537351EA050DB00633FFE /* HomeTableViewCell.swift */; };
 		3EEEC03F864198B240518827 /* Pods_teaHouse_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA295B5E0639D0870A1F5B72 /* Pods_teaHouse_swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		12C8E08E1E680DE00060EAB3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		12C8E0901E6814BA0060EAB3 /* HotGoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGoodsModel.swift; sourceTree = "<group>"; };
 		12C8E0921E6815970060EAB3 /* TeaHouseNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaHouseNetWorking.swift; sourceTree = "<group>"; };
+		192537351EA050DB00633FFE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		DA295B5E0639D0870A1F5B72 /* Pods_teaHouse_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teaHouse_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C67ECAB803131D30C39572 /* Pods-teaHouse_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teaHouse_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teaHouse_swift/Pods-teaHouse_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		F2DE66200E59BF6D0709CBDA /* Pods-teaHouse_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teaHouse_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-teaHouse_swift/Pods-teaHouse_swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				1215DE9B1E666B3E00C63C32 /* TopView.swift */,
+				192537351EA050DB00633FFE /* HomeTableViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				12C8E08B1E680CF40060EAB3 /* ScanViewController.swift in Sources */,
 				12C8E08F1E680DE00060EAB3 /* SearchViewController.swift in Sources */,
 				1215DE901E665F8300C63C32 /* StoreViewController.swift in Sources */,
+				192537361EA050DB00633FFE /* HomeTableViewCell.swift in Sources */,
 				1215DE941E665FE900C63C32 /* HomeViewController.swift in Sources */,
 				1215DEA01E666D2100C63C32 /* YXButton.swift in Sources */,
 				12C8E08D1E680DD20060EAB3 /* NoticeViewController.swift in Sources */,

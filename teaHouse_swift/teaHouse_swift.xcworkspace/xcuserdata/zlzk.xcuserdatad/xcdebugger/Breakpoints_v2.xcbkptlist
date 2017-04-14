@@ -10,12 +10,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "teaHouse_swift/class/home/controller/HomeViewController.swift"
-            timestampString = "510800360.641251"
+            timestampString = "513830561.757485"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "loadHomeData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "teaHouse_swift/class/home/controller/HomeViewController.swift"
+            timestampString = "513830561.757485"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "loadHomeData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teaHouse_swift.HomeViewController.loadHomeData () -&gt; ()"
+                  moduleName = "teaHouse_swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zlzk/Desktop/yuxin/teahouse/teaHouse_swift/teaHouse_swift/class/home/controller/HomeViewController.swift"
+                  timestampString = "513833201.592549"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teaHouse_swift.HomeViewController.(loadHomeData () -&gt; ()).(closure #1)"
+                  moduleName = "teaHouse_swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zlzk/Desktop/yuxin/teahouse/teaHouse_swift/teaHouse_swift/class/home/controller/HomeViewController.swift"
+                  timestampString = "513833201.595424"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "teaHouse_swift/class/home/controller/HomeViewController.swift"
+            timestampString = "513830561.757485"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "loadHomeData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teaHouse_swift.HomeViewController.loadHomeData () -&gt; ()"
+                  moduleName = "teaHouse_swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zlzk/Desktop/yuxin/teahouse/teaHouse_swift/teaHouse_swift/class/home/controller/HomeViewController.swift"
+                  timestampString = "513833201.613064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "853">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teaHouse_swift.HomeViewController.(loadHomeData () -&gt; ()).(closure #2)"
+                  moduleName = "teaHouse_swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zlzk/Desktop/yuxin/teahouse/teaHouse_swift/teaHouse_swift/class/home/controller/HomeViewController.swift"
+                  timestampString = "513833201.616368"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "teaHouse_swift/class/home/view/HomeTableViewCell.swift"
+            timestampString = "513830583.169966"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "setData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "teaHouse_swift/class/home/view/HomeTableViewCell.swift"
+            timestampString = "513833480.023249"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "setFrame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "teaHouse_swift/class/home/view/HomeTableViewCell.swift"
+            timestampString = "513833425.101796"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "setData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

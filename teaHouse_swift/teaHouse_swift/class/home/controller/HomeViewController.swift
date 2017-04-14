@@ -30,10 +30,30 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,
     }
     
     func replaceNavigationBar() {
-        topView = TopView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 64))
-        topView.backgroundColor = UIColor.clear
+        //头视图
+        topView = TopView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64))
+        topView.backgroundColor = UIColor.gray
         topView.delegate = self
         self.view.addSubview(topView)
+        //tableview
+        tableView = UITableView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64 - 49), style: UITableViewStyle.plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = SCREEN_HEIGHT / 2
+        self.view.addSubview(tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:HomeTableViewCell = HomeTableViewCell.cellWithTableView(tableView: tableView,style: UITableViewCellStyle.subtitle)
+        let model : HotGoodsModel = dataArray[indexPath.row]
+        cell.model = model
+//        cell.textLabel?.text = model.goodsName
+//        cell.detailTextLabel?.text = model.content
+        return cell
     }
     
     func loadHomeData() {
@@ -56,6 +76,7 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,
 
                     self.dataArray.append(model)
                 }
+                self.tableView.reloadData()
             }
 
         }) { (task, error) in
@@ -85,7 +106,7 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,
         }
         
     }
-    
+
     func searchBtnClcik() {
         self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
@@ -101,20 +122,5 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,
     
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
