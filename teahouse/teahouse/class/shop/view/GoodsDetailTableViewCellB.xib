@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GoodsDetailTableViewCellB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOQ-xI-ANp">
+                        <rect key="frame" x="30" y="7" width="40" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Yby-PL-bKb"/>
+                            <constraint firstAttribute="height" constant="30" id="rsv-nL-CMC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="随时退">
+                            <color key="titleColor" red="0.51764705879999995" green="0.7843137255" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8z-SF-HVF">
+                        <rect key="frame" x="127" y="7" width="67" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Ssg-qr-Frz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="过期自动退">
+                            <color key="titleColor" red="0.51764705879999995" green="0.7843137255" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuF-fr-VIv">
+                        <rect key="frame" x="254" y="7" width="46" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="pMg-qE-G22"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="剩余1枚">
+                            <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gou" translatesAutoresizingMaskIntoConstraints="NO" id="Dzu-7w-Umf">
+                        <rect key="frame" x="15" y="15" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="qu2-pa-lp5"/>
+                            <constraint firstAttribute="width" constant="15" id="t3R-Ns-d5w"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gou" translatesAutoresizingMaskIntoConstraints="NO" id="wCM-01-iDA">
+                        <rect key="frame" x="112" y="15" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="6CL-bF-hh2"/>
+                            <constraint firstAttribute="width" constant="15" id="HNs-s7-qhX"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="LIT-JV-dP5">
+                        <rect key="frame" x="239" y="15" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="ZIR-Di-vby"/>
+                            <constraint firstAttribute="height" constant="15" id="ZYJ-3p-afa"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fOQ-xI-ANp" firstAttribute="leading" secondItem="Dzu-7w-Umf" secondAttribute="trailing" id="0MS-vz-Ra1"/>
+                    <constraint firstItem="fOQ-xI-ANp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="HQ9-y1-eoz"/>
+                    <constraint firstItem="x8z-SF-HVF" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Kcc-lC-RJ4"/>
+                    <constraint firstItem="Dzu-7w-Umf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="QCL-kN-rhg"/>
+                    <constraint firstItem="tuF-fr-VIv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="QOJ-SD-LOb"/>
+                    <constraint firstItem="x8z-SF-HVF" firstAttribute="leading" secondItem="wCM-01-iDA" secondAttribute="trailing" id="SDC-Vp-L8E"/>
+                    <constraint firstItem="x8z-SF-HVF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="deg-71-jS8"/>
+                    <constraint firstItem="tuF-fr-VIv" firstAttribute="leading" secondItem="LIT-JV-dP5" secondAttribute="trailing" id="gFd-K1-uOG"/>
+                    <constraint firstItem="LIT-JV-dP5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="la2-Zf-qgA"/>
+                    <constraint firstAttribute="trailing" secondItem="tuF-fr-VIv" secondAttribute="trailing" constant="20" id="rRy-NM-alR"/>
+                    <constraint firstItem="Dzu-7w-Umf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="xDT-a2-1AP"/>
+                    <constraint firstItem="wCM-01-iDA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="xiv-Hx-xmi"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gou" width="200" height="200"/>
+        <image name="person" width="200" height="200"/>
+    </resources>
+</document>

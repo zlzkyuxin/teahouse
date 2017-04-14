@@ -8,6 +8,7 @@
 
 #import "GoodsDetailViewController.h"
 #import "GoodsDetailModel.h"
+#import "GoodsDetailTableViewCellA.h"
 //#import "LoopBanner.h"
 
 @interface GoodsDetailViewController ()
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"粟粟";
     [self initView];
     [self loadData];
 }
@@ -61,7 +63,9 @@
         if ([result[@"code"] intValue] == 200) {
             GoodsDetailModel *model = [GoodsDetailModel mj_objectWithKeyValues:[result[@"list"] firstObject]];
             NSLog(@"%@",model);
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
+//            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
+            NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
+//            NSURL *url = [NSURL URLWithString:@"http://10.37.26.26/TeaAPP/images/susu.jpg"];
             [topImage sd_setImageWithURL:url];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -70,18 +74,58 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 200;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+       if (indexPath.row == 1 |
+    indexPath.row == 3 |
+    indexPath.row == 7 |
+    indexPath.row == 11 |
+    indexPath.row == 14 |
+    indexPath.row == 19) {
+        
+           return 5;
+    }
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    static NSString *ID = @"cell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
+    if (indexPath.row == 0) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
+    }
+    if (indexPath.row == 0 |indexPath.row == 1 |
+        indexPath.row == 2 |indexPath.row == 3 |
+        indexPath.row == 6 |indexPath.row == 7 |
+        indexPath.row == 10 |indexPath.row == 11 |
+        indexPath.row == 13 |indexPath.row == 14 |
+        indexPath.row == 18 |indexPath.row == 19) {
+//        cell = [GoodsDetailTableViewCellA cellWithTableView:tableView];
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    if (indexPath.row == 1 |
+        indexPath.row == 3 |
+        indexPath.row == 7 |
+        indexPath.row == 11 |
+        indexPath.row == 14 |
+        indexPath.row == 19) {
+        
+        cell.contentView.backgroundColor = SETRGBColor(230, 230, 230);
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    if (indexPath.row == 2) {
+//        cell.backgroundColor = [UIColor lightGrayColor];
+//    }
     return cell;
 }
 
@@ -90,20 +134,75 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 20.f;
+    return 0.01f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-    headerView.backgroundColor = [UIColor redColor];
+    headerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    //最新价格
+    UILabel *price = [UILabel new];
+    [headerView addSubview:price];
+    [price mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headerView).offset(10);
+        make.top.equalTo(headerView).offset(10);
+        make.bottom.equalTo(headerView).offset(-10);
+    }];
+    price.adjustsFontSizeToFitWidth = YES;
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:@"￥99.9"];
+    [att addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(1, att.length-1)];
+    price.attributedText = att;
+    price.textColor = [UIColor greenColor];
+    
+    //
+    UILabel *prices = [UILabel new];
+    [headerView addSubview:prices];
+    [prices mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(price.mas_right).offset(5);
+        make.top.equalTo(price);
+        make.bottom.equalTo(price);
+    }];
+    prices.adjustsFontSizeToFitWidth = YES;
+    prices.text = @"门市价:￥199";
+    prices.textColor = [UIColor lightGrayColor];
+    
+    //立即抢购
+    UIButton *buyBtn = [UIButton new];
+    [headerView addSubview:buyBtn];
+    [buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(headerView).offset(-15);
+        make.top.equalTo(headerView).offset(15);
+        make.bottom.equalTo(headerView).offset(-15);
+    }];
+    [buyBtn setTitle:@"立即抢购" forState:UIControlStateNormal];
+    [buyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buyBtn setBackgroundColor:[[UIColor orangeColor] colorWithAlphaComponent:1]];
+    [buyBtn.layer setCornerRadius:3];
+    [buyBtn.layer setMasksToBounds:YES];
+    [buyBtn addTarget:self action:@selector(buyBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    //
+    UILabel *line = [UILabel new];
+    [headerView addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headerView);
+        make.right.equalTo(headerView);
+        make.bottom.equalTo(headerView);
+        make.height.mas_offset(@0.5);
+    }];
+    [line setBackgroundColor:[UIColor lightGrayColor]];
     return headerView;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
-    footerView.backgroundColor = [UIColor greenColor];
-    return footerView;
+- (void)buyBtnClick {
+    NSLog(@"立即抢购");
 }
+
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+//    footerView.backgroundColor = [UIColor greenColor];
+//    return footerView;
+//}
 
 
 @end

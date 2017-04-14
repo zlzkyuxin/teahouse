@@ -37,6 +37,7 @@
 
 #define COUNT My_count_File:__FILE__ Line:__LINE__
 
+#define BASE_COLOR UIColorFromHexadecimalRGB(0x76cb07)
 
 //weakSelf
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;

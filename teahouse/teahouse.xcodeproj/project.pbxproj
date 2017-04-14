@@ -51,6 +51,9 @@
 		12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C51E164C800074D0CF /* ScanCodeView.m */; };
 		12FABFCA1E10A03B009D010E /* YXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FABFC91E10A03B009D010E /* YXButton.m */; };
 		15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */; };
+		192537391EA0AE2900633FFE /* GoodsDetailTableViewCellA.m in Sources */ = {isa = PBXBuildFile; fileRef = 192537381EA0AE2900633FFE /* GoodsDetailTableViewCellA.m */; };
+		1925373D1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1925373B1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.m */; };
+		1925373E1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1925373C1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.xib */; };
 		198373791E94936100A50E5B /* RegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 198373781E94936100A50E5B /* RegistTextField.m */; };
 		1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983737B1E94D81200A50E5B /* HTTPViewController.m */; };
 		19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */; };
@@ -162,6 +165,11 @@
 		12FABFC91E10A03B009D010E /* YXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXButton.m; sourceTree = "<group>"; };
 		12FABFCB1E10AE00009D010E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		12FABFCD1E10AEDD009D010E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		192537371EA0AE2900633FFE /* GoodsDetailTableViewCellA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTableViewCellA.h; sourceTree = "<group>"; };
+		192537381EA0AE2900633FFE /* GoodsDetailTableViewCellA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailTableViewCellA.m; sourceTree = "<group>"; };
+		1925373A1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTableViewCellB.h; sourceTree = "<group>"; };
+		1925373B1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailTableViewCellB.m; sourceTree = "<group>"; };
+		1925373C1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDetailTableViewCellB.xib; sourceTree = "<group>"; };
 		198373771E94936100A50E5B /* RegistTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistTextField.h; sourceTree = "<group>"; };
 		198373781E94936100A50E5B /* RegistTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistTextField.m; sourceTree = "<group>"; };
 		1983737A1E94D81200A50E5B /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
@@ -402,6 +410,11 @@
 		12F7DCA61E0D471200B372CE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				192537371EA0AE2900633FFE /* GoodsDetailTableViewCellA.h */,
+				192537381EA0AE2900633FFE /* GoodsDetailTableViewCellA.m */,
+				1925373A1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.h */,
+				1925373B1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.m */,
+				1925373C1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -642,6 +655,7 @@
 			files = (
 				12F7DC7B1E0D464E00B372CE /* LaunchScreen.storyboard in Resources */,
 				12F7DC781E0D464E00B372CE /* Assets.xcassets in Resources */,
+				1925373E1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.xib in Resources */,
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +739,7 @@
 				1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */,
 				1283BCF91E5EB3DD00D65400 /* RegistViewController.m in Sources */,
 				1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */,
+				1925373D1EA0B8BD00633FFE /* GoodsDetailTableViewCellB.m in Sources */,
 				12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */,
 				12F7DCB31E0D471200B372CE /* main.m in Sources */,
 				12E73AA21E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m in Sources */,
@@ -738,6 +753,7 @@
 				12E73AA31E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
+				192537391EA0AE2900633FFE /* GoodsDetailTableViewCellA.m in Sources */,
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
 				12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */,
 				1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */,
