@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"粟粟";
+//    self.title = @"粟粟";
     [self initView];
     [self loadData];
 }
@@ -58,6 +58,7 @@
     _tableView.tableHeaderView = topImage;
 }
 
+//数据请求
 - (void)loadData {
     NSDictionary *loadDic = [[NSDictionary alloc] init];
     loadDic = @{@"key":@"goodsDetails",@"goodsID":self.goodsId};
@@ -68,8 +69,8 @@
             GoodsDetailModel *model = [GoodsDetailModel mj_objectWithKeyValues:[result[@"list"] firstObject]];
             self.price = model.goodsPrice;
             NSLog(@"%@",model);
-//            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
-            NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
+//            NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
 //            NSURL *url = [NSURL URLWithString:@"http://10.37.26.26/TeaAPP/images/susu.jpg"];
             [topImage sd_setImageWithURL:url];
         }
@@ -106,8 +107,10 @@
     if (indexPath.row == 0) {
         GoodsDetailTableViewCellB *cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
         cell.block = ^() {
+            
             NSLog(@"21312312");
         };
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

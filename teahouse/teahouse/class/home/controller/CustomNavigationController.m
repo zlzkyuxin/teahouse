@@ -19,6 +19,7 @@
 @implementation CustomNavigationController
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    self.navigationItem.hidesBackButton = YES;
     if ([viewController isKindOfClass:[HomeViewController class]] ||
         [viewController isKindOfClass:[StoreViewController class]] ||
         [viewController isKindOfClass:[TeaViewController class]] ||
@@ -31,12 +32,21 @@
         viewController.automaticallyAdjustsScrollViewInsets = NO;
     }
     if (self.viewControllers.count > 0) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
-//        item.tintColor = [UIColor whiteColor];
-        viewController.navigationItem.backBarButtonItem = item;
+        UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [back setImage:[UIImage imageNamed:@"navi_back"] forState:UIControlStateNormal];
+        [back addTarget:self action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+        
+//        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navi_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
+////        item.tintColor = [UIColor whiteColor];
+//        viewController.navigationItem.leftBarButtonItem = item;
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:back];
 
     }
-
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        viewController.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        viewController.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
     [super pushViewController:viewController animated:animated];
 }
 

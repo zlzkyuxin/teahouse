@@ -7,7 +7,9 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-#define TEST
+
+
+//#define TEST
 
 #ifdef TEST
 
