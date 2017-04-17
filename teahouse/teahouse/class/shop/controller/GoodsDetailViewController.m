@@ -9,6 +9,9 @@
 #import "GoodsDetailViewController.h"
 #import "GoodsDetailModel.h"
 #import "GoodsDetailTableViewCellA.h"
+#import "GoodsDetailTableViewCellB.h"
+#import "OrderListViewController.h"
+#import "LoginViewController.h"
 //#import "LoopBanner.h"
 
 @interface GoodsDetailViewController ()
@@ -20,6 +23,7 @@
     UIImageView *topImage;
     UITableView *_tableView;
 }
+@property (nonatomic , strong) NSString *price;
 @end
 
 @implementation GoodsDetailViewController
@@ -62,6 +66,7 @@
         NSLog(@"%@",result);
         if ([result[@"code"] intValue] == 200) {
             GoodsDetailModel *model = [GoodsDetailModel mj_objectWithKeyValues:[result[@"list"] firstObject]];
+            self.price = model.goodsPrice;
             NSLog(@"%@",model);
 //            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
             NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
@@ -97,36 +102,42 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *ID = @"cell";
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
-    }
+
     if (indexPath.row == 0) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
-    }
-    if (indexPath.row == 0 |indexPath.row == 1 |
-        indexPath.row == 2 |indexPath.row == 3 |
-        indexPath.row == 6 |indexPath.row == 7 |
-        indexPath.row == 10 |indexPath.row == 11 |
-        indexPath.row == 13 |indexPath.row == 14 |
-        indexPath.row == 18 |indexPath.row == 19) {
-//        cell = [GoodsDetailTableViewCellA cellWithTableView:tableView];
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    }
-    if (indexPath.row == 1 |
-        indexPath.row == 3 |
-        indexPath.row == 7 |
-        indexPath.row == 11 |
-        indexPath.row == 14 |
-        indexPath.row == 19) {
+        GoodsDetailTableViewCellB *cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
+        cell.block = ^() {
+            NSLog(@"21312312");
+        };
+        return cell;
+    }else {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+        }
+    
+        if (indexPath.row == 0 |indexPath.row == 1 |
+            indexPath.row == 2 |indexPath.row == 3 |
+            indexPath.row == 6 |indexPath.row == 7 |
+            indexPath.row == 10 |indexPath.row == 11 |
+            indexPath.row == 13 |indexPath.row == 14 |
+            indexPath.row == 18 |indexPath.row == 19) {
+            //cell分割线左移到顶
+            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        }
+        if (indexPath.row == 1 |
+            indexPath.row == 3 |
+            indexPath.row == 7 |
+            indexPath.row == 11 |
+            indexPath.row == 14 |
+            indexPath.row == 19) {
+            
+            cell.contentView.backgroundColor = SETRGBColor(230, 230, 230);
+        }
         
-        cell.contentView.backgroundColor = SETRGBColor(230, 230, 230);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    if (indexPath.row == 2) {
-//        cell.backgroundColor = [UIColor lightGrayColor];
-//    }
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -196,6 +207,15 @@
 
 - (void)buyBtnClick {
     NSLog(@"立即抢购");
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
+        [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
+    }else {
+        OrderListViewController *nextVC = [OrderListViewController new];
+        nextVC.title = @"提交订单";
+        nextVC.goodsName = self.title;
+        nextVC.price = self.price;
+        [self.navigationController pushViewController:nextVC animated:YES];
+    }
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

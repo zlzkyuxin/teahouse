@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^btnClickBlock)();
+
 @interface GoodsDetailTableViewCellB : UITableViewCell
+
+@property (nonatomic , strong)btnClickBlock block;
 
 @end

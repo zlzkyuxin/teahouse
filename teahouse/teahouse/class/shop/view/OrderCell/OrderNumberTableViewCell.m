@@ -1,14 +1,14 @@
 //
-//  GoodsDetailTableViewCellB.m
+//  OrderNumberTableViewCell.m
 //  teahouse
 //
-//  Created by zlzk on 2017/4/14.
+//  Created by yuxin on 2017/4/15.
 //  Copyright © 2017年 yuxin. All rights reserved.
 //
 
-#import "GoodsDetailTableViewCellB.h"
+#import "OrderNumberTableViewCell.h"
 
-@implementation GoodsDetailTableViewCellB
+@implementation OrderNumberTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

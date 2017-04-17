@@ -29,6 +29,9 @@
                         <state key="normal" title="随时退">
                             <color key="titleColor" red="0.51764705879999995" green="0.7843137255" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="leftBtnClcik:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8OF-2M-x3m"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8z-SF-HVF">
                         <rect key="frame" x="127" y="7" width="67" height="30"/>
@@ -39,6 +42,9 @@
                         <state key="normal" title="过期自动退">
                             <color key="titleColor" red="0.51764705879999995" green="0.7843137255" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="rightBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FR2-11-dfO"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuF-fr-VIv">
                         <rect key="frame" x="254" y="7" width="46" height="30"/>

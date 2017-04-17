@@ -228,6 +228,7 @@
             
             [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"list"];
             [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"islogin"];
+            [[NSUserDefaults standardUserDefaults] setValue:_userName.text forKey:@"phone"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self presentViewController:[[CustiomTabBarViewController alloc] init] animated:NO completion:nil];
