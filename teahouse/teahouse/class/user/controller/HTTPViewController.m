@@ -39,7 +39,7 @@
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:HTTPAgreement]]];
     //返回
     UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(15, 20, 20, 20)];
-    [back setImage:[UIImage imageNamed:@"cha.png"] forState:UIControlStateNormal];
+    [back setImage:[UIImage imageNamed:@"cha1··.png"] forState:UIControlStateNormal];
     [back addTarget:self action:@selector(backLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
 }

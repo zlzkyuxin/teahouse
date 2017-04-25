@@ -9,14 +9,14 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-//#define TEST
+#define TEST
 
 #ifdef TEST
 
-#define BaseUrl @"http://192.168.31.196:8888/TeaAPP/"
-#define ShopDetailsURL @"http://192.168.31.196:8888/TeaAPP/images/category/"
-#define ImageURL @"http://192.168.31.196:8888/TeaAPP/images/"
-#define HTTPAgreement @"http://192.168.31.196:8888/TeaAPP/http.php"
+#define BaseUrl @"http://119.29.113.73/TeaAPP/"
+#define ShopDetailsURL @"http://119.29.113.73/TeaAPP/images/category/"
+#define ImageURL @"http://119.29.113.73/TeaAPP/images/"
+#define HTTPAgreement @"http://119.29.113.73/TeaAPP/http.html"
 
 #else
 
