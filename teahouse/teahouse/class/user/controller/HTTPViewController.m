@@ -25,21 +25,21 @@
 }
 
 - (void)initView {
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
    WKWebView *webView = [[WKWebView alloc]init];
     [self.view addSubview:webView];
     [webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(64);
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
+        make.top.equalTo(self.view).offset(40);
         make.bottom.equalTo(self.view);
     }];
     webView.UIDelegate = self;
     webView.navigationDelegate = self;
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:HTTPAgreement]]];
     //返回
-    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(15, 20, 20, 20)];
-    [back setImage:[UIImage imageNamed:@"cha1··.png"] forState:UIControlStateNormal];
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(15, 30, 20, 20)];
+    [back setImage:[UIImage imageNamed:@"cha1.png"] forState:UIControlStateNormal];
     [back addTarget:self action:@selector(backLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
 }
