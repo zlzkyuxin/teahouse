@@ -28,9 +28,9 @@
     }else {
         viewController.hidesBottomBarWhenPushed = YES;
     }
-    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f) {
-        viewController.automaticallyAdjustsScrollViewInsets = NO;
-    }
+//    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f) {
+//        viewController.automaticallyAdjustsScrollViewInsets = NO;
+//    }
     if (self.viewControllers.count > 0) {
         UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [back setImage:[UIImage imageNamed:@"navi_back"] forState:UIControlStateNormal];

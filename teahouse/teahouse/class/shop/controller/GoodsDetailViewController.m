@@ -24,6 +24,8 @@
     UITableView *_tableView;
 }
 @property (nonatomic , strong) NSString *price;
+@property (nonatomic , strong) NSString *number;
+
 @end
 
 @implementation GoodsDetailViewController
@@ -48,7 +50,7 @@
 //        NSLog(@"点击了第%ld张图片",(long)index);
 //    };
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -61,19 +63,24 @@
 //数据请求
 - (void)loadData {
     NSDictionary *loadDic = [[NSDictionary alloc] init];
-    loadDic = @{@"key":@"goodsDetails",@"goodsID":self.goodsId};
+    if (!_goodsId) {
+        loadDic = @{@"key":@"goodsSearch",@"goodName":self.title};
+    }else {
+        loadDic = @{@"key":@"goodsDetails",@"goodsID":self.goodsId};
+    }
     [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         NSLog(@"%@",result);
         if ([result[@"code"] intValue] == 200) {
             GoodsDetailModel *model = [GoodsDetailModel mj_objectWithKeyValues:[result[@"list"] firstObject]];
             self.price = model.goodsPrice;
-            NSLog(@"%@",model);
+            self.number = model.goodsNumber;
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
 //            NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
 //            NSURL *url = [NSURL URLWithString:@"http://10.37.26.26/TeaAPP/images/susu.jpg"];
             [topImage sd_setImageWithURL:url];
         }
+        [_tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
@@ -110,6 +117,7 @@
             
             NSLog(@"21312312");
         };
+        cell.goodsNumber.text = [NSString stringWithFormat:@"剩余%@件",self.number];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {

@@ -11,6 +11,7 @@
 typedef void(^btnClickBlock)();
 
 @interface GoodsDetailTableViewCellB : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *goodsNumber;
 
 @property (nonatomic , strong)btnClickBlock block;
 

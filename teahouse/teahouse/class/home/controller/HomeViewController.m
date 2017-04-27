@@ -18,6 +18,8 @@
 #import "HotGoodsModel.h"
 #import "HotGoodsTableViewCell.h"
 #import "GoodsDetailViewController.h"
+#import "PYSearch.h"
+#import "CustomNavigationController.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
@@ -27,7 +29,8 @@
     UITableViewDelegate,
     UITableViewDataSource,
     UIScrollViewDelegate,
-    TopViewDelegate
+    TopViewDelegate,
+    PYSearchViewControllerDelegate
 >
 {
     UITableView *homeTableView;
@@ -138,11 +141,41 @@
 }
 
 - (void)searchBtnClick {
-    [self.navigationController pushViewController:[[SearchViewController alloc] init] animated:YES];
+    NSArray *arr = @[@"祁红香螺",@"阿萨姆红茶",@"汀布拉茶",@"桂花茶",@"菊花茶",@"金银花茶",@"柠檬茶",@"君山银针",@"白毫银针",@"大红袍",@"铁观音"].copy;
+   __block PYSearchViewController *searchView = [PYSearchViewController searchViewControllerWithHotSearches:arr searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+        GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
+        nextVC.title = searchText;
+        [searchView.navigationController pushViewController:nextVC animated:YES];
+    }];
+    //热门搜索风格
+    searchView.hotSearchStyle = PYHotSearchStyleDefault;
+    //热门搜索历史搜索风格
+    searchView.searchHistoryStyle = PYSearchHistoryStyleDefault;
+    searchView.delegate = self;
+    CustomNavigationController *next = [[CustomNavigationController alloc] initWithRootViewController:searchView];
+    [self presentViewController:next animated:YES completion:nil];
 }
 
 - (void)voiceBtnClick {
     [self.navigationController pushViewController:[[SearchViewController alloc] init] animated:YES];
+}
+
+#pragma mark - PYSearchViewControllerDelegate
+- (void)searchViewController:(PYSearchViewController *)searchViewController searchTextDidChange:(UISearchBar *)seachBar searchText:(NSString *)searchText
+{
+    if (searchText.length) { // 与搜索条件再搜索
+        // 根据条件发送查询（这里模拟搜索）
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ // 搜索完毕
+            // 显示建议搜索结果
+            NSMutableArray *searchSuggestionsM = [NSMutableArray array];
+            for (int i = 0; i < arc4random_uniform(5) + 10; i++) {
+                NSString *searchSuggestion = [NSString stringWithFormat:@"搜索建议 %d", i];
+                [searchSuggestionsM addObject:searchSuggestion];
+            }
+            // 返回
+            searchViewController.searchSuggestions = searchSuggestionsM;
+        });
+    }
 }
 
 /**

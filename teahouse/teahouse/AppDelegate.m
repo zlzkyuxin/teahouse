@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "GuideViewController.h"
+#import "CustiomTabBarViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -34,12 +36,18 @@
 }
 
 - (void)checkIsFirstEnterInto {
-//    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Lunched"] boolValue]) {
-//        
-//    }else {//进入引导页
-//        
-//    }
-    _window.rootViewController = [[GuideViewController alloc] init];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Lunched"] boolValue]) {//进入引导页
+        
+        _window.rootViewController = [[GuideViewController alloc] init];
+
+    }else {
+        if ([[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
+            [UIApplication sharedApplication].windows.lastObject.rootViewController = [[CustiomTabBarViewController alloc] init];
+        }else {
+            [UIApplication sharedApplication].windows.lastObject.rootViewController = [[LoginViewController alloc] init];
+        }
+    }
+    
 }
 
 - (void)dealwithCrashMessage:(NSNotification *)note {

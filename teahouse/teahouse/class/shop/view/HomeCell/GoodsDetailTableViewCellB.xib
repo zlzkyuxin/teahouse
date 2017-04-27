@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,16 +46,6 @@
                             <action selector="rightBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FR2-11-dfO"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuF-fr-VIv">
-                        <rect key="frame" x="254" y="7" width="46" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="pMg-qE-G22"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="剩余1枚">
-                            <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gou" translatesAutoresizingMaskIntoConstraints="NO" id="Dzu-7w-Umf">
                         <rect key="frame" x="15" y="15" width="15" height="15"/>
                         <constraints>
@@ -77,22 +67,34 @@
                             <constraint firstAttribute="height" constant="15" id="ZYJ-3p-afa"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余1枚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4P-gi-ftm">
+                        <rect key="frame" x="254" y="7" width="46" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="rxE-k7-I17"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fOQ-xI-ANp" firstAttribute="leading" secondItem="Dzu-7w-Umf" secondAttribute="trailing" id="0MS-vz-Ra1"/>
+                    <constraint firstItem="b4P-gi-ftm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="9zf-aY-CMY"/>
                     <constraint firstItem="fOQ-xI-ANp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="HQ9-y1-eoz"/>
                     <constraint firstItem="x8z-SF-HVF" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Kcc-lC-RJ4"/>
                     <constraint firstItem="Dzu-7w-Umf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="QCL-kN-rhg"/>
-                    <constraint firstItem="tuF-fr-VIv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="QOJ-SD-LOb"/>
                     <constraint firstItem="x8z-SF-HVF" firstAttribute="leading" secondItem="wCM-01-iDA" secondAttribute="trailing" id="SDC-Vp-L8E"/>
                     <constraint firstItem="x8z-SF-HVF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="deg-71-jS8"/>
-                    <constraint firstItem="tuF-fr-VIv" firstAttribute="leading" secondItem="LIT-JV-dP5" secondAttribute="trailing" id="gFd-K1-uOG"/>
+                    <constraint firstItem="b4P-gi-ftm" firstAttribute="leading" secondItem="LIT-JV-dP5" secondAttribute="trailing" id="hXt-Na-eee"/>
                     <constraint firstItem="LIT-JV-dP5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="la2-Zf-qgA"/>
-                    <constraint firstAttribute="trailing" secondItem="tuF-fr-VIv" secondAttribute="trailing" constant="20" id="rRy-NM-alR"/>
+                    <constraint firstAttribute="trailing" secondItem="b4P-gi-ftm" secondAttribute="trailing" constant="20" id="pWm-ie-Zlp"/>
                     <constraint firstItem="Dzu-7w-Umf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="xDT-a2-1AP"/>
                     <constraint firstItem="wCM-01-iDA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="xiv-Hx-xmi"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="goodsNumber" destination="b4P-gi-ftm" id="Fhg-hC-Nqj"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
