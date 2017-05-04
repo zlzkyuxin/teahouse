@@ -1,9 +1,13 @@
-<?php
-$con = mysql_connect("localhost","yuxin","123456");
-mysql_query("SET NAMES utf8");
+﻿<?php
+// $con = mysql_connect("localhost","yuxin","123456")or die("error!");
+// mysql_query("SET NAMES utf8");
 
 
-mysql_select_db("TeaHouse")or die("error!");
+// mysql_select_db("teahouse")or die("error!");
+
+$con = mysqli_connect("localhost","yuxin","123456","teahouse");
+mysqli_query($con,"SET NAMES utf8");
+
 $action = $_POST['key'];
 switch ($action) {
 	//登录接口
@@ -21,11 +25,12 @@ switch ($action) {
 function userlogin($user,$pass)
 {
 	$sql = "SELECT * FROM  t_user where t_userPhone = $user";
-	$result = mysql_query($sql);
+	global $con;
+	$result = mysqli_query($con,$sql);
 	if ($result) 
 	{
 		$dataArray = array();
-		while ($row = mysql_fetch_array($result)) 
+		while ($row = mysqli_fetch_array($result)) 
 		{
 			$dataArray["userID"] = $row["t_userID"];
 			$dataArray["userNick"] = $row["t_Nickname"];
@@ -48,5 +53,5 @@ function userlogin($user,$pass)
 }
 
 
-mysql_close($con);
+mysqli_close($con);
 ?>

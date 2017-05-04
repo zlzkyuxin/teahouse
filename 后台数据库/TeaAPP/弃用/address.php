@@ -1,9 +1,9 @@
 ﻿<?php
-$con = mysql_connect("localhost","root","123456");
+$con = mysql_connect("localhost","yuxin","123456");
 mysql_query("SET NAMES utf8");
 
 
-mysql_select_db("TeaHouse")or die("error!");
+mysql_select_db("teahouse")or die("error!");
 $action = $_POST['key'];
 
 switch ($action) {
