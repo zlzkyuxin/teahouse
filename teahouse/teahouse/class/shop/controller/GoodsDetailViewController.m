@@ -109,7 +109,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *ID = @"cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
 
     if (indexPath.row == 0) {
         GoodsDetailTableViewCellB *cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
@@ -215,6 +214,7 @@
     [line setBackgroundColor:[UIColor lightGrayColor]];
     return headerView;
 }
+
 
 - (void)buyBtnClick {
     NSLog(@"立即抢购");

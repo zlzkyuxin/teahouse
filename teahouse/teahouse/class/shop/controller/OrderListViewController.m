@@ -58,9 +58,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __block NSString *numbers = @"";
     if (indexPath.section == 0 && indexPath.row == 1) {
-//        [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
         OrderNumberTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"OrderNumberTableViewCell" owner:self options:nil] firstObject];
+        cell.block = ^(int number) {
+            numbers = [NSString stringWithFormat:@"%d",number];
+            dataSource = @[@[[NSString stringWithFormat:@"%d元",[self.price intValue]],@"",[NSString stringWithFormat:@"￥%.1f",[self.price floatValue] * number]],@[@"",[NSString stringWithFormat:@"￥%.1f",[self.price floatValue] * number]],@[@"",@"绑定新号码"]];
+            
+            [tableView reloadData];
+        };
+        cell.numberField.text = [NSString stringWithFormat:@"%d",numbers];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {
@@ -79,6 +86,7 @@
         return cell;
     }
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 10.f;

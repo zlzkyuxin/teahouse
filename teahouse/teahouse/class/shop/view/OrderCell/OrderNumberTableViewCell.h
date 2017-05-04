@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^numberBlock)(int number);
+
 @interface OrderNumberTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UITextField *numberField;
+
+@property (nonatomic , strong)numberBlock block;
 
 @end
