@@ -22,9 +22,8 @@
 {
     UIImageView *topImage;
     UITableView *_tableView;
+    GoodsDetailModel *goodsDeailModel;
 }
-@property (nonatomic , strong) NSString *price;
-@property (nonatomic , strong) NSString *number;
 
 @end
 
@@ -72,10 +71,8 @@
          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         NSLog(@"%@",result);
         if ([result[@"code"] intValue] == 200) {
-            GoodsDetailModel *model = [GoodsDetailModel mj_objectWithKeyValues:[result[@"list"] firstObject]];
-            self.price = model.goodsPrice;
-            self.number = model.goodsNumber;
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,model.goodsImageName]];
+            goodsDeailModel = [GoodsDetailModel mj_objectWithKeyValues:[result[@"list"] firstObject]];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,goodsDeailModel.goodsImageName]];
 //            NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
 //            NSURL *url = [NSURL URLWithString:@"http://10.37.26.26/TeaAPP/images/susu.jpg"];
             [topImage sd_setImageWithURL:url];
@@ -116,7 +113,7 @@
             
             NSLog(@"21312312");
         };
-        cell.goodsNumber.text = [NSString stringWithFormat:@"剩余%@件",self.number];
+        cell.goodsNumber.text = [NSString stringWithFormat:@"剩余%@件",goodsDeailModel.goodsNumber];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {
@@ -223,17 +220,12 @@
     }else {
         OrderListViewController *nextVC = [OrderListViewController new];
         nextVC.title = @"提交订单";
-        nextVC.goodsName = self.title;
-        nextVC.price = self.price;
+        nextVC.goodsID = goodsDeailModel.goodsID;
+        nextVC.goodsName = goodsDeailModel.goodsName;
+        nextVC.price = goodsDeailModel.goodsPrice;
         [self.navigationController pushViewController:nextVC animated:YES];
     }
 }
-
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
-//    footerView.backgroundColor = [UIColor greenColor];
-//    return footerView;
-//}
 
 
 @end

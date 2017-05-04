@@ -18,6 +18,7 @@
 		125A2AAF1E5D3F92006D15DA /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AAE1E5D3F92006D15DA /* LoginModel.m */; };
 		125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */; };
 		125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */; };
+		125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A36301EBB63B8009D1BD2 /* OrderModel.m */; };
 		1276DD141E1B88B80009F551 /* HotGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD131E1B88B80009F551 /* HotGoodsModel.m */; };
 		1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */; };
 		1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD191E1BC01C0009F551 /* HotGoodsTableViewCell.m */; };
@@ -109,6 +110,8 @@
 		125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		125A2AB31E5D74BE006D15DA /* GoodsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailModel.h; sourceTree = "<group>"; };
 		125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailModel.m; sourceTree = "<group>"; };
+		125A362F1EBB63B8009D1BD2 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		125A36301EBB63B8009D1BD2 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		1276DD121E1B88B80009F551 /* HotGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotGoodsModel.h; sourceTree = "<group>"; };
 		1276DD131E1B88B80009F551 /* HotGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotGoodsModel.m; sourceTree = "<group>"; };
 		1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaHouseNetWorking.h; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 			children = (
 				125A2AB31E5D74BE006D15DA /* GoodsDetailModel.h */,
 				125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */,
+				125A362F1EBB63B8009D1BD2 /* OrderModel.h */,
+				125A36301EBB63B8009D1BD2 /* OrderModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -851,6 +856,7 @@
 				12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */,
 				125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */,
 				125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */,
+				125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */,
 				12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */,
 				12E73AA51E63AFF9004C7388 /* NSMutableString+AvoidCrash.m in Sources */,
