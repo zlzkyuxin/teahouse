@@ -10,7 +10,7 @@
 #import "CustomNavigationController.h"
 #import "HomeViewController.h"
 #import "StoreViewController.h"
-#import "TeaViewController.h"
+#import "ShoppingCartViewController.h"
 #import "UserCenterViewController.h"
 @interface CustomNavigationController ()
 
@@ -22,7 +22,7 @@
     self.navigationItem.hidesBackButton = YES;
     if ([viewController isKindOfClass:[HomeViewController class]] ||
         [viewController isKindOfClass:[StoreViewController class]] ||
-        [viewController isKindOfClass:[TeaViewController class]] ||
+        [viewController isKindOfClass:[ShoppingCartViewController class]] ||
         [viewController isKindOfClass:[UserCenterViewController class]]) {
         
     }else {

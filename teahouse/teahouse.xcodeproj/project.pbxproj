@@ -30,7 +30,6 @@
 		129FEB341E14EB2200B45C54 /* searchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 129FEB331E14EB2200B45C54 /* searchButton.m */; };
 		12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */; };
 		12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE81E109CB800CD3C33 /* StoreViewController.m */; };
-		12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */; };
 		12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */; };
 		12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BB705C1E5BC7D5005D62EC /* BaseTool.m */; };
 		12E73A851E63AF3A004C7388 /* TipsHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A841E63AF3A004C7388 /* TipsHud.m */; };
@@ -58,6 +57,9 @@
 		12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C51E164C800074D0CF /* ScanCodeView.m */; };
 		12FABFCA1E10A03B009D010E /* YXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FABFC91E10A03B009D010E /* YXButton.m */; };
 		15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */; };
+		191516AE1EBC5C5E00353F96 /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */; };
+		191516B01EBC689700353F96 /* ceshi.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191516AF1EBC689700353F96 /* ceshi.xib */; };
+		195A2B4F1EBC114700DCF1C6 /* OrderPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */; };
 		198373791E94936100A50E5B /* RegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 198373781E94936100A50E5B /* RegistTextField.m */; };
 		1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983737B1E94D81200A50E5B /* HTTPViewController.m */; };
 		19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */; };
@@ -134,8 +136,6 @@
 		12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustiomTabBarViewController.m; sourceTree = "<group>"; };
 		12AFBEE71E109CB800CD3C33 /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
 		12AFBEE81E109CB800CD3C33 /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
-		12AFBEEA1E109CC700CD3C33 /* TeaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaViewController.h; sourceTree = "<group>"; };
-		12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaViewController.m; sourceTree = "<group>"; };
 		12AFBEED1E109CD700CD3C33 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
 		12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
 		12BB705B1E5BC7D5005D62EC /* BaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTool.h; sourceTree = "<group>"; };
@@ -188,6 +188,11 @@
 		12FABFC81E10A03B009D010E /* YXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXButton.h; sourceTree = "<group>"; };
 		12FABFC91E10A03B009D010E /* YXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXButton.m; sourceTree = "<group>"; };
 		12FABFCB1E10AE00009D010E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		191516AC1EBC5C5E00353F96 /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
+		191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
+		191516AF1EBC689700353F96 /* ceshi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ceshi.xib; sourceTree = "<group>"; };
+		195A2B4D1EBC114700DCF1C6 /* OrderPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPayViewController.h; sourceTree = "<group>"; };
+		195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPayViewController.m; sourceTree = "<group>"; };
 		198373771E94936100A50E5B /* RegistTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistTextField.h; sourceTree = "<group>"; };
 		198373781E94936100A50E5B /* RegistTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistTextField.m; sourceTree = "<group>"; };
 		1983737A1E94D81200A50E5B /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
@@ -367,7 +372,7 @@
 			children = (
 				12F7DC9F1E0D471200B372CE /* home */,
 				12F7DCA31E0D471200B372CE /* shop */,
-				12F7DCA71E0D471200B372CE /* tea */,
+				191516A81EBC5C4500353F96 /* cart */,
 				12F7DCAB1E0D471200B372CE /* user */,
 				12FABFC71E10A01B009D010E /* tool */,
 			);
@@ -450,6 +455,8 @@
 				125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */,
 				1216D3311EA1C56B009251A7 /* OrderListViewController.h */,
 				1216D3321EA1C56B009251A7 /* OrderListViewController.m */,
+				195A2B4D1EBC114700DCF1C6 /* OrderPayViewController.h */,
+				195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -470,39 +477,6 @@
 			children = (
 				1216D3351EA1C69C009251A7 /* HomeCell */,
 				1216D33B1EA1C69C009251A7 /* OrderCell */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		12F7DCA71E0D471200B372CE /* tea */ = {
-			isa = PBXGroup;
-			children = (
-				12F7DCA81E0D471200B372CE /* controller */,
-				12F7DCA91E0D471200B372CE /* model */,
-				12F7DCAA1E0D471200B372CE /* view */,
-			);
-			path = tea;
-			sourceTree = "<group>";
-		};
-		12F7DCA81E0D471200B372CE /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				12AFBEEA1E109CC700CD3C33 /* TeaViewController.h */,
-				12AFBEEB1E109CC700CD3C33 /* TeaViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		12F7DCA91E0D471200B372CE /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		12F7DCAA1E0D471200B372CE /* view */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -557,6 +531,7 @@
 			children = (
 				1216D3301EA0F96A009251A7 /* PrefixHeader.pch */,
 				12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */,
+				191516AF1EBC689700353F96 /* ceshi.xib */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -581,6 +556,39 @@
 				198373781E94936100A50E5B /* RegistTextField.m */,
 			);
 			path = tool;
+			sourceTree = "<group>";
+		};
+		191516A81EBC5C4500353F96 /* cart */ = {
+			isa = PBXGroup;
+			children = (
+				191516A91EBC5C4500353F96 /* controller */,
+				191516AA1EBC5C4500353F96 /* model */,
+				191516AB1EBC5C4500353F96 /* view */,
+			);
+			path = cart;
+			sourceTree = "<group>";
+		};
+		191516A91EBC5C4500353F96 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				191516AC1EBC5C5E00353F96 /* ShoppingCartViewController.h */,
+				191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		191516AA1EBC5C4500353F96 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		191516AB1EBC5C4500353F96 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		19FC4D6A1EB1823900EEE13B /* PYSearch */ = {
@@ -735,6 +743,7 @@
 				1216D3431EA1C6F2009251A7 /* OrderNumberTableViewCell.xib in Resources */,
 				1216D33E1EA1C69C009251A7 /* GoodsDetailTableViewCellB.xib in Resources */,
 				19FC4D7A1EB1823900EEE13B /* PYSearch.bundle in Resources */,
+				191516B01EBC689700353F96 /* ceshi.xib in Resources */,
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,13 +847,14 @@
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
 				1216D33C1EA1C69C009251A7 /* GoodsDetailTableViewCellA.m in Sources */,
+				191516AE1EBC5C5E00353F96 /* ShoppingCartViewController.m in Sources */,
 				12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */,
 				19FC4D7E1EB1823900EEE13B /* UIColor+PYSearchExtension.m in Sources */,
 				1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */,
 				198373791E94936100A50E5B /* RegistTextField.m in Sources */,
+				195A2B4F1EBC114700DCF1C6 /* OrderPayViewController.m in Sources */,
 				19FC4D791EB1823900EEE13B /* NSBundle+PYSearchExtension.m in Sources */,
 				125A2AAF1E5D3F92006D15DA /* LoginModel.m in Sources */,
-				12AFBEEC1E109CC700CD3C33 /* TeaViewController.m in Sources */,
 				1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */,
 				12E73AA01E63AFF9004C7388 /* NSAttributedString+AvoidCrash.m in Sources */,
 				12F7DCB91E0D764500B372CE /* HomeViewController.m in Sources */,
