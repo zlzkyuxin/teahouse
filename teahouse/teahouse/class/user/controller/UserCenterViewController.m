@@ -122,12 +122,37 @@
 
 #pragma mark - UIImagePickerControllerDelegate的代理
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
+    //压缩图片
+    UIImage *upImage = [UIImage scaleToSize:[info objectForKey:UIImagePickerControllerOriginalImage] size:CGSizeMake(120, 120)];
+    //重命名图片
+    NSString *upImageName = [NSString stringWithFormat:@"%@%@.png",userInfo.userID,userInfo.userNick];
+    //保存图片到沙盒中
+    [UIImage savePNGImage:upImage toCachesWithName:upImageName];
+    
+    NSDictionary *loadDic = [[NSDictionary alloc] init];
+    loadDic = @{@"userID":userInfo.userID};
     //上传图片到服务器
+    [[TeaHouseNetWorking shareNetWorking] POST:@"images/userimage/saveimage.php" parameters:loadDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
+        [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",str);
+        //更新数据库用户图像
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+        NSLog(@"%@",result);
+        if ([result[@"code"] intValue] == 200) {
+            userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            [picker dismissViewControllerAnimated:YES completion:nil];
+        }else {
+            [picker dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    }];
     
-    //更新数据库用户图像
-    
-    userIconImage.image = info[@"UIImagePickerControllerEditedImage"];
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 //创建头部视图
@@ -155,7 +180,7 @@
         make.width.mas_equalTo(userIconRadius);
         make.height.mas_equalTo(userIconRadius);
     }];
-    [userIconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@_original.png",ImageURL,userInfo.userImage]]];
+    [userIconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]]];
     userIconImage.layer.cornerRadius = userIconRadius / 2;
     userIconImage.layer.masksToBounds = YES;
     //给头像添加单击手势
@@ -213,11 +238,41 @@
 
 //用户图像单击事件
 - (void)userIconImageClick {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    imagePicker.delegate = self;
-    imagePicker.allowsEditing = YES;
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    //创建选择框
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    //添加相机选择
+    UIAlertAction *camera = [UIAlertAction actionWithTitle:@"打开相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        [self presentViewController:imagePicker animated:YES completion:nil];
+
+    }];
+    //添加相册选择
+    UIAlertAction *picture = [UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            pickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
+            
+        }
+        pickerImage.delegate = self;
+        pickerImage.allowsEditing = NO;
+        
+        [self presentViewController:pickerImage animated:YES completion:nil];
+    }];
+    [alertVc addAction:cancle];
+    [alertVc addAction:camera];
+    [alertVc addAction:picture];
+    [self presentViewController:alertVc animated:YES completion:nil];
+
+    
 }
 
 //登出

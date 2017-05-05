@@ -18,5 +18,6 @@
 #import "UIImageView+WebCache.h"
 #import "TipsHud.h"
 #import "AvoidCrash.h"
+#import "UIImage+Addition.h"
 
 #endif /* PrefixHeader_pch */

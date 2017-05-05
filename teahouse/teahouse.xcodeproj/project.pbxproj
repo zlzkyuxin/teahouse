@@ -27,6 +27,7 @@
 		1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1283BCFB1E5EB40400D65400 /* RepasswordViewController.m */; };
 		1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1283BCFE1E5EC0B900D65400 /* BaseViewController.m */; };
 		1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285BB1B1E134F5900D85715 /* CustomNavigationController.m */; };
+		128EC06D1EBCA653007A2887 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 128EC06C1EBCA653007A2887 /* UIImage+Addition.m */; };
 		129FEB341E14EB2200B45C54 /* searchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 129FEB331E14EB2200B45C54 /* searchButton.m */; };
 		12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */; };
 		12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE81E109CB800CD3C33 /* StoreViewController.m */; };
@@ -130,6 +131,8 @@
 		1283BCFE1E5EC0B900D65400 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		1285BB1A1E134F5900D85715 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
 		1285BB1B1E134F5900D85715 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		128EC06B1EBCA653007A2887 /* UIImage+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Addition.h"; sourceTree = "<group>"; };
+		128EC06C1EBCA653007A2887 /* UIImage+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Addition.m"; sourceTree = "<group>"; };
 		129FEB321E14EB2200B45C54 /* searchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchButton.h; sourceTree = "<group>"; };
 		129FEB331E14EB2200B45C54 /* searchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchButton.m; sourceTree = "<group>"; };
 		12AFBEE41E109BEE00CD3C33 /* CustiomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustiomTabBarViewController.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				12FABFCB1E10AE00009D010E /* Header.h */,
 				129FEB321E14EB2200B45C54 /* searchButton.h */,
 				129FEB331E14EB2200B45C54 /* searchButton.m */,
+				128EC06B1EBCA653007A2887 /* UIImage+Addition.h */,
+				128EC06C1EBCA653007A2887 /* UIImage+Addition.m */,
 				1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */,
 				1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */,
 				12BB705B1E5BC7D5005D62EC /* BaseTool.h */,
@@ -845,6 +850,7 @@
 				19FC4D7F1EB1823900EEE13B /* UIView+PYSearchExtension.m in Sources */,
 				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
+				128EC06D1EBCA653007A2887 /* UIImage+Addition.m in Sources */,
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
 				1216D33C1EA1C69C009251A7 /* GoodsDetailTableViewCellA.m in Sources */,
 				191516AE1EBC5C5E00353F96 /* ShoppingCartViewController.m in Sources */,

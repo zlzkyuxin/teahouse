@@ -45,7 +45,7 @@
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     if (dic) {
         userInfo = [LoginModel mj_objectWithKeyValues:dic];
-        NSString *iconImage = [NSString stringWithFormat:@"%@userImage/%@_original.png",ImageURL,userInfo.userImage];
+        NSString *iconImage = [NSString stringWithFormat:@"%@userImage/%@",ImageURL,userInfo.userImage];
         [loginIcon sd_setImageWithURL:[NSURL URLWithString:iconImage]];
     }else {
         loginIcon.image = [UIImage imageNamed:@"loginIcon"];
