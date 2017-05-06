@@ -136,8 +136,6 @@
         NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
         [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
     } success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",str);
         //更新数据库用户图像
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         NSLog(@"%@",result);
@@ -180,7 +178,11 @@
         make.width.mas_equalTo(userIconRadius);
         make.height.mas_equalTo(userIconRadius);
     }];
-    [userIconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]]];
+//    [userIconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]]];
+    //刷新本地缓存图片
+    NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]];
+    [userIconImage sd_setImageWithURL:imageUrl placeholderImage:nil options:SDWebImageRefreshCached];
+    
     userIconImage.layer.cornerRadius = userIconRadius / 2;
     userIconImage.layer.masksToBounds = YES;
     //给头像添加单击手势

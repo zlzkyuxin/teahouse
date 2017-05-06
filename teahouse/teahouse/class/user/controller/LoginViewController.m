@@ -46,7 +46,8 @@
     if (dic) {
         userInfo = [LoginModel mj_objectWithKeyValues:dic];
         NSString *iconImage = [NSString stringWithFormat:@"%@userImage/%@",ImageURL,userInfo.userImage];
-        [loginIcon sd_setImageWithURL:[NSURL URLWithString:iconImage]];
+        [loginIcon sd_setImageWithURL:[NSURL URLWithString:iconImage] placeholderImage:nil options:SDWebImageRefreshCached];
+//        [loginIcon sd_setImageWithURL:[NSURL URLWithString:iconImage]];
     }else {
         loginIcon.image = [UIImage imageNamed:@"loginIcon"];
     }
