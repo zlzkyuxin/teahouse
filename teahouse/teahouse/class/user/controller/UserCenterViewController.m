@@ -8,6 +8,7 @@
 
 #import "UserCenterViewController.h"
 #import "LoginViewController.h"
+#import "UserCenterTopView.h"
 #import "LoginModel.h"
 
 #define userIconRadius 80
@@ -20,10 +21,12 @@
 >
 {
     LoginModel *userInfo;
-    UIImageView *userIconImage;
-    UILabel *userNameLabel;
+//    UIImageView *userIconImage;
+//    UILabel *userNameLabel;
     
     UITableView *_tableView;
+    
+    UserCenterTopView *_topView;
 }
 @end
 
@@ -59,13 +62,19 @@
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, - 20, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
     //创建头部视图
-    _tableView.tableHeaderView = [self creatTopView];
+    _topView = [[UserCenterTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 2)];
+    _topView.userInfo = userInfo;
+    WS(weakSelf)
+    _topView.block = ^{
+        [weakSelf userIconImageClick];
+    };
+    _tableView.tableHeaderView = _topView;
     
 }
 
@@ -140,7 +149,7 @@
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
         NSLog(@"%@",result);
         if ([result[@"code"] intValue] == 200) {
-            userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            _topView.userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
             [picker dismissViewControllerAnimated:YES completion:nil];
         }else {
             [picker dismissViewControllerAnimated:YES completion:nil];
@@ -153,90 +162,90 @@
     
 }
 
-//创建头部视图
-- (UIView *)creatTopView {
-    //头部最底层容器
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 2)];
-    [self.view addSubview:backView];
-    
-    //上半部
-    UIView *upView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, backView.frame.size.height / 2)];
-    upView.backgroundColor = [UIColor greenColor];
-    [backView addSubview:upView];
-    
-    //下半部
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(upView.frame), SCREEN_WIDTH, backView.frame.size.height / 2)];
-    bottomView.backgroundColor = [UIColor whiteColor];
-    [backView addSubview:bottomView];
-    
-    //头像
-    userIconImage = [UIImageView new];
-    [backView addSubview:userIconImage];
-    [userIconImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(backView.mas_centerX);
-        make.centerY.equalTo(backView.mas_centerY).offset(-userIconRadius/4);
-        make.width.mas_equalTo(userIconRadius);
-        make.height.mas_equalTo(userIconRadius);
-    }];
-//    [userIconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]]];
-    //刷新本地缓存图片
-    NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]];
-    [userIconImage sd_setImageWithURL:imageUrl placeholderImage:nil options:SDWebImageRefreshCached];
-    
-    userIconImage.layer.cornerRadius = userIconRadius / 2;
-    userIconImage.layer.masksToBounds = YES;
-    //给头像添加单击手势
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userIconImageClick)];
-    userIconImage.userInteractionEnabled = YES;
-    [userIconImage addGestureRecognizer:tap];
-    
-    //用户名
-    userNameLabel = [UILabel new];
-    [bottomView addSubview:userNameLabel];
-    [userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bottomView);
-        make.right.equalTo(bottomView);
-        make.height.mas_equalTo(@20);
-        make.centerY.equalTo(bottomView.mas_centerY).offset(-25);
-    }];
-    userNameLabel.text = userInfo.userNick;
-    userNameLabel.textAlignment = NSTextAlignmentCenter;
-    
-    //用户名底部分割线
-    UIView *line1 = [UIView new];
-    line1.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
-    [bottomView addSubview:line1];
-    [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bottomView);
-        make.right.equalTo(bottomView);
-        make.height.mas_equalTo(@0.5);
-        make.centerY.equalTo(bottomView.mas_centerY);
-    }];
-    
-    //垂直分割线
-    UIView *line2 = [UIView new];
-    line2.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
-    [bottomView addSubview:line2];
-    [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(line1.mas_bottom).offset(8);
-        make.bottom.equalTo(bottomView).offset(-8);
-        make.width.mas_equalTo(@0.5);
-        make.centerX.equalTo(bottomView.mas_centerX);
-    }];
-    
-    //底部分割线
-    UIView *line3 = [UIView new];
-    line3.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
-    [bottomView addSubview:line3];
-    [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bottomView);
-        make.right.equalTo(bottomView);
-        make.height.mas_equalTo(@0.5);
-        make.bottom.equalTo(bottomView);
-    }];
-    
-    return backView;
-}
+////创建头部视图
+//- (UIView *)creatTopView {
+//    //头部最底层容器
+//    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 2)];
+//    [self.view addSubview:backView];
+//    
+//    //上半部
+//    UIView *upView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, backView.frame.size.height / 2)];
+//    upView.backgroundColor = [UIColor greenColor];
+//    [backView addSubview:upView];
+//    
+//    //下半部
+//    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(upView.frame), SCREEN_WIDTH, backView.frame.size.height / 2)];
+//    bottomView.backgroundColor = [UIColor whiteColor];
+//    [backView addSubview:bottomView];
+//    
+//    //头像
+//    userIconImage = [UIImageView new];
+//    [backView addSubview:userIconImage];
+//    [userIconImage mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(backView.mas_centerX);
+//        make.centerY.equalTo(backView.mas_centerY).offset(-userIconRadius/4);
+//        make.width.mas_equalTo(userIconRadius);
+//        make.height.mas_equalTo(userIconRadius);
+//    }];
+////    [userIconImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]]];
+//    //刷新本地缓存图片
+//    NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,userInfo.userImage]];
+//    [userIconImage sd_setImageWithURL:imageUrl placeholderImage:nil options:SDWebImageRefreshCached];
+//    
+//    userIconImage.layer.cornerRadius = userIconRadius / 2;
+//    userIconImage.layer.masksToBounds = YES;
+//    //给头像添加单击手势
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userIconImageClick)];
+//    userIconImage.userInteractionEnabled = YES;
+//    [userIconImage addGestureRecognizer:tap];
+//    
+//    //用户名
+//    userNameLabel = [UILabel new];
+//    [bottomView addSubview:userNameLabel];
+//    [userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(bottomView);
+//        make.right.equalTo(bottomView);
+//        make.height.mas_equalTo(@20);
+//        make.centerY.equalTo(bottomView.mas_centerY).offset(-25);
+//    }];
+//    userNameLabel.text = userInfo.userNick;
+//    userNameLabel.textAlignment = NSTextAlignmentCenter;
+//    
+//    //用户名底部分割线
+//    UIView *line1 = [UIView new];
+//    line1.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
+//    [bottomView addSubview:line1];
+//    [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(bottomView);
+//        make.right.equalTo(bottomView);
+//        make.height.mas_equalTo(@0.5);
+//        make.centerY.equalTo(bottomView.mas_centerY);
+//    }];
+//    
+//    //垂直分割线
+//    UIView *line2 = [UIView new];
+//    line2.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
+//    [bottomView addSubview:line2];
+//    [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(line1.mas_bottom).offset(8);
+//        make.bottom.equalTo(bottomView).offset(-8);
+//        make.width.mas_equalTo(@0.5);
+//        make.centerX.equalTo(bottomView.mas_centerX);
+//    }];
+//    
+//    //底部分割线
+//    UIView *line3 = [UIView new];
+//    line3.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
+//    [bottomView addSubview:line3];
+//    [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(bottomView);
+//        make.right.equalTo(bottomView);
+//        make.height.mas_equalTo(@0.5);
+//        make.bottom.equalTo(bottomView);
+//    }];
+//    
+//    return backView;
+//}
 
 //用户图像单击事件
 - (void)userIconImageClick {
@@ -273,7 +282,6 @@
     [alertVc addAction:camera];
     [alertVc addAction:picture];
     [self presentViewController:alertVc animated:YES completion:nil];
-
     
 }
 

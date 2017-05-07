@@ -33,6 +33,7 @@
 		12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE81E109CB800CD3C33 /* StoreViewController.m */; };
 		12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */; };
 		12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BB705C1E5BC7D5005D62EC /* BaseTool.m */; };
+		12D058FC1EBD77E50070493A /* UserCenterTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D058FB1EBD77E50070493A /* UserCenterTopView.m */; };
 		12E73A851E63AF3A004C7388 /* TipsHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A841E63AF3A004C7388 /* TipsHud.m */; };
 		12E73A9E1E63AFF9004C7388 /* AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A8B1E63AFF9004C7388 /* AvoidCrash.m */; };
 		12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E73A8D1E63AFF9004C7388 /* NSArray+AvoidCrash.m */; };
@@ -143,6 +144,8 @@
 		12AFBEEE1E109CD700CD3C33 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
 		12BB705B1E5BC7D5005D62EC /* BaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTool.h; sourceTree = "<group>"; };
 		12BB705C1E5BC7D5005D62EC /* BaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTool.m; sourceTree = "<group>"; };
+		12D058FA1EBD77E50070493A /* UserCenterTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterTopView.h; sourceTree = "<group>"; };
+		12D058FB1EBD77E50070493A /* UserCenterTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterTopView.m; sourceTree = "<group>"; };
 		12E73A831E63AF3A004C7388 /* TipsHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsHud.h; sourceTree = "<group>"; };
 		12E73A841E63AF3A004C7388 /* TipsHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsHud.m; sourceTree = "<group>"; };
 		12E73A8A1E63AFF9004C7388 /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
@@ -525,6 +528,8 @@
 		12F7DCAE1E0D471200B372CE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				12D058FA1EBD77E50070493A /* UserCenterTopView.h */,
+				12D058FB1EBD77E50070493A /* UserCenterTopView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -850,6 +855,7 @@
 				19FC4D7F1EB1823900EEE13B /* UIView+PYSearchExtension.m in Sources */,
 				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
+				12D058FC1EBD77E50070493A /* UserCenterTopView.m in Sources */,
 				128EC06D1EBCA653007A2887 /* UIImage+Addition.m in Sources */,
 				12AFBEEF1E109CD700CD3C33 /* UserCenterViewController.m in Sources */,
 				1216D33C1EA1C69C009251A7 /* GoodsDetailTableViewCellA.m in Sources */,
