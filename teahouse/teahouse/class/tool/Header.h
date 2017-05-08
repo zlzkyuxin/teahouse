@@ -116,6 +116,50 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), 
 kWindow.userInteractionEnabled = YES;\
 });\
 
+
+///声明为单例类
+///需要在@interface中声明以下函数原型
+///+ (className *)sharedInstance
+#define DECLARE_SINGLETON_B(className) \
+static className *singletonInstance = nil; \
+\
++ (className *)sharedInstance { \
+@synchronized (self) { \
+if (!singletonInstance) { \
+[[self alloc] init]; \
+} \
+} \
+return singletonInstance; \
+} \
+\
++ (id)allocWithZone:(NSZone *)zone { \
+@synchronized (self) { \
+if (!singletonInstance) { \
+singletonInstance = [super allocWithZone:zone]; \
+return singletonInstance; \
+} \
+} \
+return nil; \
+} \
+\
+
+#define DECLARE_SINGLETON_A(className) \
+static className *singletonInstance = nil; \
++ (className *)sharedInstance { \
+@synchronized (self) { \
+if (!singletonInstance) { \
+singletonInstance = [[self alloc] init]; \
+} \
+return singletonInstance; \
+} \
+} \
+
+#ifdef DEBUG
+#define DECLARE_SINGLETON DECLARE_SINGLETON_A
+#else
+#define DECLARE_SINGLETON DECLARE_SINGLETON_B
+#endif
+
 /**
  *  设置加载提示框（第三方框架：MBProgressHUD）
  */

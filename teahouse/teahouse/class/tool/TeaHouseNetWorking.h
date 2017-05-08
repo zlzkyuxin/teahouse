@@ -7,7 +7,7 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #define TEST
 
@@ -30,5 +30,22 @@
 
 
 @interface TeaHouseNetWorking : AFHTTPSessionManager
+
 + (instancetype)shareNetWorking;
+
+@end
+
+
+typedef void(^HTTPClientsuccess)(id responseObject);
+typedef void(^HTTPClientfailure)(NSError *error);
+@interface TeaHouseHTTPClient : NSObject
+<MBProgressHUDDelegate>
++ (instancetype)sharedInstance;
+
+- (NSURLSessionTask *)POST:(NSString *)URLString
+                     isShowHud:(BOOL)hud
+                    parameters:(id)parameters
+                       success:(HTTPClientsuccess)success
+                       failure:(HTTPClientfailure)failure;
+
 @end

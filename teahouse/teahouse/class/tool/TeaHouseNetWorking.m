@@ -12,7 +12,7 @@ static NSString * const httpBaseURLString = BaseUrl;
 
 @implementation TeaHouseNetWorking
 
-+(instancetype)shareNetWorking {
++ (instancetype)shareNetWorking {
     static TeaHouseNetWorking *_thNetWorking = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -24,5 +24,54 @@ static NSString * const httpBaseURLString = BaseUrl;
     });
     return _thNetWorking;
 }
+
+
+@end
+
+
+
+
+@interface TeaHouseHTTPClient ()
+
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
+@end
+
+@implementation TeaHouseHTTPClient
+
+DECLARE_SINGLETON(TeaHouseHTTPClient)
+
+- (id)init {
+    if (self) {
+        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:httpBaseURLString]];
+        
+        //        _manager.securityPolicy = [self customSecurityPolicy];
+        
+        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+//         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"text/javascript", nil];
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript", nil];
+        
+        _manager.requestSerializer.timeoutInterval = 0;
+//        _manager.requestSerializer = [AFJSONRequestSerializer serializerWithWritingOptions:NSJSONWritingPrettyPrinted];
+    }
+    return self;
+}
+- (NSURLSessionTask *)POST:(NSString *)URLString
+                 isShowHud:(BOOL)hud
+                parameters:(id)parameters
+                   success:(HTTPClientsuccess)success
+                   failure:(HTTPClientfailure)failure {
+    if (hud) {
+        
+    }
+    NSURLSessionTask *task = [_manager POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+    return task;
+}
+
 
 @end
