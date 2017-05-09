@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PYSearchViewController.h"
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : PYSearchViewController
+
 
 @end

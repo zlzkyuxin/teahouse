@@ -55,7 +55,7 @@
     [self.view addSubview:_tableView];
     
     
-    topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160)];
+    topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0)*SCREEN_HEIGHT)];
     _tableView.tableHeaderView = topImage;
 }
 
@@ -148,7 +148,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 64.f;
+    return 64.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -167,8 +167,15 @@
         make.bottom.equalTo(headerView).offset(-10);
     }];
     price.adjustsFontSizeToFitWidth = YES;
-    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:@"￥99.9"];
-    [att addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(1, att.length-1)];
+    
+    NSString *goodsPrice = @"";
+    if ([goodsDeailModel.goodsIsDiscount intValue] == 0) {
+        goodsPrice = [NSString stringWithFormat:@"￥%.1f",[goodsDeailModel.goodsPrice floatValue]];
+    }else {
+        goodsPrice = [NSString stringWithFormat:@"￥%.2f",[goodsDeailModel.goodsPrice floatValue] * 0.75];
+    }
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:goodsPrice];
+    [att addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:25] range:NSMakeRange(1, att.length-1)];
     price.attributedText = att;
     price.textColor = [UIColor greenColor];
     
@@ -180,9 +187,17 @@
         make.top.equalTo(price);
         make.bottom.equalTo(price);
     }];
+    NSString *nowPrice = [NSString stringWithFormat:@"门市价:￥%.1f",[goodsDeailModel.goodsPrice floatValue]];
     prices.adjustsFontSizeToFitWidth = YES;
-    prices.text = @"门市价:￥199";
+    prices.text = nowPrice;
+    prices.font = [UIFont systemFontOfSize:15];
     prices.textColor = [UIColor lightGrayColor];
+    //是否隐藏原价
+    if ([goodsDeailModel.goodsIsDiscount intValue] == 0) {
+        prices.hidden = YES;
+    }else {
+        prices.hidden = NO;
+    }
     
     //立即抢购
     UIButton *buyBtn = [UIButton new];
@@ -222,7 +237,13 @@
         nextVC.title = @"提交订单";
         nextVC.goodsID = goodsDeailModel.goodsID;
         nextVC.goodsName = goodsDeailModel.goodsName;
-        nextVC.price = goodsDeailModel.goodsPrice;
+        NSString *goodPrice = @"";
+        if ([goodsDeailModel.goodsIsDiscount intValue] == 1) {
+            goodPrice = [NSString stringWithFormat:@"%.2f",[goodsDeailModel.goodsPrice floatValue] * 0.75];
+        }else {
+            goodPrice = goodsDeailModel.goodsPrice;
+        }
+        nextVC.price = goodPrice;
         [self.navigationController pushViewController:nextVC animated:YES];
     }
 }

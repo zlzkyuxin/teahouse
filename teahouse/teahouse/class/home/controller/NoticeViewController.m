@@ -26,6 +26,7 @@
 
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.title = @"消息中心";
 }
 
 

@@ -59,7 +59,7 @@
     NSString *phone = [[NSUserDefaults standardUserDefaults] valueForKey:@"phone"];
     NSString *tel = [phone stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
     dataArray = @[@[self.goodsName,@"",@"小计"],@[@"抵用券",@"订单总价"],@[@"您绑定的手机号码",tel]];
-    dataSource = @[@[[NSString stringWithFormat:@"%d元",[self.price intValue]],@"",[NSString stringWithFormat:@"￥%.1f",[self.price floatValue]]],@[@"",[NSString stringWithFormat:@"￥%.1f",[self.price floatValue]]],@[@"",@"绑定新号码"]];
+    dataSource = @[@[[NSString stringWithFormat:@"%.2f元",[self.price floatValue]],@"",[NSString stringWithFormat:@"￥%.2f",[self.price floatValue]]],@[@"",[NSString stringWithFormat:@"￥%.2f",[self.price floatValue]]],@[@"",@"绑定新号码"]];
 }
 
 #pragma mark - UITableViewDataSource
@@ -86,7 +86,7 @@
         //监听数量变化
         cell.block = ^(int number) {
             numbers = [NSString stringWithFormat:@"%d",number];
-            dataSource = @[@[[NSString stringWithFormat:@"%d元",[self.price intValue]],@"",[NSString stringWithFormat:@"￥%.1f",[self.price floatValue] * number]],@[@"",[NSString stringWithFormat:@"￥%.1f",[self.price floatValue] * number]],@[@"",@"绑定新号码"]];
+            dataSource = @[@[[NSString stringWithFormat:@"%.2f元",[self.price floatValue]],@"",[NSString stringWithFormat:@"￥%.2f",[self.price floatValue] * number]],@[@"",[NSString stringWithFormat:@"￥%.2f",[self.price floatValue] * number]],@[@"",@"绑定新号码"]];
             //刷新其中总价的cell
             [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:2 inSection:0],[NSIndexPath indexPathForRow:1 inSection:1], nil] withRowAnimation:UITableViewRowAnimationNone];
             weakSelf.goodsNumber = numbers;
@@ -109,6 +109,35 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"暂无可用抵用券" message:@"请留意下一轮活动时间" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else if (indexPath.section == 2 && indexPath.row == 1) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"绑定新号码" message:@"请确认新号码能够正常接收信息" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"发送验证码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //响应事件
+            //得到文本信息
+            for(UITextField *text in alert.textFields){
+                NSLog(@"text = %@", text.text);
+            }
+        }];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * action) {
+                                                //响应事件
+                                                NSLog(@"action = %@", alert.textFields);
+                                                             }];
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"请输入新的手机号码";
+        }];
+        [alert addAction:action];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 

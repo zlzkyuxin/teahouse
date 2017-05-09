@@ -116,7 +116,7 @@
                 [_weakSelf searchBarSearchButtonClicked:_weakSelf.searchBar];
             }
         };
-        searchSuggestionVC.view.frame = CGRectMake(0, 64, self.view.py_width, self.view.py_height);
+        searchSuggestionVC.view.frame = CGRectMake(0, 64, self.view.py_width, self.view.py_height - 64);
         searchSuggestionVC.view.backgroundColor = self.baseSearchTableView.backgroundColor;
         searchSuggestionVC.view.hidden = YES;
         // 设置数据源

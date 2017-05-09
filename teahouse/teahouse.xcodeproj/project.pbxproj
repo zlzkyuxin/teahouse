@@ -64,6 +64,22 @@
 		195A2B4F1EBC114700DCF1C6 /* OrderPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */; };
 		198373791E94936100A50E5B /* RegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 198373781E94936100A50E5B /* RegistTextField.m */; };
 		1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983737B1E94D81200A50E5B /* HTTPViewController.m */; };
+		19BB93551EC151DB00A3CFBE /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BB93541EC151DB00A3CFBE /* SearchResultModel.m */; };
+		19BB93581EC1720200A3CFBE /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93571EC1720200A3CFBE /* iflyMSC.framework */; };
+		19BB935A1EC172E900A3CFBE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93591EC172E900A3CFBE /* AVFoundation.framework */; };
+		19BB935C1EC172FD00A3CFBE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB935B1EC172FD00A3CFBE /* AudioToolbox.framework */; };
+		19BB935E1EC1731C00A3CFBE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB935D1EC1731C00A3CFBE /* libz.tbd */; };
+		19BB93601EC1732300A3CFBE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB935F1EC1732300A3CFBE /* SystemConfiguration.framework */; };
+		19BB93621EC1732B00A3CFBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93611EC1732B00A3CFBE /* Foundation.framework */; };
+		19BB93641EC1733500A3CFBE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93631EC1733500A3CFBE /* CoreTelephony.framework */; };
+		19BB93661EC1733E00A3CFBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93651EC1733E00A3CFBE /* UIKit.framework */; };
+		19BB93681EC1734F00A3CFBE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93671EC1734F00A3CFBE /* CoreLocation.framework */; };
+		19BB936A1EC1735800A3CFBE /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93691EC1735800A3CFBE /* Contacts.framework */; };
+		19BB936C1EC1735E00A3CFBE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB936B1EC1735E00A3CFBE /* AddressBook.framework */; };
+		19BB936E1EC1736500A3CFBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB936D1EC1736500A3CFBE /* QuartzCore.framework */; };
+		19BB93701EC1736F00A3CFBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB936F1EC1736F00A3CFBE /* CoreGraphics.framework */; };
+		19BB93721EC1737B00A3CFBE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BB93711EC1737B00A3CFBE /* libc++.tbd */; };
+		19BB93A71EC1839900A3CFBE /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BB93A61EC1839900A3CFBE /* IATConfig.m */; };
 		19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */; };
 		19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBF11E11491B00AD3836 /* NoticeViewController.m */; };
 		19FC4D791EB1823900EEE13B /* NSBundle+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FC4D6C1EB1823900EEE13B /* NSBundle+PYSearchExtension.m */; };
@@ -204,6 +220,24 @@
 		1983737A1E94D81200A50E5B /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
 		1983737B1E94D81200A50E5B /* HTTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPViewController.m; sourceTree = "<group>"; };
 		1989F2551E8CDD8F0098130C /* teahouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teahouse.entitlements; sourceTree = "<group>"; };
+		19BB93531EC151DB00A3CFBE /* SearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultModel.h; sourceTree = "<group>"; };
+		19BB93541EC151DB00A3CFBE /* SearchResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultModel.m; sourceTree = "<group>"; };
+		19BB93571EC1720200A3CFBE /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		19BB93591EC172E900A3CFBE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		19BB935B1EC172FD00A3CFBE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		19BB935D1EC1731C00A3CFBE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		19BB935F1EC1732300A3CFBE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		19BB93611EC1732B00A3CFBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		19BB93631EC1733500A3CFBE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		19BB93651EC1733E00A3CFBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		19BB93671EC1734F00A3CFBE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		19BB93691EC1735800A3CFBE /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		19BB936B1EC1735E00A3CFBE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		19BB936D1EC1736500A3CFBE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		19BB936F1EC1736F00A3CFBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		19BB93711EC1737B00A3CFBE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		19BB93A51EC1839900A3CFBE /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfig.h; sourceTree = "<group>"; };
+		19BB93A61EC1839900A3CFBE /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
 		19E0CBED1E1140AD00AD3836 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		19E0CBF01E11491B00AD3836 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
@@ -232,6 +266,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19BB93721EC1737B00A3CFBE /* libc++.tbd in Frameworks */,
+				19BB93701EC1736F00A3CFBE /* CoreGraphics.framework in Frameworks */,
+				19BB936E1EC1736500A3CFBE /* QuartzCore.framework in Frameworks */,
+				19BB936C1EC1735E00A3CFBE /* AddressBook.framework in Frameworks */,
+				19BB936A1EC1735800A3CFBE /* Contacts.framework in Frameworks */,
+				19BB93681EC1734F00A3CFBE /* CoreLocation.framework in Frameworks */,
+				19BB93661EC1733E00A3CFBE /* UIKit.framework in Frameworks */,
+				19BB93641EC1733500A3CFBE /* CoreTelephony.framework in Frameworks */,
+				19BB93621EC1732B00A3CFBE /* Foundation.framework in Frameworks */,
+				19BB93601EC1732300A3CFBE /* SystemConfiguration.framework in Frameworks */,
+				19BB935E1EC1731C00A3CFBE /* libz.tbd in Frameworks */,
+				19BB935C1EC172FD00A3CFBE /* AudioToolbox.framework in Frameworks */,
+				19BB935A1EC172E900A3CFBE /* AVFoundation.framework in Frameworks */,
+				19BB93581EC1720200A3CFBE /* iflyMSC.framework in Frameworks */,
 				15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +326,19 @@
 		12448B716C011951303D805F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19BB93711EC1737B00A3CFBE /* libc++.tbd */,
+				19BB936F1EC1736F00A3CFBE /* CoreGraphics.framework */,
+				19BB936D1EC1736500A3CFBE /* QuartzCore.framework */,
+				19BB936B1EC1735E00A3CFBE /* AddressBook.framework */,
+				19BB93691EC1735800A3CFBE /* Contacts.framework */,
+				19BB93671EC1734F00A3CFBE /* CoreLocation.framework */,
+				19BB93651EC1733E00A3CFBE /* UIKit.framework */,
+				19BB93631EC1733500A3CFBE /* CoreTelephony.framework */,
+				19BB93611EC1732B00A3CFBE /* Foundation.framework */,
+				19BB935F1EC1732300A3CFBE /* SystemConfiguration.framework */,
+				19BB935D1EC1731C00A3CFBE /* libz.tbd */,
+				19BB935B1EC172FD00A3CFBE /* AudioToolbox.framework */,
+				19BB93591EC172E900A3CFBE /* AVFoundation.framework */,
 				3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */,
 			);
 			name = Frameworks;
@@ -381,6 +442,7 @@
 				191516A81EBC5C4500353F96 /* cart */,
 				12F7DCAB1E0D471200B372CE /* user */,
 				12FABFC71E10A01B009D010E /* tool */,
+				19BB93561EC171F900A3CFBE /* lib */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -423,6 +485,8 @@
 			children = (
 				1276DD121E1B88B80009F551 /* HotGoodsModel.h */,
 				1276DD131E1B88B80009F551 /* HotGoodsModel.m */,
+				19BB93531EC151DB00A3CFBE /* SearchResultModel.h */,
+				19BB93541EC151DB00A3CFBE /* SearchResultModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -547,13 +611,14 @@
 		12FABFC71E10A01B009D010E /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				19BB93A41EC1838800A3CFBE /* isr */,
 				19FC4D6A1EB1823900EEE13B /* PYSearch */,
 				12E73A891E63AFF9004C7388 /* AvoidCrash */,
+				12FABFCB1E10AE00009D010E /* Header.h */,
 				12E73A831E63AF3A004C7388 /* TipsHud.h */,
 				12E73A841E63AF3A004C7388 /* TipsHud.m */,
 				12FABFC81E10A03B009D010E /* YXButton.h */,
 				12FABFC91E10A03B009D010E /* YXButton.m */,
-				12FABFCB1E10AE00009D010E /* Header.h */,
 				129FEB321E14EB2200B45C54 /* searchButton.h */,
 				129FEB331E14EB2200B45C54 /* searchButton.m */,
 				128EC06B1EBCA653007A2887 /* UIImage+Addition.h */,
@@ -599,6 +664,23 @@
 			children = (
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		19BB93561EC171F900A3CFBE /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				19BB93571EC1720200A3CFBE /* iflyMSC.framework */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		19BB93A41EC1838800A3CFBE /* isr */ = {
+			isa = PBXGroup;
+			children = (
+				19BB93A51EC1839900A3CFBE /* IATConfig.h */,
+				19BB93A61EC1839900A3CFBE /* IATConfig.m */,
+			);
+			path = isr;
 			sourceTree = "<group>";
 		};
 		19FC4D6A1EB1823900EEE13B /* PYSearch */ = {
@@ -873,11 +955,13 @@
 				1216D3421EA1C6F2009251A7 /* OrderNumberTableViewCell.m in Sources */,
 				1276DD1D1E1CC9960009F551 /* LoginViewController.m in Sources */,
 				12E73AA71E63AFF9004C7388 /* NSString+AvoidCrash.m in Sources */,
+				19BB93551EC151DB00A3CFBE /* SearchResultModel.m in Sources */,
 				12F9C7C31E1634C50074D0CF /* LoopBanner.m in Sources */,
 				19FC4D7C1EB1823900EEE13B /* PYSearchSuggestionViewController.m in Sources */,
 				12BB705D1E5BC7D5005D62EC /* BaseTool.m in Sources */,
 				125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */,
 				125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */,
+				19BB93A71EC1839900A3CFBE /* IATConfig.m in Sources */,
 				125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */,
 				12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */,
@@ -1030,6 +1114,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/teahouse/class/lib",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/teahouse/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";
@@ -1049,6 +1138,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hao Yang (HXNK3N6VGG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ELQL529Z4C;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/teahouse/class/lib",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/teahouse/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/teahouse/other/Info.plist";

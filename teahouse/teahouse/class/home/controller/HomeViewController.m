@@ -20,6 +20,10 @@
 #import "GoodsDetailViewController.h"
 #import "PYSearch.h"
 #import "CustomNavigationController.h"
+#import "SearchResultModel.h"
+#import <iflyMSC/iflyMSC.h>
+#import "IATConfig.h"
+#import "SearchResultModel.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
@@ -38,6 +42,8 @@
     BOOL isChanged;
     
     NSMutableArray *dataArray;
+    
+    PYSearchViewController *searchViewVC;
 }
 @end
 
@@ -75,7 +81,7 @@
     self.automaticallyAdjustsScrollViewInsets = false;//去掉顶部的留白
     
     
-    LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160) scrollDuration:5.f];
+    LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0)*SCREEN_HEIGHT) scrollDuration:5.f];
     loop.imageURLStrings = @[@"home1.jpg",@"home2.jpg",@"home3.jpg",@"home4.jpg"];
     loop.clickAction = ^(NSInteger index) {
         NSLog(@"点击了第%ld张图片",(long)index);
@@ -142,39 +148,50 @@
 
 - (void)searchBtnClick {
     NSArray *arr = @[@"祁红香螺",@"阿萨姆红茶",@"汀布拉茶",@"桂花茶",@"菊花茶",@"金银花茶",@"柠檬茶",@"君山银针",@"白毫银针",@"大红袍",@"铁观音"].copy;
-   __block PYSearchViewController *searchView = [PYSearchViewController searchViewControllerWithHotSearches:arr searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+    searchViewVC = [PYSearchViewController searchViewControllerWithHotSearches:arr searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
         nextVC.title = searchText;
-        [searchView.navigationController pushViewController:nextVC animated:YES];
+        [searchViewVC.navigationController pushViewController:nextVC animated:YES];
     }];
+    
     //热门搜索风格
-    searchView.hotSearchStyle = PYHotSearchStyleDefault;
+    searchViewVC.hotSearchStyle = PYHotSearchStyleDefault;
     //热门搜索历史搜索风格
-    searchView.searchHistoryStyle = PYSearchHistoryStyleDefault;
-    searchView.delegate = self;
-    CustomNavigationController *next = [[CustomNavigationController alloc] initWithRootViewController:searchView];
-    [self presentViewController:next animated:YES completion:nil];
+    searchViewVC.searchHistoryStyle = PYSearchHistoryStyleDefault;
+    searchViewVC.delegate = self;
+    [searchViewVC.searchBar resignFirstResponder];
+    CustomNavigationController *next = [[CustomNavigationController alloc] initWithRootViewController:searchViewVC];
+    [self presentViewController:next animated:NO completion:nil];
 }
 
 - (void)voiceBtnClick {
-    [self.navigationController pushViewController:[[SearchViewController alloc] init] animated:YES];
+    CustomNavigationController *next = [[CustomNavigationController alloc] initWithRootViewController:[SearchViewController new]];
+    [self presentViewController:next animated:NO completion:nil];
 }
+
 
 #pragma mark - PYSearchViewControllerDelegate
 - (void)searchViewController:(PYSearchViewController *)searchViewController searchTextDidChange:(UISearchBar *)seachBar searchText:(NSString *)searchText
 {
     if (searchText.length) { // 与搜索条件再搜索
         // 根据条件发送查询（这里模拟搜索）
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ // 搜索完毕
-            // 显示建议搜索结果
-            NSMutableArray *searchSuggestionsM = [NSMutableArray array];
-            for (int i = 0; i < arc4random_uniform(5) + 10; i++) {
-                NSString *searchSuggestion = [NSString stringWithFormat:@"搜索建议 %d", i];
-                [searchSuggestionsM addObject:searchSuggestion];
+        NSDictionary *loadDic = [[NSDictionary alloc] init];
+        loadDic = @{@"key":@"searchGoodName",@"goodStr":searchText};
+        [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+            NSLog(@"%@",result);
+            if ([result[@"code"] intValue] == 200) {
+                NSMutableArray *resultArr = @[].mutableCopy;
+                for (NSDictionary *dic in result[@"list"]) {
+                    SearchResultModel *model = [SearchResultModel mj_objectWithKeyValues:dic];
+                    [resultArr addObject:model.goodName];
+                }
+                searchViewController.searchSuggestions = resultArr;
             }
-            // 返回
-            searchViewController.searchSuggestions = searchSuggestionsM;
-        });
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"%@",error);
+        }];
+        
     }
 }
 

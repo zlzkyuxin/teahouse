@@ -11,6 +11,7 @@
 @interface GoodsDetailModel : NSObject
 @property (nonatomic , strong)NSString *goodsID;
 @property (nonatomic , strong)NSString *goodsName;
+@property (nonatomic , strong)NSString *goodsIsDiscount;
 @property (nonatomic , strong)NSString *goodsPrice;
 @property (nonatomic , strong)NSString *goodsNumber;
 @property (nonatomic , strong)NSString *goodsContent;
