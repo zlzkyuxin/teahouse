@@ -30,22 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
-    // Do any additional setup after loading the view.
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    //隐藏navigationbar
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
-//}
-
 - (instancetype)init {
-//    PYSearchViewController *searchVC = [self searchViewControllerWithHotSearches:hotSearches searchBarPlaceholder:placeholder];
-//    searchVC.didSearchBlock = [block copy];
-    //    return searchVC;
-    
-    //    searchVC.hotSearches = hotSearches;
-    //    searchVC.searchBar.placeholder = placeholder;
     self = [super init];
     if (self) {
         self.hotSearches = @[@"祁红香螺",@"阿萨姆红茶",@"汀布拉茶",@"桂花茶",@"菊花茶",@"金银花茶",@"柠檬茶",@"君山银针",@"白毫银针",@"大红袍",@"铁观音"].copy;
@@ -54,32 +41,40 @@
     return self;
 }
 
+//初始化界面
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     WS(weakSelf)
-//    NSArray *arr = @[@"祁红香螺",@"阿萨姆红茶",@"汀布拉茶",@"桂花茶",@"菊花茶",@"金银花茶",@"柠檬茶",@"君山银针",@"白毫银针",@"大红袍",@"铁观音"].copy;
-//    [PYSearchViewController searchViewControllerWithHotSearches:arr searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-//        GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
-//        nextVC.title = searchText;
-//        [weakSelf.navigationController pushViewController:nextVC animated:YES];
-//    }];
-    
     self.didSearchBlock = ^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-        GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
-        nextVC.title = searchText;
-        [weakSelf.navigationController pushViewController:nextVC animated:YES];
+        NSDictionary *loadDic = [[NSDictionary alloc] init];
+        loadDic = @{@"key":@"goodIsHave",@"goodName":searchText};
+        //确认数据库存在该商品
+        [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+            if ([result[@"code"] intValue] == 200) {
+                GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
+                nextVC.title = searchText;
+                [weakSelf.navigationController pushViewController:nextVC animated:YES];
+            } else {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+                hud.mode = MBProgressHUDModeIndeterminate;
+                hud.label.text = @"无此商品信息,请重新查询";
+                [hud hideAnimated:YES afterDelay:1.5];
+                [hud removeFromSuperViewOnHide];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
     };
 
     //热门搜索风格
     self.hotSearchStyle = PYHotSearchStyleRankTag;
     //热门搜索历史搜索风格
     self.searchHistoryStyle = PYSearchHistoryStyleDefault;
-    
     self.delegate = self;
-////    [self.view addSubview:searchViewVC.view];
-//    CustomNavigationController *next = [[CustomNavigationController alloc] initWithRootViewController:searchViewVC];
-//    [self presentViewController:next animated:NO completion:nil];
+    
+    //底部语音识别按钮
     UIButton *start = [UIButton new];
     [self.view addSubview:start];
     [start mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -214,6 +209,7 @@
                     hud.mode = MBProgressHUDModeIndeterminate;
                     hud.label.text = @"未查询到商品信息,请重新查询";
                     [hud hideAnimated:YES afterDelay:1.5];
+                    [hud removeFromSuperViewOnHide];
                 }
             }
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -58,6 +58,9 @@
 		12F9C7C31E1634C50074D0CF /* LoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C21E1634C50074D0CF /* LoopBanner.m */; };
 		12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C7C51E164C800074D0CF /* ScanCodeView.m */; };
 		12FABFCA1E10A03B009D010E /* YXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FABFC91E10A03B009D010E /* YXButton.m */; };
+		12FB465C1EC1DF890013B8BE /* ShopGoodMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FB465B1EC1DF890013B8BE /* ShopGoodMenuModel.m */; };
+		12FB46641EC2049A0013B8BE /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FB46621EC2049A0013B8BE /* GoodsCollectionViewCell.m */; };
+		12FB46651EC2049A0013B8BE /* GoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FB46631EC2049A0013B8BE /* GoodsCollectionViewCell.xib */; };
 		15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */; };
 		191516AE1EBC5C5E00353F96 /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */; };
 		191516B01EBC689700353F96 /* ceshi.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191516AF1EBC689700353F96 /* ceshi.xib */; };
@@ -210,6 +213,11 @@
 		12FABFC81E10A03B009D010E /* YXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXButton.h; sourceTree = "<group>"; };
 		12FABFC91E10A03B009D010E /* YXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXButton.m; sourceTree = "<group>"; };
 		12FABFCB1E10AE00009D010E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		12FB465A1EC1DF890013B8BE /* ShopGoodMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopGoodMenuModel.h; sourceTree = "<group>"; };
+		12FB465B1EC1DF890013B8BE /* ShopGoodMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopGoodMenuModel.m; sourceTree = "<group>"; };
+		12FB46611EC2049A0013B8BE /* GoodsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		12FB46621EC2049A0013B8BE /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		12FB46631EC2049A0013B8BE /* GoodsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsCollectionViewCell.xib; sourceTree = "<group>"; };
 		191516AC1EBC5C5E00353F96 /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
 		191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
 		191516AF1EBC689700353F96 /* ceshi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ceshi.xib; sourceTree = "<group>"; };
@@ -538,6 +546,8 @@
 				125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */,
 				125A362F1EBB63B8009D1BD2 /* OrderModel.h */,
 				125A36301EBB63B8009D1BD2 /* OrderModel.m */,
+				12FB465A1EC1DF890013B8BE /* ShopGoodMenuModel.h */,
+				12FB465B1EC1DF890013B8BE /* ShopGoodMenuModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -545,6 +555,7 @@
 		12F7DCA61E0D471200B372CE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				12FB465D1EC2042D0013B8BE /* GoodsCollection */,
 				1216D3351EA1C69C009251A7 /* HomeCell */,
 				1216D33B1EA1C69C009251A7 /* OrderCell */,
 			);
@@ -631,6 +642,16 @@
 				198373781E94936100A50E5B /* RegistTextField.m */,
 			);
 			path = tool;
+			sourceTree = "<group>";
+		};
+		12FB465D1EC2042D0013B8BE /* GoodsCollection */ = {
+			isa = PBXGroup;
+			children = (
+				12FB46611EC2049A0013B8BE /* GoodsCollectionViewCell.h */,
+				12FB46621EC2049A0013B8BE /* GoodsCollectionViewCell.m */,
+				12FB46631EC2049A0013B8BE /* GoodsCollectionViewCell.xib */,
+			);
+			name = GoodsCollection;
 			sourceTree = "<group>";
 		};
 		191516A81EBC5C4500353F96 /* cart */ = {
@@ -837,6 +858,7 @@
 				19FC4D7A1EB1823900EEE13B /* PYSearch.bundle in Resources */,
 				191516B01EBC689700353F96 /* ceshi.xib in Resources */,
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
+				12FB46651EC2049A0013B8BE /* GoodsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,10 +954,12 @@
 				1221798F1E1B5388007A2285 /* ScanResultController.m in Sources */,
 				12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */,
 				1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */,
+				12FB46641EC2049A0013B8BE /* GoodsCollectionViewCell.m in Sources */,
 				129FEB341E14EB2200B45C54 /* searchButton.m in Sources */,
 				12E73AA31E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
 				19FC4D7F1EB1823900EEE13B /* UIView+PYSearchExtension.m in Sources */,
 				12F3FB151E11EEB900D0AAE1 /* TopView.m in Sources */,
+				12FB465C1EC1DF890013B8BE /* ShopGoodMenuModel.m in Sources */,
 				12F7DC701E0D464E00B372CE /* AppDelegate.m in Sources */,
 				12D058FC1EBD77E50070493A /* UserCenterTopView.m in Sources */,
 				128EC06D1EBCA653007A2887 /* UIImage+Addition.m in Sources */,
