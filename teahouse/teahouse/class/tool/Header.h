@@ -47,8 +47,8 @@
 /**
  *  获取屏幕宽度与高度
  */
-#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_WIDTH   ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 #define SCREEN_NAVIHEIGHT (44 + 20)
 #define SCREEN_TABBARHEIGHT 49

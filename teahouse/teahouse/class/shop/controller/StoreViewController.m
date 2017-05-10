@@ -11,7 +11,7 @@
 #import "GoodsCollectionViewCell.h"
 #import "GoodsDetailViewController.h"
 
-#define TableViewWeidth   100
+#define TableViewWeidth   ([UIScreen mainScreen].bounds.size.width/4)
 
 @interface StoreViewController ()
 <
@@ -90,7 +90,17 @@
     [self.view addSubview:self.collectionView];
     // 注册collectionViewcell:GoodsCollectionViewCell是我自定义的cell的类型
     [self.collectionView registerNib:[UINib nibWithNibName:@"GoodsCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"collectioncell"];
-//    [self.collectionView registerClass:[GoodsCollectionViewCell class] forCellWithReuseIdentifier:@"collectioncell"];
+    //初始化布局类
+    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
+    //滚动方向
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    //collection的大小
+    flowLayout.itemSize = CGSizeMake(110, 110);
+    //间距
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 15, 0);
+    [_collectionView setCollectionViewLayout:flowLayout];
 }
 
 //懒加载collection
@@ -172,7 +182,6 @@
         NSURL *goodsImageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@thumbnail/%@.png",ImageURL,thirdModel.goodsImage]];
         [cell.goodsImage sd_setImageWithURL:goodsImageUrl];
         cell.textLabel.text = thirdModel.goodsThirdName;
-        cell.backgroundColor = [UIColor greenColor];
     }
     return cell;
 }
@@ -187,23 +196,12 @@
         NSArray *thirdModelArray = menuModel.thirdMenu;
         thirdMenuModel *thirdModel = thirdModelArray[indexPath.row];
         NSLog(@"选中商品的ID:%@",thirdModel.goodsthirdID);
+        
         GoodsDetailViewController *nextVC = [[GoodsDetailViewController alloc] init];
         nextVC.goodsId = thirdModel.goodsthirdID;
         nextVC.title = thirdModel.goodsThirdName;
         [self.navigationController pushViewController:nextVC animated:YES];
     }
-}
-
-#pragma mark -- UICollectionViewDelegateFlowLayout
-/** 每个cell的尺寸*/
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(60, 60);
-}
-
-/** section的margin*/
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
 

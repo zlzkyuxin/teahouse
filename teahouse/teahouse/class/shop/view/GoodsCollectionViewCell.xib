@@ -20,7 +20,6 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-60-7ef">
                         <rect key="frame" x="0.0" y="60" width="60" height="20"/>
-                        <color key="backgroundColor" red="0.48967608140000002" green="0.38272355650000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="vrA-nd-ux3"/>
                         </constraints>
