@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShoppingCartModel.h"
 
 @interface ShoppingCartTableViewCell : UITableViewCell
+
+@property (nonatomic , strong) ShoppingCartModel *shopCartModel;
 
 @end

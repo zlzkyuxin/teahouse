@@ -19,6 +19,7 @@
 		125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */; };
 		125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */; };
 		125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A36301EBB63B8009D1BD2 /* OrderModel.m */; };
+		125FBE1C1EC35EDA00C82939 /* ShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125FBE1B1EC35EDA00C82939 /* ShoppingCartModel.m */; };
 		1276DD141E1B88B80009F551 /* HotGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD131E1B88B80009F551 /* HotGoodsModel.m */; };
 		1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */; };
 		1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD191E1BC01C0009F551 /* HotGoodsTableViewCell.m */; };
@@ -137,6 +138,8 @@
 		125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailModel.m; sourceTree = "<group>"; };
 		125A362F1EBB63B8009D1BD2 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
 		125A36301EBB63B8009D1BD2 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
+		125FBE1A1EC35EDA00C82939 /* ShoppingCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartModel.h; sourceTree = "<group>"; };
+		125FBE1B1EC35EDA00C82939 /* ShoppingCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartModel.m; sourceTree = "<group>"; };
 		1276DD121E1B88B80009F551 /* HotGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotGoodsModel.h; sourceTree = "<group>"; };
 		1276DD131E1B88B80009F551 /* HotGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotGoodsModel.m; sourceTree = "<group>"; };
 		1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaHouseNetWorking.h; sourceTree = "<group>"; };
@@ -681,6 +684,8 @@
 		191516AA1EBC5C4500353F96 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				125FBE1A1EC35EDA00C82939 /* ShoppingCartModel.h */,
+				125FBE1B1EC35EDA00C82939 /* ShoppingCartModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -949,6 +954,7 @@
 				12E73A851E63AF3A004C7388 /* TipsHud.m in Sources */,
 				1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */,
 				19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */,
+				125FBE1C1EC35EDA00C82939 /* ShoppingCartModel.m in Sources */,
 				1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */,
 				1283BCF91E5EB3DD00D65400 /* RegistViewController.m in Sources */,
 				1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */,
