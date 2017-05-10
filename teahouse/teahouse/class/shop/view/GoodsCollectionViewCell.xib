@@ -18,6 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="60" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TqR-IS-Pid">
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="80"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-60-7ef">
                         <rect key="frame" x="0.0" y="60" width="60" height="20"/>
                         <constraints>
@@ -36,9 +40,13 @@
                 <constraint firstItem="mJ0-Aw-XBx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4Gb-MQ-wEB"/>
                 <constraint firstAttribute="trailing" secondItem="mJ0-Aw-XBx" secondAttribute="trailing" id="B1K-3t-NRb"/>
                 <constraint firstItem="hxo-60-7ef" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mzp-lu-WVY"/>
+                <constraint firstAttribute="trailing" secondItem="TqR-IS-Pid" secondAttribute="trailing" id="OeN-zO-3H0"/>
                 <constraint firstAttribute="trailing" secondItem="hxo-60-7ef" secondAttribute="trailing" id="T2y-6t-z9V"/>
                 <constraint firstItem="hxo-60-7ef" firstAttribute="top" secondItem="mJ0-Aw-XBx" secondAttribute="bottom" id="U0o-8V-1Mr"/>
+                <constraint firstItem="TqR-IS-Pid" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YbJ-Rn-duD"/>
                 <constraint firstAttribute="bottom" secondItem="hxo-60-7ef" secondAttribute="bottom" id="fYP-gr-F9W"/>
+                <constraint firstItem="TqR-IS-Pid" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tfp-aV-2fJ"/>
+                <constraint firstAttribute="bottom" secondItem="TqR-IS-Pid" secondAttribute="bottom" id="uVm-WX-ibc"/>
                 <constraint firstItem="mJ0-Aw-XBx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yPz-O0-4Np"/>
             </constraints>
             <connections>

@@ -9,7 +9,13 @@
 #import "ShoppingCartViewController.h"
 
 @interface ShoppingCartViewController ()
-
+<
+    UITableViewDelegate,
+    UITableViewDataSource
+>
+{
+    UITableView *_tableView;
+}
 @end
 
 @implementation ShoppingCartViewController
@@ -20,7 +26,18 @@
 }
 
 - (void)initView {
+    _tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 @end

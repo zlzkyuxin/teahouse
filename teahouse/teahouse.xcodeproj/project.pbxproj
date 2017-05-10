@@ -85,6 +85,8 @@
 		19BB93A71EC1839900A3CFBE /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BB93A61EC1839900A3CFBE /* IATConfig.m */; };
 		19E0CBEF1E1140AD00AD3836 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */; };
 		19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E0CBF11E11491B00AD3836 /* NoticeViewController.m */; };
+		19ED47DE1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED47DC1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m */; };
+		19ED47DF1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ED47DD1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib */; };
 		19FC4D791EB1823900EEE13B /* NSBundle+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FC4D6C1EB1823900EEE13B /* NSBundle+PYSearchExtension.m */; };
 		19FC4D7A1EB1823900EEE13B /* PYSearch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19FC4D6D1EB1823900EEE13B /* PYSearch.bundle */; };
 		19FC4D7B1EB1823900EEE13B /* PYSearchConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FC4D701EB1823900EEE13B /* PYSearchConst.m */; };
@@ -250,6 +252,9 @@
 		19E0CBEE1E1140AD00AD3836 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		19E0CBF01E11491B00AD3836 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		19E0CBF11E11491B00AD3836 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		19ED47DB1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartTableViewCell.h; sourceTree = "<group>"; };
+		19ED47DC1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
+		19ED47DD1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartTableViewCell.xib; sourceTree = "<group>"; };
 		19FC4D6B1EB1823900EEE13B /* NSBundle+PYSearchExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+PYSearchExtension.h"; sourceTree = "<group>"; };
 		19FC4D6C1EB1823900EEE13B /* NSBundle+PYSearchExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+PYSearchExtension.m"; sourceTree = "<group>"; };
 		19FC4D6D1EB1823900EEE13B /* PYSearch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PYSearch.bundle; sourceTree = "<group>"; };
@@ -683,6 +688,9 @@
 		191516AB1EBC5C4500353F96 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				19ED47DB1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.h */,
+				19ED47DC1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m */,
+				19ED47DD1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -859,6 +867,7 @@
 				191516B01EBC689700353F96 /* ceshi.xib in Resources */,
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
 				12FB46651EC2049A0013B8BE /* GoodsCollectionViewCell.xib in Resources */,
+				19ED47DF1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -986,6 +995,7 @@
 				125A2AB21E5D6C45006D15DA /* GoodsDetailViewController.m in Sources */,
 				125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */,
 				19BB93A71EC1839900A3CFBE /* IATConfig.m in Sources */,
+				19ED47DE1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m in Sources */,
 				125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */,
 				12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */,
