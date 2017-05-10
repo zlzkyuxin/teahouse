@@ -20,6 +20,7 @@
 		125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A2AB41E5D74BE006D15DA /* GoodsDetailModel.m */; };
 		125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125A36301EBB63B8009D1BD2 /* OrderModel.m */; };
 		125FBE1C1EC35EDA00C82939 /* ShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125FBE1B1EC35EDA00C82939 /* ShoppingCartModel.m */; };
+		125FBE211EC3680F00C82939 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 125FBE231EC3680F00C82939 /* InfoPlist.strings */; };
 		1276DD141E1B88B80009F551 /* HotGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD131E1B88B80009F551 /* HotGoodsModel.m */; };
 		1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */; };
 		1276DD1A1E1BC01C0009F551 /* HotGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1276DD191E1BC01C0009F551 /* HotGoodsTableViewCell.m */; };
@@ -140,6 +141,8 @@
 		125A36301EBB63B8009D1BD2 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		125FBE1A1EC35EDA00C82939 /* ShoppingCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartModel.h; sourceTree = "<group>"; };
 		125FBE1B1EC35EDA00C82939 /* ShoppingCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartModel.m; sourceTree = "<group>"; };
+		125FBE221EC3680F00C82939 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		125FBE241EC3688B00C82939 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1276DD121E1B88B80009F551 /* HotGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotGoodsModel.h; sourceTree = "<group>"; };
 		1276DD131E1B88B80009F551 /* HotGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotGoodsModel.m; sourceTree = "<group>"; };
 		1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaHouseNetWorking.h; sourceTree = "<group>"; };
@@ -623,6 +626,7 @@
 				1216D3301EA0F96A009251A7 /* PrefixHeader.pch */,
 				12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */,
 				191516AF1EBC689700353F96 /* ceshi.xib */,
+				125FBE231EC3680F00C82939 /* InfoPlist.strings */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -846,6 +850,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 12F7DC5F1E0D464D00B372CE;
 			productRefGroup = 12F7DC691E0D464E00B372CE /* Products */;
@@ -873,6 +878,7 @@
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
 				12FB46651EC2049A0013B8BE /* GoodsCollectionViewCell.xib in Resources */,
 				19ED47DF1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib in Resources */,
+				125FBE211EC3680F00C82939 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,6 +1048,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		125FBE231EC3680F00C82939 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				125FBE221EC3680F00C82939 /* en */,
+				125FBE241EC3688B00C82939 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		12F7DC791E0D464E00B372CE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1058,6 +1073,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1107,6 +1123,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
