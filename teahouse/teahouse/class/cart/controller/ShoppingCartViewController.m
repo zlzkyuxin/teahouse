@@ -58,7 +58,7 @@
     shopCartArray = @[].mutableCopy;
     //初始化记录是否选中数组
     _selectArray = @[].mutableCopy;
-    self.accountIsSelect = NO;
+    self.accountIsSelect = YES;
     
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     NSString *userID = @"1";
@@ -89,7 +89,17 @@
 //初始化界面
 - (void)initView {
     WS(weakSelf)
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStyleGrouped];
+    //底部结算工具条
+    _bottomView = [[[NSBundle mainBundle] loadNibNamed:@"CalculateAccountView" owner:self options:nil] firstObject];
+    if (_isOrderCommit) {//从订单提交页面跳转
+        self.title = @"待付款";
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStyleGrouped];
+        _bottomView.frame = CGRectMake(0, SCREEN_HEIGHT  - 44, SCREEN_WIDTH, 44);
+    }else {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44 - 49) style:UITableViewStyleGrouped];
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, - 40, 0);
+        _bottomView.frame = CGRectMake(0, SCREEN_HEIGHT  - 44 - 49, SCREEN_WIDTH, 44);
+    }
     _tableView.delegate = self;
     _tableView.dataSource = self;
     if (iPhone5SE) {
@@ -102,9 +112,7 @@
     _tableView.tableFooterView = [UIView new];
     [self.view addSubview:_tableView];
     
-    //底部结算工具条
-    _bottomView = [[[NSBundle mainBundle] loadNibNamed:@"CalculateAccountView" owner:self options:nil] firstObject];
-    _bottomView.frame = CGRectMake(0, SCREEN_HEIGHT - 49 - 44, SCREEN_WIDTH, 44);
+    
     _bottomView.block = ^() {
         if (weakSelf.accountIsSelect) {//选中状态
             [weakSelf.bottomView.isSelectBtn setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
@@ -219,53 +227,80 @@
     nextVC.title = model.goodsName;
     [self.navigationController pushViewController:nextVC animated:YES];
 }
-//设置删除
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WS(weakSelf)
+    // 添加一个删除按钮
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        //删除cell及数据库数据
+        [weakSelf deleteDataGoodsCell:indexPath];
+    }];
+    // 添加一个编辑按钮
+    UITableViewRowAction *editRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        //编辑cell及更新数据库数据
+        [weakSelf editDataGoodsCell:indexPath];
+    }];
+    editRowAction.backgroundColor = [UIColor blueColor];
+    return @[deleteRowAction,editRowAction];
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!_tableView.isEditing) {
-        return UITableViewCellEditingStyleDelete;
-    }
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
-}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {//删除
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"确定要删除这件商品吗？" preferredStyle:UIAlertControllerStyleAlert];
-        //确认
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //点击确认删除之后删除本地并请求删除数据库
-            ShoppingCartModel *model = shopCartArray[indexPath.section];
-            [shopCartArray removeObjectAtIndex:indexPath.section];//删除订单数据
-            [_selectArray removeObjectAtIndex:indexPath.section];//删除选中记录
-            //删除数据库
-            NSDictionary *loadDic = [[NSDictionary alloc] init];
-            loadDic = @{@"key":@"deleteOrder",@"orderID":model.orderID};
-           
-            [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
-                if ([responseObject[@"code"] intValue] == 200) {
-                    [_tableView reloadData];//刷新界面
-                }
-            } failure:^(NSError *error) {
-                
-            }];
-
-        }];
-        //取消
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            //取消删除恢复原状
-            [_tableView reloadData];
+//删除cell
+- (void)deleteDataGoodsCell:(NSIndexPath *)indexPath {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"确定要删除这件商品吗？" preferredStyle:UIAlertControllerStyleAlert];
+    //确认
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击确认删除之后删除本地并请求删除数据库
+        ShoppingCartModel *model = shopCartArray[indexPath.section];
+        [shopCartArray removeObjectAtIndex:indexPath.section];//删除订单数据
+        [_selectArray removeObjectAtIndex:indexPath.section];//删除选中记录
+        //删除数据库
+        NSDictionary *loadDic = [[NSDictionary alloc] init];
+        loadDic = @{@"key":@"deleteOrder",@"orderID":model.orderID};
+        
+        [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+            if ([responseObject[@"code"] intValue] == 200) {
+                [_tableView reloadData];//刷新界面
+            }
+        } failure:^(NSError *error) {
+            
         }];
         
-        [alert addAction:okAction];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-        
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    }];
+    //取消
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //取消删除恢复原状
+        [_tableView reloadData];
+    }];
     
+    [alert addAction:okAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+//编辑cell
+- (void)editDataGoodsCell:(NSIndexPath *)indexPath {
+    ShoppingCartModel *model = shopCartArray[indexPath.section];
+    [shopCartArray removeObjectAtIndex:indexPath.section];//更新订单数据
+    
+    //订单单价 = 订单总价/订单数量
+    NSString *goodPrice = [NSString stringWithFormat:@"%.2f", [model.orderTotal floatValue] / [model.goodsNumber floatValue]];
+    if ([model.goodsPrice floatValue] - [goodPrice floatValue] < 1) {
+        goodPrice = model.goodsPrice;
     }
+    //更新数据库
+    NSDictionary *loadDic = [[NSDictionary alloc] init];
+    loadDic = @{@"key":@"updateOrder",@"orderID":model.orderID,@"goodsNumber":@"",@"goodsPrice":goodPrice};
+    [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue] == 200) {
+            model.goodsNumber = @"";
+            [_tableView reloadData];//刷新界面
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+
 }
 
 /** 计算选中项的总价*/

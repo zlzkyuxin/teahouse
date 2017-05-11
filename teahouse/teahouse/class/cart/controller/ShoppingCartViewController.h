@@ -10,4 +10,6 @@
 
 @interface ShoppingCartViewController : UIViewController
 
+@property (nonatomic , assign) BOOL isOrderCommit;
+
 @end

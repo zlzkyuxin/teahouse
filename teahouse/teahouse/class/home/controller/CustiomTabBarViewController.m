@@ -34,7 +34,9 @@
     homeViewController = [[HomeViewController alloc] init];
     [self addChildView:homeViewController title:@"首页" image:@"icon_tab1_normal" selectedImage:@"icon_tab1_selected"];
     [self addChildView:[[StoreViewController alloc] init] title:@"商城" image:@"icon_tab2_normal" selectedImage:@"icon_tab2_selected"];
-    [self addChildView:[[ShoppingCartViewController alloc] init] title:@"购物车" image:@"icon_tab3_normal" selectedImage:@"icon_tab3_selected"];
+    ShoppingCartViewController *shop = [[ShoppingCartViewController alloc] init];
+    shop.isOrderCommit = NO;
+    [self addChildView:shop title:@"购物车" image:@"icon_tab3_normal" selectedImage:@"icon_tab3_selected"];
     [self addChildView:[[UserCenterViewController alloc] init] title:@"用户" image:@"icon_tab4_normal" selectedImage:@"icon_tab4_selected"];
     self.selectedIndex = 0;
 }

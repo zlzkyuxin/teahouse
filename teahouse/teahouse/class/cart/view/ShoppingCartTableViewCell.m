@@ -45,7 +45,7 @@
     self.goodContentLabel.text = shopCartModel.goodsContent;
     
     //商品数量
-    self.goodNumberLabel.text = shopCartModel.goodsNumber;
+    self.goodNumberLabel.text = [NSString stringWithFormat:@"x%@",shopCartModel.goodsNumber];
     
     //订单单价 = 订单总价/订单数量
     NSString *goodPrice = [NSString stringWithFormat:@"%.2f", [shopCartModel.orderTotal floatValue] / [shopCartModel.goodsNumber floatValue]];

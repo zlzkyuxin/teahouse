@@ -120,7 +120,7 @@
 
 /* Begin PBXFileReference section */
 		1216D3301EA0F96A009251A7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
-		1216D3311EA1C56B009251A7 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListViewController.h; path = controller/OrderListViewController.h; sourceTree = "<group>"; };
+		1216D3311EA1C56B009251A7 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
 		1216D3321EA1C56B009251A7 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
 		1216D3361EA1C69C009251A7 /* GoodsDetailTableViewCellA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTableViewCellA.h; sourceTree = "<group>"; };
 		1216D3371EA1C69C009251A7 /* GoodsDetailTableViewCellA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailTableViewCellA.m; sourceTree = "<group>"; };
@@ -538,7 +538,6 @@
 			children = (
 				12F7DCA41E0D471200B372CE /* controller */,
 				12F7DCA51E0D471200B372CE /* model */,
-				1216D3311EA1C56B009251A7 /* OrderListViewController.h */,
 				12F7DCA61E0D471200B372CE /* view */,
 			);
 			path = shop;
@@ -551,6 +550,7 @@
 				12AFBEE81E109CB800CD3C33 /* StoreViewController.m */,
 				125A2AB01E5D6C45006D15DA /* GoodsDetailViewController.h */,
 				125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */,
+				1216D3311EA1C56B009251A7 /* OrderListViewController.h */,
 				1216D3321EA1C56B009251A7 /* OrderListViewController.m */,
 				195A2B4D1EBC114700DCF1C6 /* OrderPayViewController.h */,
 				195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */,

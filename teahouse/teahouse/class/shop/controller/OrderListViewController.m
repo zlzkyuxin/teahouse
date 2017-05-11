@@ -9,6 +9,7 @@
 #import "OrderListViewController.h"
 #import "OrderNumberTableViewCell.h"
 #import "OrderPayViewController.h"
+#import "ShoppingCartViewController.h"
 #import "LoginModel.h"
 #import "OrderModel.h"
 
@@ -127,7 +128,7 @@
                 NSLog(@"text = %@", text.text);
             }
         }];
-        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
                                                              handler:^(UIAlertAction * action) {
                                                 //响应事件
                                                 NSLog(@"action = %@", alert.textFields);
@@ -156,7 +157,7 @@
     if (dic) {
         userInfo = [LoginModel mj_objectWithKeyValues:dic];
     }
-    NSDictionary *loadDic = [[NSDictionary alloc] init];
+    NSDictionary *loadDic = @{}.copy;
     loadDic = @{
                 @"key":@"createOrder",
                 @"goodID":self.goodsID,
@@ -169,7 +170,8 @@
         if ([responseObject[@"code"] intValue] == 200) {
             OrderModel *orderModel = [OrderModel mj_objectWithKeyValues:responseObject[@"list"]];
             NSLog(@"%@",orderModel.orderID);
-            OrderPayViewController *nextVC = [OrderPayViewController new];
+            ShoppingCartViewController *nextVC = [ShoppingCartViewController new];
+            nextVC.isOrderCommit = YES;
             [self.navigationController pushViewController:nextVC animated:YES];
         }
 
