@@ -95,19 +95,17 @@
 - (void)loadHomeData {
     dataArray = [NSMutableArray arrayWithCapacity:0];
     NSMutableDictionary *loadDic = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [loadDic setValue:@"showHome" forKey:@"key"];
-    [[TeaHouseNetWorking shareNetWorking] POST:@"Home.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-        NSLog(@"%@",result);
-        if ([result[@"code"] intValue] == 200) {
-            NSDictionary *list = result[@"list"];
+    [loadDic setValue:@"showHome" forKey:@"key"];    
+    [[[TeaHouseHTTPClient alloc] init] POST:@"Home.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue] == 200) {
+            NSDictionary *list = responseObject[@"list"];
             for (NSDictionary *dic in list[@"HotGoods"]) {
                 HotGoodsModel *model = [HotGoodsModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
             }
             [homeTableView reloadData];
         }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(NSError *error) {
         
     }];
     

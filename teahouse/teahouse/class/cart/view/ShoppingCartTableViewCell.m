@@ -8,8 +8,7 @@
 
 #import "ShoppingCartTableViewCell.h"
 @interface ShoppingCartTableViewCell ()
-/** 是否选中*/
-@property (weak, nonatomic) IBOutlet UIImageView *isSelectImage;
+
 /** 商品图片*/
 @property (weak, nonatomic) IBOutlet UIImageView *goodImage;
 /** 商品名*/
@@ -50,20 +49,25 @@
     
     //订单单价 = 订单总价/订单数量
     NSString *goodPrice = [NSString stringWithFormat:@"%.2f", [shopCartModel.orderTotal floatValue] / [shopCartModel.goodsNumber floatValue]];
-    if ([goodPrice floatValue] - [shopCartModel.goodsPrice floatValue] < 1) {
+    if ([shopCartModel.goodsPrice floatValue] - [goodPrice floatValue] < 1) {
         self.originalPriceLabel.hidden = YES;
         //商品折后价
-        self.nowPriceLabel.text = shopCartModel.goodsPrice;
+        self.nowPriceLabel.text = [NSString stringWithFormat:@"￥%@", shopCartModel.goodsPrice];
     }else {
         //商品原价
         self.originalPriceLabel.hidden = NO;
-        self.originalPriceLabel.text = shopCartModel.goodsPrice;
+        self.originalPriceLabel.text = [NSString stringWithFormat:@"￥%@",shopCartModel.goodsPrice];
         //商品折后价
-        self.nowPriceLabel.text = goodPrice;
+        self.nowPriceLabel.text = [NSString stringWithFormat:@"￥%@",goodPrice];
     }
     
 
     
+}
+- (IBAction)selectBtnClick:(UIButton *)sender {
+    if (_block) {
+        _block();
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

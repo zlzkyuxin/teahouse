@@ -19,5 +19,6 @@
 #import "TipsHud.h"
 #import "AvoidCrash.h"
 #import "UIImage+Addition.h"
+#import "MBProgressHUD+TeaHouse.h"
 
 #endif /* PrefixHeader_pch */

@@ -57,17 +57,20 @@ DECLARE_SINGLETON(TeaHouseHTTPClient)
     }
     return self;
 }
+
 - (NSURLSessionTask *)POST:(NSString *)URLString
-                 isShowHud:(BOOL)hud
+                   showHUD:(BOOL)HUD
                 parameters:(id)parameters
                    success:(HTTPClientsuccess)success
                    failure:(HTTPClientfailure)failure {
-    if (hud) {
-        
+    if (HUD) {
+        [MBProgressHUD showMessage:@"光速请求中,请稍等..."];
     }
     NSURLSessionTask *task = [_manager POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [MBProgressHUD hideHUD];
         success(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [MBProgressHUD hideHUD];
         failure(error);
     }];
     return task;

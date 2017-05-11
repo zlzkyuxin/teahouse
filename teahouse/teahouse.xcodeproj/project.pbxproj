@@ -30,6 +30,9 @@
 		1283BCFF1E5EC0B900D65400 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1283BCFE1E5EC0B900D65400 /* BaseViewController.m */; };
 		1285BB1C1E134F5900D85715 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285BB1B1E134F5900D85715 /* CustomNavigationController.m */; };
 		128EC06D1EBCA653007A2887 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 128EC06C1EBCA653007A2887 /* UIImage+Addition.m */; };
+		129E4BE61EC3F1E400649335 /* MBProgressHUD+TeaHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 129E4BE51EC3F1E400649335 /* MBProgressHUD+TeaHouse.m */; };
+		129E4BE91EC4405900649335 /* CalculateAccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 129E4BE81EC4405900649335 /* CalculateAccountView.m */; };
+		129E4BEB1EC4407300649335 /* CalculateAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 129E4BEA1EC4407300649335 /* CalculateAccountView.xib */; };
 		129FEB341E14EB2200B45C54 /* searchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 129FEB331E14EB2200B45C54 /* searchButton.m */; };
 		12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE51E109BEE00CD3C33 /* CustiomTabBarViewController.m */; };
 		12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AFBEE81E109CB800CD3C33 /* StoreViewController.m */; };
@@ -117,7 +120,7 @@
 
 /* Begin PBXFileReference section */
 		1216D3301EA0F96A009251A7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
-		1216D3311EA1C56B009251A7 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
+		1216D3311EA1C56B009251A7 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListViewController.h; path = controller/OrderListViewController.h; sourceTree = "<group>"; };
 		1216D3321EA1C56B009251A7 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
 		1216D3361EA1C69C009251A7 /* GoodsDetailTableViewCellA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTableViewCellA.h; sourceTree = "<group>"; };
 		1216D3371EA1C69C009251A7 /* GoodsDetailTableViewCellA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailTableViewCellA.m; sourceTree = "<group>"; };
@@ -161,6 +164,11 @@
 		1285BB1B1E134F5900D85715 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		128EC06B1EBCA653007A2887 /* UIImage+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Addition.h"; sourceTree = "<group>"; };
 		128EC06C1EBCA653007A2887 /* UIImage+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Addition.m"; sourceTree = "<group>"; };
+		129E4BE41EC3F1E400649335 /* MBProgressHUD+TeaHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TeaHouse.h"; sourceTree = "<group>"; };
+		129E4BE51EC3F1E400649335 /* MBProgressHUD+TeaHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TeaHouse.m"; sourceTree = "<group>"; };
+		129E4BE71EC4405900649335 /* CalculateAccountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateAccountView.h; sourceTree = "<group>"; };
+		129E4BE81EC4405900649335 /* CalculateAccountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateAccountView.m; sourceTree = "<group>"; };
+		129E4BEA1EC4407300649335 /* CalculateAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculateAccountView.xib; sourceTree = "<group>"; };
 		129FEB321E14EB2200B45C54 /* searchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchButton.h; sourceTree = "<group>"; };
 		129FEB331E14EB2200B45C54 /* searchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchButton.m; sourceTree = "<group>"; };
 		12AFBEE41E109BEE00CD3C33 /* CustiomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustiomTabBarViewController.h; sourceTree = "<group>"; };
@@ -530,6 +538,7 @@
 			children = (
 				12F7DCA41E0D471200B372CE /* controller */,
 				12F7DCA51E0D471200B372CE /* model */,
+				1216D3311EA1C56B009251A7 /* OrderListViewController.h */,
 				12F7DCA61E0D471200B372CE /* view */,
 			);
 			path = shop;
@@ -542,7 +551,6 @@
 				12AFBEE81E109CB800CD3C33 /* StoreViewController.m */,
 				125A2AB01E5D6C45006D15DA /* GoodsDetailViewController.h */,
 				125A2AB11E5D6C45006D15DA /* GoodsDetailViewController.m */,
-				1216D3311EA1C56B009251A7 /* OrderListViewController.h */,
 				1216D3321EA1C56B009251A7 /* OrderListViewController.m */,
 				195A2B4D1EBC114700DCF1C6 /* OrderPayViewController.h */,
 				195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */,
@@ -648,6 +656,8 @@
 				128EC06C1EBCA653007A2887 /* UIImage+Addition.m */,
 				1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */,
 				1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */,
+				129E4BE41EC3F1E400649335 /* MBProgressHUD+TeaHouse.h */,
+				129E4BE51EC3F1E400649335 /* MBProgressHUD+TeaHouse.m */,
 				12BB705B1E5BC7D5005D62EC /* BaseTool.h */,
 				12BB705C1E5BC7D5005D62EC /* BaseTool.m */,
 				198373771E94936100A50E5B /* RegistTextField.h */,
@@ -700,6 +710,9 @@
 				19ED47DB1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.h */,
 				19ED47DC1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m */,
 				19ED47DD1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.xib */,
+				129E4BE71EC4405900649335 /* CalculateAccountView.h */,
+				129E4BE81EC4405900649335 /* CalculateAccountView.m */,
+				129E4BEA1EC4407300649335 /* CalculateAccountView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -871,6 +884,7 @@
 			files = (
 				12F7DC7B1E0D464E00B372CE /* LaunchScreen.storyboard in Resources */,
 				12F7DC781E0D464E00B372CE /* Assets.xcassets in Resources */,
+				129E4BEB1EC4407300649335 /* CalculateAccountView.xib in Resources */,
 				1216D3431EA1C6F2009251A7 /* OrderNumberTableViewCell.xib in Resources */,
 				1216D33E1EA1C69C009251A7 /* GoodsDetailTableViewCellB.xib in Resources */,
 				19FC4D7A1EB1823900EEE13B /* PYSearch.bundle in Resources */,
@@ -989,6 +1003,8 @@
 				191516AE1EBC5C5E00353F96 /* ShoppingCartViewController.m in Sources */,
 				12F7DCB61E0D4D4F00B372CE /* GuideViewController.m in Sources */,
 				19FC4D7E1EB1823900EEE13B /* UIColor+PYSearchExtension.m in Sources */,
+				129E4BE61EC3F1E400649335 /* MBProgressHUD+TeaHouse.m in Sources */,
+				129E4BE91EC4405900649335 /* CalculateAccountView.m in Sources */,
 				1283BCFC1E5EB40400D65400 /* RepasswordViewController.m in Sources */,
 				198373791E94936100A50E5B /* RegistTextField.m in Sources */,
 				195A2B4F1EBC114700DCF1C6 /* OrderPayViewController.m in Sources */,

@@ -57,11 +57,27 @@
     
     NSDictionary *loadDic = [[NSDictionary alloc] init];
     loadDic = @{@"key":@"showGoodsMenu"}.copy;
-    [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-        NSLog(@"%@",result);
-        if ([result[@"code"] intValue] == 200) {
-            for (NSDictionary *dic in result[@"list"]) {
+//    [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+//        NSLog(@"%@",result);
+//        if ([result[@"code"] intValue] == 200) {
+//            for (NSDictionary *dic in result[@"list"]) {
+//                ShopGoodMenuModel *goodsMenu = [ShopGoodMenuModel mj_objectWithKeyValues:dic];
+//                [menuArray addObject:goodsMenu];
+//            }
+//            NSLog(@"%@",menuArray);
+//            [leftTableView reloadData];
+//            //默认选中第一行
+//            [leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+//            [_collectionView reloadData];
+//        }
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//    }];
+    
+    [[[TeaHouseHTTPClient alloc] init] POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue] == 200) {
+            for (NSDictionary *dic in responseObject[@"list"]) {
                 ShopGoodMenuModel *goodsMenu = [ShopGoodMenuModel mj_objectWithKeyValues:dic];
                 [menuArray addObject:goodsMenu];
             }
@@ -71,7 +87,8 @@
             [leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
             [_collectionView reloadData];
         }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+
+    } failure:^(NSError *error) {
         
     }];
 }

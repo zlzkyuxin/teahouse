@@ -164,17 +164,17 @@
                 @"goodsNumber":self.goodsNumber,
                 @"goodsPrice":self.price,
                 };
-    [[TeaHouseNetWorking shareNetWorking] POST:@"order.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-        NSLog(@"%@",result);
-        if ([result[@"code"] intValue] == 200) {
-            OrderModel *orderModel = [OrderModel mj_objectWithKeyValues:result[@"list"]];
+    
+    [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue] == 200) {
+            OrderModel *orderModel = [OrderModel mj_objectWithKeyValues:responseObject[@"list"]];
             NSLog(@"%@",orderModel.orderID);
             OrderPayViewController *nextVC = [OrderPayViewController new];
             [self.navigationController pushViewController:nextVC animated:YES];
         }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@",error);
+
+    } failure:^(NSError *error) {
+        
     }];
 }
 

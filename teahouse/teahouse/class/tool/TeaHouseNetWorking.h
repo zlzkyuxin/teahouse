@@ -43,7 +43,7 @@ typedef void(^HTTPClientfailure)(NSError *error);
 + (instancetype)sharedInstance;
 
 - (NSURLSessionTask *)POST:(NSString *)URLString
-                     isShowHud:(BOOL)hud
+                     showHUD:(BOOL)HUD
                     parameters:(id)parameters
                        success:(HTTPClientsuccess)success
                        failure:(HTTPClientfailure)failure;
