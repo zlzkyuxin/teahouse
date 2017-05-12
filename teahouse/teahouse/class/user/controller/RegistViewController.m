@@ -233,7 +233,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"注册页面被销毁");
+    TEALog(@"注册页面被销毁");
 }
 
 @end

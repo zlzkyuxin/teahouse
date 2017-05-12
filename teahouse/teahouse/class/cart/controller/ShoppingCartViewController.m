@@ -59,6 +59,8 @@
     [self loadData];
     //初始化界面
     [self initView];
+    //集成刷新控件
+    [self setupRefresh];
 }
 
 //初始化数据
@@ -75,7 +77,7 @@
 }
 
 
-- (void)getData {
+- (void)getData{
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     NSString *userID = @"1";
     if (dic != nil) {
@@ -84,7 +86,8 @@
     }
     NSDictionary *loadDic = [[NSDictionary alloc] init];
     loadDic = @{@"key":@"orderFromUserID",@"userID":userID,@"orderState":@"待付款"};
-    [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    
+    [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             for (NSDictionary *dic in responseObject[@"list"]) {
                 ShoppingCartModel *shopCartModel = [ShoppingCartModel mj_objectWithKeyValues:dic];
@@ -96,7 +99,6 @@
             }
             [_tableView reloadData];
         }
-        
     } failure:^(NSError *error) {
         
     }];
@@ -164,10 +166,42 @@
     };
     
     _bottomView.calculateBlock = ^() {
-        NSLog(@"%@",[weakSelf.bottomView.totalLabel.text substringWithRange:NSMakeRange(1, weakSelf.bottomView.totalLabel.text.length - 1)]);
+        TEALog(@"%@",[weakSelf.bottomView.totalLabel.text substringWithRange:NSMakeRange(1, weakSelf.bottomView.totalLabel.text.length - 1)]);
     };
     [self.view addSubview:_bottomView];
     
+}
+
+//集成刷新控件
+- (void)setupRefresh {
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [shopCartArray removeAllObjects];
+        NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
+        NSString *userID = @"1";
+        if (dic != nil) {
+            userInfo = [LoginModel mj_objectWithKeyValues:dic];
+            userID = userInfo.userID;
+        }
+        NSDictionary *loadDic = [[NSDictionary alloc] init];
+        loadDic = @{@"key":@"orderFromUserID",@"userID":userID,@"orderState":@"待付款"};
+        
+        [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+            [_tableView.mj_header endRefreshing];
+            if ([responseObject[@"code"] intValue] == 200) {
+                for (NSDictionary *dic in responseObject[@"list"]) {
+                    ShoppingCartModel *shopCartModel = [ShoppingCartModel mj_objectWithKeyValues:dic];
+                    [shopCartArray addObject:shopCartModel];
+                }
+                //记录是否选中数组赋值(默认全部未选中)
+                for (int i = 0; i < shopCartArray.count; i++) {
+                    [_selectArray addObject:@"0"];
+                }
+                [_tableView reloadData];
+            }
+        } failure:^(NSError *error) {
+            [_tableView.mj_header endRefreshing];
+        }];
+    }];
 }
 
 #pragma mark - UITableViewDataSource代理
@@ -304,10 +338,12 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"deleteOrder",@"orderID":model.orderID};
         
-        [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        
+        [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 [_tableView reloadData];//刷新界面
             }
+
         } failure:^(NSError *error) {
             
         }];
@@ -372,16 +408,19 @@
         //更新数据库
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"updateOrder",@"orderID":model.orderID,@"goodsNumber":[NSString stringWithFormat:@"%d",_exitEditGoodNumber],@"goodsPrice":goodPrice};
-        [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 //更新完数据库信息后改变界面数据模型
                 model.goodsNumber = [NSString stringWithFormat:@"%d",_exitEditGoodNumber];
+                //退出编辑状态
+                _isEditState = NO;
                 //商品数量编辑完成之后置空
                 _exitEditGoodNumber = -1;
                 //刷新当前行
-                [self reloadIndexPath:_editIndexPath];
+                [_tableView reloadData];
             }
         } failure:^(NSError *error) {
+            
         }];
     }
     //完成事件移除按钮
@@ -391,7 +430,7 @@
     //将选中编辑的位置置空
     _editIndexPath = nil;
     //刷新当前行
-    [self reloadIndexPath:_editIndexPath];
+    [_tableView reloadData];
 }
 
 //移除退出编辑按钮
@@ -401,9 +440,9 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem new];
 }
 
-/**刷新某一组*/
+/**刷新某一个cell*/
 - (void)reloadIndexPath:(NSIndexPath *)indexPath {
-    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:indexPath.section], nil] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 /** 计算选中项的总价*/

@@ -174,7 +174,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     NSString *path = [[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches"]
                       stringByAppendingPathComponent:fileName];
     [UIImagePNGRepresentation(image) writeToFile:path atomically:YES];
-    NSLog(@"%@",path);
+    TEALog(@"%@",path);
 }
 
 +(NSString *)getPNGImageFilePathFromCache:(NSString *)fileName

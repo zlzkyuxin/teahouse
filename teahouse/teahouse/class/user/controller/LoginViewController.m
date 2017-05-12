@@ -215,41 +215,7 @@
     if (_userName != nil && _passWord != nil) {
         loadDic = @{@"key":@"login",@"userName":_userName.text,@"password":_passWord.text};
     }
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    hud.mode = MBProgressHUDModeIndeterminate;
-//    hud.delegate = self;
-//    hud.alpha = 0.7;
-//    hud.label.text = @"正在登录中...";
-//    hud.label.font = [UIFont systemFontOfSize:12];
-//    [[TeaHouseNetWorking shareNetWorking] POST:@"login.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-//        NSLog(@"%@",result);
-//        if ([result[@"code"] intValue] == 200) {
-//            NSDictionary *list = result[@"list"];
-//            
-//            [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"list"];
-//            [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"islogin"];
-//            [[NSUserDefaults standardUserDefaults] setValue:_userName.text forKey:@"phone"];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-//            
-//            [self presentViewController:[[CustiomTabBarViewController alloc] init] animated:NO completion:nil];
-//        }else if([result[@"code"] intValue] == 300){
-//            hud.mode = MBProgressHUDModeText;
-//            hud.label.text = @"密码错误";
-//            [hud hideAnimated:YES afterDelay:2];
-//        }else {
-//            hud.mode = MBProgressHUDModeText;
-//            hud.label.text = @"登录失败";
-//            [hud hideAnimated:YES afterDelay:2];
-//        }
-//
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        hud.mode = MBProgressHUDModeText;
-//        hud.label.text = @"网络错误";
-//        [hud hideAnimated:YES afterDelay:2];
-//    }];
-    
-    [[[TeaHouseHTTPClient alloc] init] POST:@"login.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"login.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             NSDictionary *list = responseObject[@"list"];
             
@@ -260,6 +226,7 @@
             
             [self presentViewController:[[CustiomTabBarViewController alloc] init] animated:NO completion:nil];
         }
+
     } failure:^(NSError *error) {
         
     }];

@@ -46,7 +46,7 @@
 //    LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160) scrollDuration:0];
 //    loop.imageURLStrings = @[@"home1.jpg",@"home2.jpg",@"home3.jpg",@"home4.jpg"];
 //    loop.clickAction = ^(NSInteger index) {
-//        NSLog(@"点击了第%ld张图片",(long)index);
+//        TEALog(@"点击了第%ld张图片",(long)index);
 //    };
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
@@ -68,7 +68,7 @@
         loadDic = @{@"key":@"goodsDetails",@"goodsID":self.goodsId};
     }
     
-    [[[TeaHouseHTTPClient alloc] init] POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             goodsDeailModel = [GoodsDetailModel mj_objectWithKeyValues:[responseObject[@"list"] firstObject]];
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,goodsDeailModel.goodsImageName]];
@@ -110,7 +110,7 @@
         GoodsDetailTableViewCellB *cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableViewCellB" owner:self options:nil] firstObject];
         cell.block = ^() {
             
-            NSLog(@"21312312");
+            TEALog(@"21312312");
         };
         cell.goodsNumber.text = [NSString stringWithFormat:@"剩余%@件",goodsDeailModel.goodsNumber];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -228,7 +228,7 @@
 
 
 - (void)buyBtnClick {
-    NSLog(@"立即抢购");
+    TEALog(@"立即抢购");
     if (![[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
         [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
     }else {

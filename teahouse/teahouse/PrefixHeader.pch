@@ -20,5 +20,6 @@
 #import "AvoidCrash.h"
 #import "UIImage+Addition.h"
 #import "MBProgressHUD+TeaHouse.h"
+#import "MJRefresh.h"
 
 #endif /* PrefixHeader_pch */

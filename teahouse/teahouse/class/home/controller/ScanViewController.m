@@ -73,20 +73,25 @@
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
-    NSLog(@"会频繁的扫描，调用代理方法");
+    TEALog(@"会频繁的扫描，调用代理方法");
     [_session stopRunning];//停止会话
     [_preview removeFromSuperlayer];//删除预览图层
     if (metadataObjects.count > 0) {
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
-        NSLog(@"metadataObjects---%@",obj);
+        TEALog(@"metadataObjects---%@",obj);
         
         if ([obj.stringValue hasPrefix:@"http"]) {
-            NSLog(@"网页跳转");
+            TEALog(@"网页跳转");
             ScanResultController *result = [[ScanResultController alloc] init];
             result.resultURL = obj.stringValue;
             [self presentViewController:result animated:YES completion:nil];
         }else {
-            NSLog(@"条形码");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:obj.stringValue preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            TEALog(@"条形码或者字符--%@",obj.stringValue);
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }

@@ -147,9 +147,9 @@
     
     //重新设置左右图片
     leftImageIndex=(currentImageIndex+imageCount-1)%imageCount;
-    NSLog(@"left----------%d",leftImageIndex);
+    TEALog(@"left----------%d",leftImageIndex);
     rightImageIndex=(currentImageIndex+1)%imageCount;
-    NSLog(@"right----------%d",rightImageIndex);
+    TEALog(@"right----------%d",rightImageIndex);
     leftImageView.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d.png",leftImageIndex]];
     rightImageView.image=[UIImage imageNamed:[NSString stringWithFormat:@"%d.png",rightImageIndex]];
     

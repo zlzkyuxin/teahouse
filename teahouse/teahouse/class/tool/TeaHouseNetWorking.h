@@ -27,25 +27,37 @@
 
 #endif
 
+typedef void(^HTTPsuccess)(id responseObject);
+typedef void(^HTTPfailure)(NSError *error);
 
+@interface TeaHouseNetWorking : NSObject
 
-@interface TeaHouseNetWorking : AFHTTPSessionManager
+/**  网络请求
+     URLString      请求的url地址
+     HUD            是否显示HUD
+     parameters     请求的参数
+     success        成功的回调
+     failure        失败的回调
+ */
++ (void)POST:(NSString *)URLString
+     showHUD:(BOOL)HUD
+  parameters:(id)parameters
+     success:(HTTPsuccess)success
+     failure:(HTTPfailure)failure;
 
-+ (instancetype)shareNetWorking;
-
-@end
-
-
-typedef void(^HTTPClientsuccess)(id responseObject);
-typedef void(^HTTPClientfailure)(NSError *error);
-@interface TeaHouseHTTPClient : NSObject
-<MBProgressHUDDelegate>
-+ (instancetype)sharedInstance;
-
-- (NSURLSessionTask *)POST:(NSString *)URLString
-                     showHUD:(BOOL)HUD
-                    parameters:(id)parameters
-                       success:(HTTPClientsuccess)success
-                       failure:(HTTPClientfailure)failure;
+/**  上传图片
+    @param URLString    上传文件的 url 地址
+    @param HUD          显示 HUD
+    @param parameters   参数字典
+    @param upImageName  图片名称
+    @param success      成功
+    @param failure      失败
+ */
++ (void)upload:(NSString *)URLString
+       showHUD:(BOOL)HUD
+    parameters:(id)parameters
+   upImageName:(NSString *)upImageName
+       success:(HTTPsuccess)success
+       failure:(HTTPfailure)failure;
 
 @end

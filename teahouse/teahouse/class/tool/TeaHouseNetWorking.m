@@ -12,69 +12,80 @@ static NSString * const httpBaseURLString = BaseUrl;
 
 @implementation TeaHouseNetWorking
 
-+ (instancetype)shareNetWorking {
-    static TeaHouseNetWorking *_thNetWorking = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _thNetWorking = [[TeaHouseNetWorking alloc] initWithBaseURL:[NSURL URLWithString:httpBaseURLString]];
-        _thNetWorking.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"text/javascript", nil];
-        _thNetWorking.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        _thNetWorking.requestSerializer = [AFJSONRequestSerializer serializerWithWritingOptions:NSJSONWritingPrettyPrinted];
-        _thNetWorking.requestSerializer.timeoutInterval = 10;
-    });
-    return _thNetWorking;
-}
-
-
-@end
-
-
-
-
-@interface TeaHouseHTTPClient ()
-
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
-
-@end
-
-@implementation TeaHouseHTTPClient
-
-DECLARE_SINGLETON(TeaHouseHTTPClient)
-
-- (id)init {
-    if (self) {
-        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:httpBaseURLString]];
-        
-        //        _manager.securityPolicy = [self customSecurityPolicy];
-        
-        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
-        
-//         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"text/javascript", nil];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript", nil];
-        
-        _manager.requestSerializer.timeoutInterval = 0;
-//        _manager.requestSerializer = [AFJSONRequestSerializer serializerWithWritingOptions:NSJSONWritingPrettyPrinted];
-    }
-    return self;
-}
-
-- (NSURLSessionTask *)POST:(NSString *)URLString
-                   showHUD:(BOOL)HUD
-                parameters:(id)parameters
-                   success:(HTTPClientsuccess)success
-                   failure:(HTTPClientfailure)failure {
++ (void)POST:(NSString *)URLString
+     showHUD:(BOOL)HUD
+  parameters:(id)parameters
+     success:(HTTPsuccess)success
+     failure:(HTTPfailure)failure {
     if (HUD) {
-        [MBProgressHUD showMessage:@"光速请求中,请稍等..."];
+        [MBProgressHUD showMessage:@"正在加载中"];
     }
-    NSURLSessionTask *task = [_manager POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSString *url = [NSString stringWithFormat:@"%@%@",BaseUrl,URLString];
+    TEALog(@"--请求url地址--%@\n",url);
+    TEALog(@"----请求参数%@\n",parameters);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript", nil];
+    [manager POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         [MBProgressHUD hideHUD];
-        success(responseObject);
+//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+        TEALog(@"----请求返回的结果%@\n",responseObject);
+        if (success) {
+            success(responseObject);
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [MBProgressHUD hideHUD];
-        failure(error);
+        TEALog(@"----请求失败错误%@\n",error);
+        if (failure) {
+            failure(error);
+        }
     }];
-    return task;
 }
 
++ (void)upload:(NSString *)URLString
+       showHUD:(BOOL)HUD
+    parameters:(id)parameters
+   upImageName:(NSString *)upImageName
+       success:(HTTPsuccess)success
+       failure:(HTTPfailure)failure {
+    if (HUD) {
+        [MBProgressHUD showMessage:@"正在上传中"];
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@",BaseUrl,URLString];
+    TEALog(@"--请求url地址--%@\n",url);
+    TEALog(@"----请求参数%@\n",parameters);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript", nil];
+    [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
+        [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        [MBProgressHUD hideHUD];
+        TEALog(@"----> %@",responseObject);
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [MBProgressHUD hideHUD];
+        TEALog(@"----> %@",error.domain);
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+
++ (NSString *)dictToStr:(id)params {
+    NSEnumerator *keyEnum = [params keyEnumerator];
+    id key;
+    NSString *keyValueFormat;
+    NSMutableString *result = [NSMutableString new];
+    while (key = [keyEnum nextObject]) {
+        keyValueFormat = [NSString stringWithFormat:@"%@=%@&", key, [params valueForKey:key]];
+        [result appendString:keyValueFormat];
+    }
+    result = (NSMutableString *)[result substringWithRange:NSMakeRange(0, result.length - 1)];
+    return result;
+}
 
 @end

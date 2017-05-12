@@ -26,7 +26,7 @@
     if ([_numberField.text intValue] > 1) {
         _numberField.text = [NSString stringWithFormat:@"%d",[_numberField.text intValue] - 1];
     }
-    NSLog(@"%@",_numberField.text);
+    TEALog(@"%@",_numberField.text);
     if (_block) {
         _block([_numberField.text intValue]);
     }
@@ -35,7 +35,7 @@
     if ([_numberField.text intValue] > 0) {
         _numberField.text = [NSString stringWithFormat:@"%d",[_numberField.text intValue] + 1];
     }
-    NSLog(@"%@",_numberField.text);
+    TEALog(@"%@",_numberField.text);
     if (_block) {
         _block([_numberField.text intValue]);
     }

@@ -50,20 +50,14 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"goodIsHave",@"goodName":searchText};
         //确认数据库存在该商品
-        [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-            if ([result[@"code"] intValue] == 200) {
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+            if ([responseObject[@"code"] intValue] == 200) {
                 GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
                 nextVC.title = searchText;
                 [weakSelf.navigationController pushViewController:nextVC animated:YES];
             } else {
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
-                hud.mode = MBProgressHUDModeIndeterminate;
-                hud.label.text = @"无此商品信息,请重新查询";
-                [hud hideAnimated:YES afterDelay:1.5];
-                [hud removeFromSuperViewOnHide];
             }
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        } failure:^(NSError *error) {
             
         }];
     };
@@ -95,7 +89,7 @@
 }
 
 - (void)btnClick {
-    NSLog(@"%s[IN]",__func__);
+    TEALog(@"%s[IN]",__func__);
     
     if(_iflyRecognizerView == nil)
     {
@@ -167,7 +161,7 @@
     if (!isLast) {
         
         NSString *key = [[[resultArray firstObject] allKeys] firstObject];
-        NSLog(@"%@",key);
+        TEALog(@"%@",key);
         
         self.searchBar.text = key;
         [self searchViewController:self searchTextDidChange:self.searchBar searchText:key];
@@ -193,27 +187,20 @@
         
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"searchGoodName",@"goodStr":searchText};
-        [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-            NSLog(@"%@",result);
-            if ([result[@"code"] intValue] == 200) {
+       
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO parameters:loadDic success:^(id responseObject) {
+            if ([responseObject[@"code"] intValue] == 200) {
                 NSMutableArray *resultArr = @[].mutableCopy;
-                for (NSDictionary *dic in result[@"list"]) {
+                for (NSDictionary *dic in responseObject[@"list"]) {
                     SearchResultModel *model = [SearchResultModel mj_objectWithKeyValues:dic];
                     [resultArr addObject:model.goodName];
                 }
                 if (resultArr.count > 0) {
                     searchViewController.searchSuggestions = resultArr;
-                }else {
-                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    hud.mode = MBProgressHUDModeIndeterminate;
-                    hud.label.text = @"未查询到商品信息,请重新查询";
-                    [hud hideAnimated:YES afterDelay:1.5];
-                    [hud removeFromSuperViewOnHide];
                 }
             }
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"%@",error);
+        } failure:^(NSError *error) {
+            
         }];
         
     }

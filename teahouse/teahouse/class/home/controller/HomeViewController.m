@@ -84,7 +84,7 @@
     LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0)*SCREEN_HEIGHT) scrollDuration:5.f];
     loop.imageURLStrings = @[@"home1.jpg",@"home2.jpg",@"home3.jpg",@"home4.jpg"];
     loop.clickAction = ^(NSInteger index) {
-        NSLog(@"点击了第%ld张图片",(long)index);
+        TEALog(@"点击了第%ld张图片",(long)index);
     };
     homeTableView.tableHeaderView = loop;
 }
@@ -95,8 +95,9 @@
 - (void)loadHomeData {
     dataArray = [NSMutableArray arrayWithCapacity:0];
     NSMutableDictionary *loadDic = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [loadDic setValue:@"showHome" forKey:@"key"];    
-    [[[TeaHouseHTTPClient alloc] init] POST:@"Home.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [loadDic setValue:@"showHome" forKey:@"key"];
+    
+    [TeaHouseNetWorking POST:@"Home.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             NSDictionary *list = responseObject[@"list"];
             for (NSDictionary *dic in list[@"HotGoods"]) {
@@ -123,14 +124,14 @@
     if (device) {
         PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
         if (status == PHAuthorizationStatusRestricted) {
-            NSLog(@"无法访问相册");
+            TEALog(@"无法访问相册");
         }else if (status == PHAuthorizationStatusDenied) {
-            NSLog(@"用户拒绝访问");
+            TEALog(@"用户拒绝访问");
         }else if (status == PHAuthorizationStatusAuthorized) {
-            NSLog(@"用户允许访问");
+            TEALog(@"用户允许访问");
             [self presentViewController:[[ScanViewController alloc] init] animated:YES completion:nil];
         }else if (status ==PHAuthorizationStatusNotDetermined) {
-            NSLog(@"用户没有选择");
+            TEALog(@"用户没有选择");
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                 if (status == PHAuthorizationStatusAuthorized) {
                     [self presentViewController:[[ScanViewController alloc] init] animated:YES completion:nil];
@@ -146,10 +147,21 @@
 
 - (void)searchBtnClick {
     NSArray *arr = @[@"祁红香螺",@"阿萨姆红茶",@"汀布拉茶",@"桂花茶",@"菊花茶",@"金银花茶",@"柠檬茶",@"君山银针",@"白毫银针",@"大红袍",@"铁观音"].copy;
+    WS(weakSelf)
     searchViewVC = [PYSearchViewController searchViewControllerWithHotSearches:arr searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-        GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
-        nextVC.title = searchText;
-        [searchViewVC.navigationController pushViewController:nextVC animated:YES];
+        NSDictionary *loadDic = [[NSDictionary alloc] init];
+        loadDic = @{@"key":@"goodIsHave",@"goodName":searchText};
+        //确认数据库存在该商品
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+            if ([responseObject[@"code"] intValue] == 200) {
+                GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
+                nextVC.title = searchText;
+                [weakSelf.navigationController pushViewController:nextVC animated:YES];
+            } else {
+            }
+        } failure:^(NSError *error) {
+            
+        }];
     }];
     
     //热门搜索风格
@@ -175,19 +187,18 @@
         // 根据条件发送查询（这里模拟搜索）
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"searchGoodName",@"goodStr":searchText};
-        [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-            NSLog(@"%@",result);
-            if ([result[@"code"] intValue] == 200) {
+        
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO parameters:loadDic success:^(id responseObject) {
+            if ([responseObject[@"code"] intValue] == 200) {
                 NSMutableArray *resultArr = @[].mutableCopy;
-                for (NSDictionary *dic in result[@"list"]) {
+                for (NSDictionary *dic in responseObject[@"list"]) {
                     SearchResultModel *model = [SearchResultModel mj_objectWithKeyValues:dic];
                     [resultArr addObject:model.goodName];
                 }
                 searchViewController.searchSuggestions = resultArr;
             }
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"%@",error);
+        } failure:^(NSError *error) {
+            
         }];
         
     }
@@ -231,7 +242,7 @@
 
 #pragma mark UIScrollerView代理
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"%f",scrollView.contentOffset.y);
+    TEALog(@"%f",scrollView.contentOffset.y);
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat alphaValue = offsetY / topView.frame.size.height;
     if (offsetY < 0) {//下拉隐藏自定义navigationbar

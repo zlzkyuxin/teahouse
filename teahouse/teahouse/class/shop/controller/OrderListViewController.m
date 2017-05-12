@@ -125,13 +125,13 @@
             //响应事件
             //得到文本信息
             for(UITextField *text in alert.textFields){
-                NSLog(@"text = %@", text.text);
+                TEALog(@"text = %@", text.text);
             }
         }];
         UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
                                                              handler:^(UIAlertAction * action) {
                                                 //响应事件
-                                                NSLog(@"action = %@", alert.textFields);
+                                                TEALog(@"action = %@", alert.textFields);
                                                              }];
         [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
             textField.placeholder = @"请输入新的手机号码";
@@ -152,7 +152,7 @@
 
 #pragma mark - 提交按钮的点击事件
 - (void)commitClick {
-    NSLog(@"%@--%@",self.price,self.goodsNumber);
+    TEALog(@"%@--%@",self.price,self.goodsNumber);
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     if (dic) {
         userInfo = [LoginModel mj_objectWithKeyValues:dic];
@@ -166,15 +166,15 @@
                 @"goodsPrice":self.price,
                 };
     
-    [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    
+    [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             OrderModel *orderModel = [OrderModel mj_objectWithKeyValues:responseObject[@"list"]];
-            NSLog(@"%@",orderModel.orderID);
+            TEALog(@"%@",orderModel.orderID);
             ShoppingCartViewController *nextVC = [ShoppingCartViewController new];
             nextVC.isOrderCommit = YES;
             [self.navigationController pushViewController:nextVC animated:YES];
         }
-
     } failure:^(NSError *error) {
         
     }];

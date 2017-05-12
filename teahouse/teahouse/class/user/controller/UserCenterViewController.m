@@ -55,7 +55,7 @@
 
 - (void)loadData {
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
-    NSLog(@"%@",dic);
+    TEALog(@"%@",dic);
     userInfo = [LoginModel mj_objectWithKeyValues:dic];
 }
 
@@ -141,22 +141,34 @@
     NSDictionary *loadDic = [[NSDictionary alloc] init];
     loadDic = @{@"userID":userInfo.userID};
     //上传图片到服务器
-    [[TeaHouseNetWorking shareNetWorking] POST:@"images/userimage/saveimage.php" parameters:loadDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
-        [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
+//    [[TeaHouseNetWorking shareNetWorking] POST:@"images/userimage/saveimage.php" parameters:loadDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
+//        [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
+//    } success:^(NSURLSessionDataTask *task, id responseObject) {
+//        //更新数据库用户图像
+//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+//        TEALog(@"%@",result);
+//        if ([result[@"code"] intValue] == 200) {
+//            _topView.userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//            [picker dismissViewControllerAnimated:YES completion:nil];
+//        }else {
+//            [picker dismissViewControllerAnimated:YES completion:nil];
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//
+//        [picker dismissViewControllerAnimated:YES completion:nil];
+//    }];
+    
+    [TeaHouseNetWorking upload:@"images/userimage/saveimage.php" showHUD:YES parameters:loadDic upImageName:upImageName success:^(id responseObject) {
         //更新数据库用户图像
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-        NSLog(@"%@",result);
-        if ([result[@"code"] intValue] == 200) {
+        if ([responseObject[@"code"] intValue] == 200) {
             _topView.userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
             [picker dismissViewControllerAnimated:YES completion:nil];
         }else {
             [picker dismissViewControllerAnimated:YES completion:nil];
         }
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-
+    } failure:^(NSError *error) {
         [picker dismissViewControllerAnimated:YES completion:nil];
     }];
     

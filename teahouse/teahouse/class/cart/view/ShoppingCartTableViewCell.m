@@ -93,7 +93,7 @@
     if ([_goodNumberTextField.text intValue] > 1) {
         _goodNumberTextField.text = [NSString stringWithFormat:@"%d",[_goodNumberTextField.text intValue] - 1];
     }
-    NSLog(@"%@",_goodNumberTextField.text);
+    TEALog(@"%@",_goodNumberTextField.text);
     if (_numberChangeBlock) {
         _numberChangeBlock([_goodNumberTextField.text intValue]);
     }
@@ -104,7 +104,7 @@
     if ([_goodNumberTextField.text intValue] > 0) {
         _goodNumberTextField.text = [NSString stringWithFormat:@"%d",[_goodNumberTextField.text intValue] + 1];
     }
-    NSLog(@"%@",_goodNumberTextField.text);
+    TEALog(@"%@",_goodNumberTextField.text);
     if (_numberChangeBlock) {
         _numberChangeBlock([_goodNumberTextField.text intValue]);
     }

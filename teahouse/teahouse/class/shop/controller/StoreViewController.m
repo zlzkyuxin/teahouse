@@ -59,13 +59,13 @@
     loadDic = @{@"key":@"showGoodsMenu"}.copy;
 //    [[TeaHouseNetWorking shareNetWorking] POST:@"shopgoods.php" parameters:loadDic success:^(NSURLSessionDataTask *task, id responseObject) {
 //        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-//        NSLog(@"%@",result);
+//        TEALog(@"%@",result);
 //        if ([result[@"code"] intValue] == 200) {
 //            for (NSDictionary *dic in result[@"list"]) {
 //                ShopGoodMenuModel *goodsMenu = [ShopGoodMenuModel mj_objectWithKeyValues:dic];
 //                [menuArray addObject:goodsMenu];
 //            }
-//            NSLog(@"%@",menuArray);
+//            TEALog(@"%@",menuArray);
 //            [leftTableView reloadData];
 //            //默认选中第一行
 //            [leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
@@ -75,19 +75,18 @@
 //        
 //    }];
     
-    [[[TeaHouseHTTPClient alloc] init] POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             for (NSDictionary *dic in responseObject[@"list"]) {
                 ShopGoodMenuModel *goodsMenu = [ShopGoodMenuModel mj_objectWithKeyValues:dic];
                 [menuArray addObject:goodsMenu];
             }
-            NSLog(@"%@",menuArray);
+            TEALog(@"%@",menuArray);
             [leftTableView reloadData];
             //默认选中第一行
             [leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
             [_collectionView reloadData];
         }
-
     } failure:^(NSError *error) {
         
     }];
@@ -159,7 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //
-    NSLog(@"选中了%ld行",indexPath.row);
+    TEALog(@"选中了%ld行",indexPath.row);
     leftSelectInteger = indexPath.row;
     [_collectionView reloadData];
 }
@@ -205,14 +204,14 @@
 
 #pragma mark -    UICollectionViewDelegate代理
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击了第 %zd组 第%zd个",indexPath.section, indexPath.row);
+    TEALog(@"点击了第 %zd组 第%zd个",indexPath.section, indexPath.row);
     if (menuArray.count > 0) {
         ShopGoodMenuModel *goodsMenu = menuArray[leftSelectInteger];
         NSArray *menuModelArray = goodsMenu.goodsMenu;
         GoodsMenumModel *menuModel = menuModelArray[indexPath.section];
         NSArray *thirdModelArray = menuModel.thirdMenu;
         thirdMenuModel *thirdModel = thirdModelArray[indexPath.row];
-        NSLog(@"选中商品的ID:%@",thirdModel.goodsthirdID);
+        TEALog(@"选中商品的ID:%@",thirdModel.goodsthirdID);
         
         GoodsDetailViewController *nextVC = [[GoodsDetailViewController alloc] init];
         nextVC.goodsId = thirdModel.goodsthirdID;
