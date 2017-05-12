@@ -23,7 +23,7 @@
     
     NSMutableArray *shopCartArray;
     
-    
+    UIButton *rightExitEdit;//退出编辑按钮
 }
 /**记录是否选中数组*/
 @property (nonatomic , strong)NSMutableArray *selectArray;
@@ -40,6 +40,15 @@
 /**tabbleview*/
 @property (nonatomic , strong) UITableView *tableView;
 
+/**记录是否为编辑状态*/
+@property (nonatomic , assign)BOOL isEditState;
+
+/**记录退出编辑时商品数量*/
+@property (nonatomic , assign)int exitEditGoodNumber;
+
+/**记录处于编辑状态的indexPath*/
+@property (nonatomic , strong)NSIndexPath *editIndexPath;
+
 @end
 
 @implementation ShoppingCartViewController
@@ -54,12 +63,19 @@
 
 //初始化数据
 - (void)loadData {
-    //初始化数据
+    //基础参数设置
     shopCartArray = @[].mutableCopy;
     //初始化记录是否选中数组
     _selectArray = @[].mutableCopy;
     self.accountIsSelect = YES;
+    _isEditState = NO;//默认为非编辑状态
     
+    //数据请求
+    [self getData];
+}
+
+
+- (void)getData {
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     NSString *userID = @"1";
     if (dic != nil) {
@@ -80,10 +96,11 @@
             }
             [_tableView reloadData];
         }
-
+        
     } failure:^(NSError *error) {
         
     }];
+
 }
 
 //初始化界面
@@ -162,6 +179,8 @@
     return 1;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ShoppingCartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShoppingCartTableViewCell"];
     WS(weakSelf)
@@ -170,6 +189,16 @@
     }
     //赋值
     cell.shopCartModel = (ShoppingCartModel *)shopCartArray[indexPath.section];
+    
+    if (_editIndexPath != nil && _editIndexPath == indexPath) {
+        //当当前cell是编辑状态时不隐藏
+        cell.editView.hidden = NO;
+        if (_exitEditGoodNumber > 0) {//商品变化数量记录有值时,滚动界面时赋值
+            cell.goodNumberTextField.text = [NSString stringWithFormat:@"%d",_exitEditGoodNumber];
+        }
+    }else {
+        cell.editView.hidden = YES;
+    }
     //取出记录按钮形态的值
     NSString *flag = _selectArray[indexPath.section];
     //改变按钮形态
@@ -223,11 +252,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
     ShoppingCartModel *model = shopCartArray[indexPath.section];
-    nextVC.goodsId = model.goodID;
+    nextVC.goodsId = model.goodsID;
     nextVC.title = model.goodsName;
     [self.navigationController pushViewController:nextVC animated:YES];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!_isEditState) {//非编辑状态下允许左划
+        return YES;
+    }else {
+        return NO;
+    }
+}
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     WS(weakSelf)
@@ -238,6 +274,10 @@
     }];
     // 添加一个编辑按钮
     UITableViewRowAction *editRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        //编辑状态
+        _isEditState = YES;
+        //使cell恢复原状
+        [_tableView reloadData];
         //编辑cell及更新数据库数据
         [weakSelf editDataGoodsCell:indexPath];
     }];
@@ -251,6 +291,11 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"确定要删除这件商品吗？" preferredStyle:UIAlertControllerStyleAlert];
     //确认
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //移除按钮
+        [self removeRightExitEditFromSuperView];
+        //退出编辑状态
+        _isEditState = NO;
+        
         //点击确认删除之后删除本地并请求删除数据库
         ShoppingCartModel *model = shopCartArray[indexPath.section];
         [shopCartArray removeObjectAtIndex:indexPath.section];//删除订单数据
@@ -270,6 +315,10 @@
     }];
     //取消
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //移除按钮
+        [self removeRightExitEditFromSuperView];
+        //退出编辑状态
+        _isEditState = NO;
         //取消删除恢复原状
         [_tableView reloadData];
     }];
@@ -281,26 +330,80 @@
 
 //编辑cell
 - (void)editDataGoodsCell:(NSIndexPath *)indexPath {
-    ShoppingCartModel *model = shopCartArray[indexPath.section];
-    [shopCartArray removeObjectAtIndex:indexPath.section];//更新订单数据
-    
-    //订单单价 = 订单总价/订单数量
-    NSString *goodPrice = [NSString stringWithFormat:@"%.2f", [model.orderTotal floatValue] / [model.goodsNumber floatValue]];
-    if ([model.goodsPrice floatValue] - [goodPrice floatValue] < 1) {
-        goodPrice = model.goodsPrice;
-    }
-    //更新数据库
-    NSDictionary *loadDic = [[NSDictionary alloc] init];
-    loadDic = @{@"key":@"updateOrder",@"orderID":model.orderID,@"goodsNumber":@"",@"goodsPrice":goodPrice};
-    [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
-        if ([responseObject[@"code"] intValue] == 200) {
-            model.goodsNumber = @"";
-            [_tableView reloadData];//刷新界面
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+    _editIndexPath = indexPath;
+    WS(weakSelf)
+    ShoppingCartTableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+    cell.editView.hidden = NO;
+    //数量变化回调
+    cell.numberChangeBlock = ^(int number) {
+        _exitEditGoodNumber = number;
+    };
+    //删除按钮点击回调
+    cell.deleteBlock = ^() {
+        [weakSelf deleteDataGoodsCell:indexPath];
+    };
+    //创建完成编辑按钮
+    [self creatExitEditBtn];
+}
 
+//创建退出编辑按钮
+- (void)creatExitEditBtn {
+    rightExitEdit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [rightExitEdit setTitle:@"完成" forState:UIControlStateNormal];
+    [rightExitEdit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightExitEdit.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [rightExitEdit addTarget:self action:@selector(rightExitEditClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightExitEdit];
+}
+
+//编辑退出事件
+- (void)rightExitEditClick {
+    //取出当前编辑位置的模型数据
+    ShoppingCartModel *model = shopCartArray[_editIndexPath.section];
+    if (_exitEditGoodNumber > 0 && _exitEditGoodNumber != [model.goodsNumber intValue]) {//退出编辑时商品数量大于0或者与编辑前数量不相等
+
+        //商品是否打折
+        NSString *goodPrice = @"";
+        if ([model.goodsIsDiscount intValue] == 1) {//打折
+            goodPrice = [NSString stringWithFormat:@"%.2f",[model.goodsPrice floatValue] * 0.75];
+        }else {
+            goodPrice = model.goodsPrice;
+        }
+        //更新数据库
+        NSDictionary *loadDic = [[NSDictionary alloc] init];
+        loadDic = @{@"key":@"updateOrder",@"orderID":model.orderID,@"goodsNumber":[NSString stringWithFormat:@"%d",_exitEditGoodNumber],@"goodsPrice":goodPrice};
+        [[[TeaHouseHTTPClient alloc] init] POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+            if ([responseObject[@"code"] intValue] == 200) {
+                //更新完数据库信息后改变界面数据模型
+                model.goodsNumber = [NSString stringWithFormat:@"%d",_exitEditGoodNumber];
+                //商品数量编辑完成之后置空
+                _exitEditGoodNumber = -1;
+                //刷新当前行
+                [self reloadIndexPath:_editIndexPath];
+            }
+        } failure:^(NSError *error) {
+        }];
+    }
+    //完成事件移除按钮
+    [self removeRightExitEditFromSuperView];
+    //退出编辑状态
+    _isEditState = NO;
+    //将选中编辑的位置置空
+    _editIndexPath = nil;
+    //刷新当前行
+    [self reloadIndexPath:_editIndexPath];
+}
+
+//移除退出编辑按钮
+- (void)removeRightExitEditFromSuperView {
+    [rightExitEdit removeFromSuperview];
+    rightExitEdit = nil;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem new];
+}
+
+/**刷新某一组*/
+- (void)reloadIndexPath:(NSIndexPath *)indexPath {
+    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 /** 计算选中项的总价*/

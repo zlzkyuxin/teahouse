@@ -99,7 +99,7 @@ switch ($action) {
 //2.商城主页(右侧菜单栏:小类及图片)
 function showShopGoods()
 {
-	$sql = "SELECT * FROM t_shopCategory ";
+	$sql = "SELECT * FROM t_shopCategory";
 	$result = mysql_query($sql);
 	if ($result) 
 	{
