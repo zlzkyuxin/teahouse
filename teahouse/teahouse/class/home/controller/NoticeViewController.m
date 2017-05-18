@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
+    
+    [MBProgressHUD showError:@"你二大爷"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

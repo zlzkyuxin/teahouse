@@ -215,7 +215,7 @@
     if (_userName != nil && _passWord != nil) {
         loadDic = @{@"key":@"login",@"userName":_userName.text,@"password":_passWord.text};
     }
-    [TeaHouseNetWorking POST:@"login.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"login.php" showHUD:YES  showMessage:@"正在登录" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             NSDictionary *list = responseObject[@"list"];
             

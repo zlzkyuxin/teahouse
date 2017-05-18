@@ -41,6 +41,7 @@
     //所有服务启动前，需要确保执行createUtility
     [IFlySpeechUtility createUtility:initString];
     
+    [TeaHouseNetWorking checkNetWork];
     return YES;
 }
 

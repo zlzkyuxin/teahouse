@@ -6,9 +6,9 @@
 //  Copyright © 2017年 yuxin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TeaBaseViewController.h"
 
-@interface GoodsDetailViewController : UIViewController
+@interface GoodsDetailViewController : TeaBaseViewController
 
 @property (nonatomic , strong)NSString *goodsId;
 

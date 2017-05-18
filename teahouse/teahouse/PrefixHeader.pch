@@ -10,6 +10,7 @@
 #define PrefixHeader_pch
 
 #import "header.h"
+#import "BaseTool.h"
 #import "MJExtension.h"
 #import "TeaHouseNetWorking.h"
 #import "Masonry.h"
@@ -21,5 +22,7 @@
 #import "UIImage+Addition.h"
 #import "MBProgressHUD+TeaHouse.h"
 #import "MJRefresh.h"
+#import "UIButton+WebCache.h"
+
 
 #endif /* PrefixHeader_pch */

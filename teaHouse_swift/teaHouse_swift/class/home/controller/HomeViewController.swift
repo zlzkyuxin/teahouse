@@ -58,23 +58,35 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,
     
     func loadHomeData() {
         let parames = ["key":"showHome"]
+        var hotModel = HotGoodsModel()
+        TeaHouseNetWorking.post("Home.php", parameters: parames) { (error, responseObject) in
+            let result = responseObject as! NSDictionary
+            if result["code"] as! String == "200" {
+                let hot = result["list"] as! NSDictionary
+                for list in hot {
+                hotModel = HotGoodsModel.mj_object(withKeyValues: list)
+                }
+            }
+        }
+        /*
         TeaHouseNetWorking.shared.post("Home.php", parameters: parames, success: { (task, responseObject) in
             
             let result = responseObject as! NSDictionary
             if result["code"] as! String == "200"{
                 let hotGoods = result["list"] as! NSDictionary
-                for hot in hotGoods["HotGoods"] as! NSArray {
-                    let hott = hot as! NSDictionary
-                    let model = HotGoodsModel()
-                    model.goodsID = hott["goodsID"] as? String
-                    model.goodsName = hott["goodsName"] as? String
-                    model.content = hott["content"] as? String
-                    model.beforePrice = hott["beforePrice"] as? String
-                    model.nowPrice = hott["nowPrice"] as? String
-                    model.detailsImageName = hott["detailsImageName"] as? String
-                    model.categoryName = hott["categoryName"] as? String
+                for list in hotGoods["HotGoods"] as! NSArray {
+                    hotModel = HotGoodsModel.mj_object(withKeyValues: list)
+//                    let hott = hot as! NSDictionary
+//                    let model = HotGoodsModel()
+//                    model.goodsID = hott["goodsID"] as? String
+//                    model.goodsName = hott["goodsName"] as? String
+//                    model.content = hott["content"] as? String
+//                    model.beforePrice = hott["beforePrice"] as? String
+//                    model.nowPrice = hott["nowPrice"] as? String
+//                    model.detailsImageName = hott["detailsImageName"] as? String
+//                    model.categoryName = hott["categoryName"] as? String
 
-                    self.dataArray.append(model)
+                    self.dataArray.append(hotModel)
                 }
                 self.tableView.reloadData()
             }
@@ -82,6 +94,7 @@ class HomeViewController: UIViewController,TopViewDelegate,UIScrollViewDelegate,
         }) { (task, error) in
             
         }
+ */
     }
     
     //topView的代理方法

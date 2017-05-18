@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "teaHouse_swift/class/home/controller/HomeViewController.swift"
-            timestampString = "510224502.761931"
+            timestampString = "516610284.162922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "loadHomeData()"
             landmarkType = "7">
          </BreakpointContent>

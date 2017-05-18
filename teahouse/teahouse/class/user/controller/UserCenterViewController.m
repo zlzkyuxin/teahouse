@@ -9,6 +9,8 @@
 #import "UserCenterViewController.h"
 #import "LoginViewController.h"
 #import "UserCenterTopView.h"
+#import "CollectionInfoViewController.h"
+#import "OrderViewController.h"
 #import "LoginModel.h"
 
 #define userIconRadius 80
@@ -71,8 +73,16 @@
     _topView = [[UserCenterTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 2)];
     _topView.userInfo = userInfo;
     WS(weakSelf)
-    _topView.block = ^{
-        [weakSelf userIconImageClick];
+    _topView.block = ^(NSInteger tag) {
+        if (tag == 50) {
+            [weakSelf userIconImageClick];
+        }else if (tag == 51) {//订单按钮
+            [weakSelf.navigationController pushViewController:[OrderViewController new] animated:YES];
+            TEALog(@"点击了订单按钮");
+        }else if (tag == 52) {//收藏按钮
+            [weakSelf.navigationController pushViewController:[CollectionInfoViewController new] animated:YES];
+            TEALog(@"点击了收藏按钮");
+        }
     };
     _tableView.tableHeaderView = _topView;
     
@@ -132,7 +142,7 @@
 #pragma mark - UIImagePickerControllerDelegate的代理
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
     //压缩图片
-    UIImage *upImage = [UIImage scaleToSize:[info objectForKey:UIImagePickerControllerOriginalImage] size:CGSizeMake(120, 120)];
+    UIImage *upImage = [UIImage scaleToSize:[info objectForKey:UIImagePickerControllerOriginalImage] size:CGSizeMake(60, 60)];
     //重命名图片
     NSString *upImageName = [NSString stringWithFormat:@"%@%@.png",userInfo.userID,userInfo.userNick];
     //保存图片到沙盒中
@@ -141,29 +151,12 @@
     NSDictionary *loadDic = [[NSDictionary alloc] init];
     loadDic = @{@"userID":userInfo.userID};
     //上传图片到服务器
-//    [[TeaHouseNetWorking shareNetWorking] POST:@"images/userimage/saveimage.php" parameters:loadDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
-//        [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
-//    } success:^(NSURLSessionDataTask *task, id responseObject) {
-//        //更新数据库用户图像
-//        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-//        TEALog(@"%@",result);
-//        if ([result[@"code"] intValue] == 200) {
-//            _topView.userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-//            [picker dismissViewControllerAnimated:YES completion:nil];
-//        }else {
-//            [picker dismissViewControllerAnimated:YES completion:nil];
-//        }
-//        
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//
-//        [picker dismissViewControllerAnimated:YES completion:nil];
-//    }];
     
     [TeaHouseNetWorking upload:@"images/userimage/saveimage.php" showHUD:YES parameters:loadDic upImageName:upImageName success:^(id responseObject) {
         //更新数据库用户图像
         if ([responseObject[@"code"] intValue] == 200) {
-            _topView.userIconImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            [_topView.userIconImage setImage:[info objectForKey:UIImagePickerControllerOriginalImage] forState:UIControlStateNormal];
+//            _topView.userIconImage.imageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
             [picker dismissViewControllerAnimated:YES completion:nil];
         }else {
             [picker dismissViewControllerAnimated:YES completion:nil];

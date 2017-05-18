@@ -68,7 +68,7 @@
         loadDic = @{@"key":@"goodsDetails",@"goodsID":self.goodsId};
     }
     
-    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES  showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             goodsDeailModel = [GoodsDetailModel mj_objectWithKeyValues:[responseObject[@"list"] firstObject]];
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,goodsDeailModel.goodsImageName]];
@@ -78,7 +78,7 @@
         }
         [_tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self createBackgroundImage:[UIImage imageNamed:@"failurelode"] title:@"" withResponseResult:TeaResponseError onView:self.view];
     }];
 }
 
@@ -113,6 +113,8 @@
             TEALog(@"21312312");
         };
         cell.goodsNumber.text = [NSString stringWithFormat:@"剩余%@件",goodsDeailModel.goodsNumber];
+        //cell分割线左移到顶
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {

@@ -6,9 +6,9 @@
 //  Copyright © 2017年 yuxin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TeaBaseViewController.h"
 
-@interface ShoppingCartViewController : UIViewController
+@interface ShoppingCartViewController : TeaBaseViewController
 
 @property (nonatomic , assign) BOOL isOrderCommit;
 

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 yuxin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TeaBaseViewController.h"
 
-@interface UserCenterViewController : UIViewController
+@interface UserCenterViewController : TeaBaseViewController
 
 @end

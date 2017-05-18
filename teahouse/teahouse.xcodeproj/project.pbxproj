@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120213F41ECC3E6000DA93D1 /* CollectionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120213F31ECC3E6000DA93D1 /* CollectionInfoViewController.m */; };
+		120213F71ECD2ADE00DA93D1 /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120213F61ECD2ADE00DA93D1 /* OrderViewController.m */; };
+		120213F91ECD375700DA93D1 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 120213F81ECD375700DA93D1 /* MBProgressHUD.bundle */; };
+		12142A731ECD7F100025CEF5 /* TeaBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12142A721ECD7F100025CEF5 /* TeaBaseViewController.m */; };
 		1216D3331EA1C56B009251A7 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1216D3321EA1C56B009251A7 /* OrderListViewController.m */; };
 		1216D33C1EA1C69C009251A7 /* GoodsDetailTableViewCellA.m in Sources */ = {isa = PBXBuildFile; fileRef = 1216D3371EA1C69C009251A7 /* GoodsDetailTableViewCellA.m */; };
 		1216D33D1EA1C69C009251A7 /* GoodsDetailTableViewCellB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1216D3391EA1C69C009251A7 /* GoodsDetailTableViewCellB.m */; };
@@ -119,6 +123,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120213F21ECC3E6000DA93D1 /* CollectionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionInfoViewController.h; sourceTree = "<group>"; };
+		120213F31ECC3E6000DA93D1 /* CollectionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionInfoViewController.m; sourceTree = "<group>"; };
+		120213F51ECD2ADE00DA93D1 /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
+		120213F61ECD2ADE00DA93D1 /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
+		120213F81ECD375700DA93D1 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		12142A711ECD7F100025CEF5 /* TeaBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeaBaseViewController.h; sourceTree = "<group>"; };
+		12142A721ECD7F100025CEF5 /* TeaBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeaBaseViewController.m; sourceTree = "<group>"; };
 		1216D3301EA0F96A009251A7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		1216D3311EA1C56B009251A7 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
 		1216D3321EA1C56B009251A7 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
@@ -328,6 +339,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12142A741ECD8FE40025CEF5 /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				120213F81ECD375700DA93D1 /* MBProgressHUD.bundle */,
+				129E4BE41EC3F1E400649335 /* MBProgressHUD+TeaHouse.h */,
+				129E4BE51EC3F1E400649335 /* MBProgressHUD+TeaHouse.m */,
+			);
+			name = MBProgressHud;
+			sourceTree = "<group>";
+		};
 		1216D3351EA1C69C009251A7 /* HomeCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +508,8 @@
 		12F7DCA01E0D471200B372CE /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				12142A711ECD7F100025CEF5 /* TeaBaseViewController.h */,
+				12142A721ECD7F100025CEF5 /* TeaBaseViewController.m */,
 				12F7DCB41E0D4D4F00B372CE /* GuideViewController.h */,
 				12F7DCB51E0D4D4F00B372CE /* GuideViewController.m */,
 				1285BB1A1E134F5900D85715 /* CustomNavigationController.h */,
@@ -604,6 +627,10 @@
 				1283BCF81E5EB3DD00D65400 /* RegistViewController.m */,
 				1283BCFA1E5EB40400D65400 /* RepasswordViewController.h */,
 				1283BCFB1E5EB40400D65400 /* RepasswordViewController.m */,
+				120213F21ECC3E6000DA93D1 /* CollectionInfoViewController.h */,
+				120213F31ECC3E6000DA93D1 /* CollectionInfoViewController.m */,
+				120213F51ECD2ADE00DA93D1 /* OrderViewController.h */,
+				120213F61ECD2ADE00DA93D1 /* OrderViewController.m */,
 				1983737A1E94D81200A50E5B /* HTTPViewController.h */,
 				1983737B1E94D81200A50E5B /* HTTPViewController.m */,
 			);
@@ -645,6 +672,7 @@
 				19BB93A41EC1838800A3CFBE /* isr */,
 				19FC4D6A1EB1823900EEE13B /* PYSearch */,
 				12E73A891E63AFF9004C7388 /* AvoidCrash */,
+				12142A741ECD8FE40025CEF5 /* MBProgressHud */,
 				12FABFCB1E10AE00009D010E /* Header.h */,
 				12E73A831E63AF3A004C7388 /* TipsHud.h */,
 				12E73A841E63AF3A004C7388 /* TipsHud.m */,
@@ -656,8 +684,6 @@
 				128EC06C1EBCA653007A2887 /* UIImage+Addition.m */,
 				1276DD151E1B8AE50009F551 /* TeaHouseNetWorking.h */,
 				1276DD161E1B8AE50009F551 /* TeaHouseNetWorking.m */,
-				129E4BE41EC3F1E400649335 /* MBProgressHUD+TeaHouse.h */,
-				129E4BE51EC3F1E400649335 /* MBProgressHUD+TeaHouse.m */,
 				12BB705B1E5BC7D5005D62EC /* BaseTool.h */,
 				12BB705C1E5BC7D5005D62EC /* BaseTool.m */,
 				198373771E94936100A50E5B /* RegistTextField.h */,
@@ -887,6 +913,7 @@
 				129E4BEB1EC4407300649335 /* CalculateAccountView.xib in Resources */,
 				1216D3431EA1C6F2009251A7 /* OrderNumberTableViewCell.xib in Resources */,
 				1216D33E1EA1C69C009251A7 /* GoodsDetailTableViewCellB.xib in Resources */,
+				120213F91ECD375700DA93D1 /* MBProgressHUD.bundle in Resources */,
 				19FC4D7A1EB1823900EEE13B /* PYSearch.bundle in Resources */,
 				191516B01EBC689700353F96 /* ceshi.xib in Resources */,
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
@@ -966,6 +993,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19FC4D7B1EB1823900EEE13B /* PYSearchConst.m in Sources */,
+				120213F41ECC3E6000DA93D1 /* CollectionInfoViewController.m in Sources */,
 				19FC4D7D1EB1823900EEE13B /* PYSearchViewController.m in Sources */,
 				12E73AA11E63AFF9004C7388 /* NSDictionary+AvoidCrash.m in Sources */,
 				12FABFCA1E10A03B009D010E /* YXButton.m in Sources */,
@@ -989,6 +1017,7 @@
 				1221798F1E1B5388007A2285 /* ScanResultController.m in Sources */,
 				12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */,
 				1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */,
+				120213F71ECD2ADE00DA93D1 /* OrderViewController.m in Sources */,
 				12FB46641EC2049A0013B8BE /* GoodsCollectionViewCell.m in Sources */,
 				129FEB341E14EB2200B45C54 /* searchButton.m in Sources */,
 				12E73AA31E63AFF9004C7388 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
@@ -1025,6 +1054,7 @@
 				19BB93A71EC1839900A3CFBE /* IATConfig.m in Sources */,
 				19ED47DE1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m in Sources */,
 				125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */,
+				12142A731ECD7F100025CEF5 /* TeaBaseViewController.m in Sources */,
 				12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				12E73A9F1E63AFF9004C7388 /* NSArray+AvoidCrash.m in Sources */,
 				12E73AA51E63AFF9004C7388 /* NSMutableString+AvoidCrash.m in Sources */,

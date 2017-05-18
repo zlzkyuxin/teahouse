@@ -7,6 +7,7 @@
 //
 
 #import "UserCenterTopView.h"
+#import "YXButton.h"
 
 #define UserIconRadius 80
 
@@ -18,6 +19,9 @@
 @property (nonatomic , strong) UIView *line1;
 @property (nonatomic , strong) UIView *line2;
 @property (nonatomic , strong) UIView *line3;
+@property (nonatomic , strong) UIButton *leftBtn;
+@property (nonatomic , strong) UIButton *rightBtn;
+
 
 @end
 
@@ -68,7 +72,7 @@
     [backView addSubview:bottomView];
     
     //头像
-    _userIconImage = [UIImageView new];
+    _userIconImage = [UIButton new];
     [backView addSubview:_userIconImage];
     
     //用户名
@@ -80,10 +84,20 @@
     _line1 = line1;
     [bottomView addSubview:line1];
     
+    //左侧按钮
+    UIButton *leftBtn = [YXButton new];
+    _leftBtn = leftBtn;
+    [bottomView addSubview:leftBtn];
+    
     //垂直分割线
     UIView *line2 = [UIView new];
     _line2 = line2;
     [bottomView addSubview:line2];
+    
+    //右侧按钮
+    UIButton *rightBtn = [YXButton new];
+    _rightBtn = rightBtn;
+    [bottomView addSubview:rightBtn];
     
     //底部分割线
     UIView *line3 = [UIView new];
@@ -136,6 +150,20 @@
         make.height.mas_equalTo(@0.5);
         make.bottom.equalTo(weakSelf.bottomView);
     }];
+    //左侧按钮
+    [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.bottomView);
+        make.top.equalTo(weakSelf.line1.mas_bottom).offset(12);
+        make.right.equalTo(weakSelf.line2);
+        make.bottom.equalTo(weakSelf.line3.mas_top).offset(-15);
+    }];
+    //右侧按钮
+    [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.line2);
+        make.right.equalTo(weakSelf.bottomView.mas_right);
+        make.top.equalTo(weakSelf.line1.mas_bottom).offset(15);
+        make.bottom.equalTo(weakSelf.line3.mas_top).offset(-15);
+    }];
 }
 
 //设置数据
@@ -146,14 +174,11 @@
     _bottomView.backgroundColor = [UIColor whiteColor];
     //刷新本地缓存图片
     NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@userimage/%@",ImageURL,_userInfo.userImage]];
-    [_userIconImage sd_setImageWithURL:imageUrl placeholderImage:nil options:SDWebImageRefreshCached];
-    
+    [_userIconImage sd_setImageWithURL:imageUrl forState:UIControlStateNormal placeholderImage:nil options:SDWebImageRefreshCached];
     _userIconImage.layer.cornerRadius = UserIconRadius / 2;
     _userIconImage.layer.masksToBounds = YES;
-    //给头像添加单击手势
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userIconImageClick)];
-    _userIconImage.userInteractionEnabled = YES;
-    [_userIconImage addGestureRecognizer:tap];
+    [_userIconImage addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _userIconImage.tag = 50;
     //用户名
     _userNameLabel.text = _userInfo.userNick;
     _userNameLabel.textAlignment = NSTextAlignmentCenter;
@@ -163,11 +188,23 @@
     _line2.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
     //底部分割线
     _line3.backgroundColor = UIColorFromHexadecimalRGB(0xcccccc);
+    //左侧按钮
+    [_leftBtn setTitle:@"我的订单" forState:UIControlStateNormal];
+    [_leftBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [_leftBtn setImage:[UIImage imageNamed:@"order"] forState:UIControlStateNormal];
+    [_leftBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _leftBtn.tag = 51;
+    //右侧按钮
+    [_rightBtn setTitle:@"我的收藏" forState:UIControlStateNormal];
+    [_rightBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [_rightBtn setImage:[UIImage imageNamed:@"collection"] forState:UIControlStateNormal];
+    [_rightBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    _rightBtn.tag = 52;
 }
 
-- (void)userIconImageClick {
+- (void)btnClick:(UIButton *)sender {
     if (_block) {
-        _block();
+        _block(sender.tag);
     }
 }
 

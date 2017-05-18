@@ -50,7 +50,7 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"goodIsHave",@"goodName":searchText};
         //确认数据库存在该商品
-        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
                 nextVC.title = searchText;
@@ -188,12 +188,12 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"searchGoodName",@"goodStr":searchText};
        
-        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 NSMutableArray *resultArr = @[].mutableCopy;
                 for (NSDictionary *dic in responseObject[@"list"]) {
                     SearchResultModel *model = [SearchResultModel mj_objectWithKeyValues:dic];
-                    [resultArr addObject:model.goodName];
+                    [resultArr ARRAY_ADD_OBJ(model.goodName)];
                 }
                 if (resultArr.count > 0) {
                     searchViewController.searchSuggestions = resultArr;

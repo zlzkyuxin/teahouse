@@ -75,11 +75,11 @@
 //        
 //    }];
     
-    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES  showMessage:@"商品加载中" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             for (NSDictionary *dic in responseObject[@"list"]) {
                 ShopGoodMenuModel *goodsMenu = [ShopGoodMenuModel mj_objectWithKeyValues:dic];
-                [menuArray addObject:goodsMenu];
+                [menuArray ARRAY_ADD_OBJ(goodsMenu)];
             }
             TEALog(@"%@",menuArray);
             [leftTableView reloadData];
@@ -88,7 +88,7 @@
             [_collectionView reloadData];
         }
     } failure:^(NSError *error) {
-        
+        [self createBackgroundImage:[UIImage imageNamed:@"failurelode"] title:@"" withResponseResult:TeaResponseError onView:self.view];
     }];
 }
 
@@ -139,7 +139,7 @@
 
 #pragma mark - UITableViewDataSource代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return menuArray.count;
+    return [menuArray COUNT];
 }
 
 #pragma mark - UITableViewDelegate代理
@@ -148,7 +148,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"leftCell"];
     }
-    ShopGoodMenuModel *goodsMenu = menuArray[indexPath.row];
+    ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(indexPath.row)];
     cell.textLabel.text = goodsMenu.CategoryName;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -165,10 +165,10 @@
 
 #pragma mark -    UICollectionViewDataSource代理
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    if (menuArray.count > 0) {
-        ShopGoodMenuModel *goodsMenu = menuArray[leftSelectInteger];
+    if ([menuArray COUNT] > 0) {
+        ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(leftSelectInteger)];
         NSArray *menuModelArray = goodsMenu.goodsMenu;
-        return menuModelArray.count;
+        return [menuModelArray COUNT];
     }
     return 0;
 }
@@ -176,24 +176,23 @@
 /** 每组cell的个数*/
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (menuArray.count > 0) {
-    ShopGoodMenuModel *goodsMenu = menuArray[leftSelectInteger];
+    ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(leftSelectInteger)];
     NSArray *menuModelArray = goodsMenu.goodsMenu;
-    GoodsMenumModel *menuModel = menuModelArray[section];
+    GoodsMenumModel *menuModel = [menuModelArray ARRAY_OBJ_AT(section)];
     NSArray *thirdModelArray = menuModel.thirdMenu;
-    return thirdModelArray.count;
+    return [thirdModelArray COUNT];
     }
     return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GoodsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectioncell" forIndexPath:indexPath];
-    if (menuArray.count > 0) {
-        ShopGoodMenuModel *goodsMenu = menuArray[leftSelectInteger];
-        //    cell.textLabel.text = goodsMenu.CategoryName;
+    if ([menuArray COUNT] > 0) {
+        ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(leftSelectInteger)];
         NSArray *menuModelArray = goodsMenu.goodsMenu;
-        GoodsMenumModel *menuModel = menuModelArray[indexPath.section];
+        GoodsMenumModel *menuModel = [menuModelArray ARRAY_OBJ_AT(indexPath.section)];
         NSArray *thirdModelArray = menuModel.thirdMenu;
-        thirdMenuModel *thirdModel = thirdModelArray[indexPath.row];
+        thirdMenuModel *thirdModel = [thirdModelArray ARRAY_OBJ_AT(indexPath.row)];
         //商品URL
         NSURL *goodsImageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@thumbnail/%@.png",ImageURL,thirdModel.goodsImage]];
         [cell.goodsImage sd_setImageWithURL:goodsImageUrl];
@@ -205,12 +204,12 @@
 #pragma mark -    UICollectionViewDelegate代理
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TEALog(@"点击了第 %zd组 第%zd个",indexPath.section, indexPath.row);
-    if (menuArray.count > 0) {
-        ShopGoodMenuModel *goodsMenu = menuArray[leftSelectInteger];
+    if ([menuArray COUNT] > 0) {
+        ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(leftSelectInteger)];
         NSArray *menuModelArray = goodsMenu.goodsMenu;
-        GoodsMenumModel *menuModel = menuModelArray[indexPath.section];
+        GoodsMenumModel *menuModel = [menuModelArray ARRAY_OBJ_AT(indexPath.section)];
         NSArray *thirdModelArray = menuModel.thirdMenu;
-        thirdMenuModel *thirdModel = thirdModelArray[indexPath.row];
+        thirdMenuModel *thirdModel = [thirdModelArray ARRAY_OBJ_AT(indexPath.row)];
         TEALog(@"选中商品的ID:%@",thirdModel.goodsthirdID);
         
         GoodsDetailViewController *nextVC = [[GoodsDetailViewController alloc] init];

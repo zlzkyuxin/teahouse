@@ -167,7 +167,7 @@
                 };
     
     
-    [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"order.php" showHUD:YES showMessage:@"订单生成中" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             OrderModel *orderModel = [OrderModel mj_objectWithKeyValues:responseObject[@"list"]];
             TEALog(@"%@",orderModel.orderID);

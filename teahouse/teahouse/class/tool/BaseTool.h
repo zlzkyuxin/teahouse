@@ -28,9 +28,9 @@
 /**
  *  检测是否身份证
  *
- *  @param identityCard <#identityCard description#>
+ *  @param identityCard 号码
  *
- *  @return <#return value description#>
+ *  @return 返回是否为正确身份证
  */
 + (BOOL)validateIdentityCard:(NSString *)identityCard;
 
@@ -38,7 +38,7 @@
 /**
  *  随机颜色
  *
- *  @return <#return value description#>
+ *  @return 随机颜色
  */
 + (UIColor *)randomColor;
 

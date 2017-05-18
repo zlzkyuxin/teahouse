@@ -41,17 +41,18 @@ typedef void(^HTTPfailure)(NSError *error);
  */
 + (void)POST:(NSString *)URLString
      showHUD:(BOOL)HUD
+ showMessage:(NSString *)message
   parameters:(id)parameters
      success:(HTTPsuccess)success
      failure:(HTTPfailure)failure;
 
 /**  上传图片
-    @param URLString    上传文件的 url 地址
-    @param HUD          显示 HUD
-    @param parameters   参数字典
-    @param upImageName  图片名称
-    @param success      成功
-    @param failure      失败
+   * @param URLString    上传文件的 url 地址
+   * @param HUD          显示 HUD
+   * @param parameters   参数字典
+   * @param upImageName  图片名称
+   * @param success      成功
+   * @param failure      失败
  */
 + (void)upload:(NSString *)URLString
        showHUD:(BOOL)HUD
@@ -60,4 +61,6 @@ typedef void(^HTTPfailure)(NSError *error);
        success:(HTTPsuccess)success
        failure:(HTTPfailure)failure;
 
+/** 检查网络状态*/
++ (void)checkNetWork;
 @end

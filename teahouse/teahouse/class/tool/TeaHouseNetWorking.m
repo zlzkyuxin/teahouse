@@ -14,17 +14,22 @@ static NSString * const httpBaseURLString = BaseUrl;
 
 + (void)POST:(NSString *)URLString
      showHUD:(BOOL)HUD
+ showMessage:(NSString *)message
   parameters:(id)parameters
      success:(HTTPsuccess)success
      failure:(HTTPfailure)failure {
     if (HUD) {
-        [MBProgressHUD showMessage:@"正在加载中"];
+        if (message.length == 0) {
+            message = @"正在加载中";
+        }
+        [MBProgressHUD showMessage:message];
     }
     NSString *url = [NSString stringWithFormat:@"%@%@",BaseUrl,URLString];
     TEALog(@"--请求url地址--%@\n",url);
     TEALog(@"----请求参数%@\n",parameters);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript", nil];
+    manager.requestSerializer.timeoutInterval = 10;
     [manager POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         [MBProgressHUD hideHUD];
 //        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
@@ -55,6 +60,7 @@ static NSString * const httpBaseURLString = BaseUrl;
     TEALog(@"----请求参数%@\n",parameters);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript", nil];
+    manager.requestSerializer.timeoutInterval = 0;
     [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSData *imageData = [NSData dataWithContentsOfFile:[UIImage getPNGImageFilePathFromCache:upImageName]];
         [formData appendPartWithFileData:imageData name:@"header" fileName:upImageName mimeType:@"image/png"];
@@ -72,6 +78,45 @@ static NSString * const httpBaseURLString = BaseUrl;
             failure(error);
         }
     }];
+}
+
+
+/** 检查网络状态*/
++ (void)checkNetWork{
+    AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+                //AFNetworkReachabilityStatusUnknown          = -1,
+                //AFNetworkReachabilityStatusNotReachable     = 0,
+                //AFNetworkReachabilityStatusReachableViaWWAN = 1,
+                //AFNetworkReachabilityStatusReachableViaWiFi = 2,
+            case AFNetworkReachabilityStatusUnknown:
+                TEALog(@"未知网络");
+                // 设置网络请求的缓存政策
+                manager.requestSerializer.cachePolicy =  NSURLRequestReturnCacheDataElseLoad;
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                TEALog(@"断网状态");
+                // 设置网络请求的缓存政策
+                manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                TEALog(@"4G网络");
+                // 设置网络请求的缓存政策
+                manager.requestSerializer.cachePolicy =  NSURLRequestReturnCacheDataElseLoad;
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                TEALog(@"WIFi");
+                // 设置网络请求的缓存政策
+                manager.requestSerializer.cachePolicy =  NSURLRequestReloadIgnoringLocalCacheData;
+                break;
+            default:
+                break;
+        }
+    }];
+    // 启动网络状态监听
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
 

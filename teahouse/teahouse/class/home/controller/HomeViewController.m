@@ -97,17 +97,17 @@
     NSMutableDictionary *loadDic = [[NSMutableDictionary alloc] initWithCapacity:0];
     [loadDic setValue:@"showHome" forKey:@"key"];
     
-    [TeaHouseNetWorking POST:@"Home.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"Home.php" showHUD:NO showMessage:@"" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             NSDictionary *list = responseObject[@"list"];
             for (NSDictionary *dic in list[@"HotGoods"]) {
                 HotGoodsModel *model = [HotGoodsModel mj_objectWithKeyValues:dic];
-                [dataArray addObject:model];
+                [dataArray ARRAY_ADD_OBJ(model)];
             }
             [homeTableView reloadData];
         }
     } failure:^(NSError *error) {
-        
+        [self createBackgroundImage:[UIImage imageNamed:@"failurelode"] title:@"" withResponseResult:TeaResponseError onView:self.view];
     }];
     
 }
@@ -152,7 +152,7 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"goodIsHave",@"goodName":searchText};
         //确认数据库存在该商品
-        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES  showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
                 nextVC.title = searchText;
@@ -188,12 +188,12 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"searchGoodName",@"goodStr":searchText};
         
-        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO  showMessage:@"" parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 NSMutableArray *resultArr = @[].mutableCopy;
                 for (NSDictionary *dic in responseObject[@"list"]) {
                     SearchResultModel *model = [SearchResultModel mj_objectWithKeyValues:dic];
-                    [resultArr addObject:model.goodName];
+                    [resultArr ARRAY_ADD_OBJ(model.goodName)];
                 }
                 searchViewController.searchSuggestions = resultArr;
             }
@@ -217,24 +217,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return dataArray.count;
+    return [dataArray COUNT];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HotGoodsTableViewCell *cell = [HotGoodsTableViewCell cellWithTableView:tableView];
-    cell.model = dataArray[indexPath.row];
+    cell.model = [dataArray ARRAY_OBJ_AT(indexPath.row)];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     HotGoodsTableViewCell *cell = [HotGoodsTableViewCell cellWithTableView:tableView];
-    cell.model = dataArray[indexPath.row];
+    cell.model = [dataArray ARRAY_OBJ_AT(indexPath.row)];
     return cell.cellHeight + 8 ;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GoodsDetailViewController *gdVC = [GoodsDetailViewController new];
-    HotGoodsModel *model = dataArray[indexPath.row];
+    HotGoodsModel *model = [dataArray ARRAY_OBJ_AT(indexPath.row)];
     gdVC.title = model.goodsName;
     gdVC.goodsId = model.goodsID;
     [self.navigationController pushViewController:gdVC animated:YES];

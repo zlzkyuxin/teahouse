@@ -76,7 +76,7 @@
     [self getData];
 }
 
-
+//数据请求
 - (void)getData{
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     NSString *userID = @"1";
@@ -87,20 +87,20 @@
     NSDictionary *loadDic = [[NSDictionary alloc] init];
     loadDic = @{@"key":@"orderFromUserID",@"userID":userID,@"orderState":@"待付款"};
     
-    [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"order.php" showHUD:YES  showMessage:@"订单查询中" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
             for (NSDictionary *dic in responseObject[@"list"]) {
                 ShoppingCartModel *shopCartModel = [ShoppingCartModel mj_objectWithKeyValues:dic];
-                [shopCartArray addObject:shopCartModel];
+                [shopCartArray ARRAY_ADD_OBJ(shopCartModel)];
             }
             //记录是否选中数组赋值(默认全部未选中)
-            for (int i = 0; i < shopCartArray.count; i++) {
+            for (int i = 0; i < [shopCartArray COUNT]; i++) {
                 [_selectArray addObject:@"0"];
             }
             [_tableView reloadData];
         }
     } failure:^(NSError *error) {
-        
+        [self createBackgroundImage:[UIImage imageNamed:@"failurelode"] title:@"" withResponseResult:TeaResponseError onView:self.view];
     }];
 
 }
@@ -121,6 +121,7 @@
     }
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    //设置行高
     if (iPhone5SE) {
         _tableView.rowHeight = 80;
     }else if (iPhone6_6s) {
@@ -128,6 +129,7 @@
     }else if (iPhone6Plus_6sPlus) {
         _tableView.rowHeight = 103.5;
     }
+    //去掉底部多余分割线
     _tableView.tableFooterView = [UIView new];
     [self.view addSubview:_tableView];
     
@@ -174,8 +176,15 @@
 
 //集成刷新控件
 - (void)setupRefresh {
+    WS(weakSelf)
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //使数据恢复到初始化状态
         [shopCartArray removeAllObjects];
+        [weakSelf.selectArray removeAllObjects];
+        weakSelf.isEditState = NO;
+        //移除按钮
+        [weakSelf removeRightExitEditFromSuperView];
+        
         NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
         NSString *userID = @"1";
         if (dic != nil) {
@@ -185,28 +194,38 @@
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"orderFromUserID",@"userID":userID,@"orderState":@"待付款"};
         
-        [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
-            [_tableView.mj_header endRefreshing];
+        [TeaHouseNetWorking POST:@"order.php" showHUD:NO  showMessage:@"" parameters:loadDic success:^(id responseObject) {
+            [weakSelf.tableView.mj_header endRefreshing];
             if ([responseObject[@"code"] intValue] == 200) {
                 for (NSDictionary *dic in responseObject[@"list"]) {
                     ShoppingCartModel *shopCartModel = [ShoppingCartModel mj_objectWithKeyValues:dic];
-                    [shopCartArray addObject:shopCartModel];
+                    [shopCartArray ARRAY_ADD_OBJ(shopCartModel)];
                 }
-                //记录是否选中数组赋值(默认全部未选中)
-                for (int i = 0; i < shopCartArray.count; i++) {
-                    [_selectArray addObject:@"0"];
+                //刷新选中状态
+                if (!weakSelf.accountIsSelect) {
+                    [weakSelf.bottomView.isSelectBtn setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+                    for (int i = 0; i < [shopCartArray COUNT]; i++) {
+                        [weakSelf.selectArray addObject:@"1"];
+                    }
+                }else {
+                    [weakSelf.bottomView.isSelectBtn setImage:[UIImage imageNamed:@"notSelected"] forState:UIControlStateNormal];
+                    for (int i = 0; i < [shopCartArray COUNT]; i++) {
+                        [weakSelf.selectArray addObject:@"0"];
+                    }
                 }
-                [_tableView reloadData];
+                //刷新结算数据
+                weakSelf.bottomView.totalLabel.text = [weakSelf CalculateAccount];
+                [weakSelf.tableView reloadData];
             }
         } failure:^(NSError *error) {
-            [_tableView.mj_header endRefreshing];
+            [weakSelf.tableView.mj_header endRefreshing];
         }];
     }];
 }
 
 #pragma mark - UITableViewDataSource代理
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return shopCartArray.count;
+    return [shopCartArray COUNT];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -222,9 +241,9 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ShoppingCartTableViewCell" owner:self options:nil] firstObject];
     }
     //赋值
-    cell.shopCartModel = (ShoppingCartModel *)shopCartArray[indexPath.section];
+    cell.shopCartModel = [shopCartArray ARRAY_OBJ_AT(indexPath.section)];
     
-    if (_editIndexPath != nil && _editIndexPath == indexPath) {
+    if (_isEditState && _editIndexPath == indexPath) {
         //当当前cell是编辑状态时不隐藏
         cell.editView.hidden = NO;
         if (_exitEditGoodNumber > 0) {//商品变化数量记录有值时,滚动界面时赋值
@@ -234,7 +253,7 @@
         cell.editView.hidden = YES;
     }
     //取出记录按钮形态的值
-    NSString *flag = _selectArray[indexPath.section];
+    NSString *flag = [_selectArray ARRAY_OBJ_AT(indexPath.section)];
     //改变按钮形态
     if ([flag intValue] == 1) {//选中
         [cell.isSelectBtn setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
@@ -285,7 +304,7 @@
 #pragma mark - UITableViewDelegate代理
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GoodsDetailViewController *nextVC = [GoodsDetailViewController new];
-    ShoppingCartModel *model = shopCartArray[indexPath.section];
+    ShoppingCartModel *model = [shopCartArray ARRAY_OBJ_AT(indexPath.section)];
     nextVC.goodsId = model.goodsID;
     nextVC.title = model.goodsName;
     [self.navigationController pushViewController:nextVC animated:YES];
@@ -331,7 +350,7 @@
         _isEditState = NO;
         
         //点击确认删除之后删除本地并请求删除数据库
-        ShoppingCartModel *model = shopCartArray[indexPath.section];
+        ShoppingCartModel *model = [shopCartArray ARRAY_OBJ_AT(indexPath.section)];
         [shopCartArray removeObjectAtIndex:indexPath.section];//删除订单数据
         [_selectArray removeObjectAtIndex:indexPath.section];//删除选中记录
         //删除数据库
@@ -339,8 +358,10 @@
         loadDic = @{@"key":@"deleteOrder",@"orderID":model.orderID};
         
         
-        [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"order.php" showHUD:YES  showMessage:@"正在删除" parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
+                //刷新结算数据
+                self.bottomView.totalLabel.text = [self CalculateAccount];
                 [_tableView reloadData];//刷新界面
             }
 
@@ -395,7 +416,7 @@
 //编辑退出事件
 - (void)rightExitEditClick {
     //取出当前编辑位置的模型数据
-    ShoppingCartModel *model = shopCartArray[_editIndexPath.section];
+    ShoppingCartModel *model = [shopCartArray ARRAY_OBJ_AT(_editIndexPath.section)];
     if (_exitEditGoodNumber > 0 && _exitEditGoodNumber != [model.goodsNumber intValue]) {//退出编辑时商品数量大于0或者与编辑前数量不相等
 
         //商品是否打折
@@ -408,7 +429,7 @@
         //更新数据库
         NSDictionary *loadDic = [[NSDictionary alloc] init];
         loadDic = @{@"key":@"updateOrder",@"orderID":model.orderID,@"goodsNumber":[NSString stringWithFormat:@"%d",_exitEditGoodNumber],@"goodsPrice":goodPrice};
-        [TeaHouseNetWorking POST:@"order.php" showHUD:YES parameters:loadDic success:^(id responseObject) {
+        [TeaHouseNetWorking POST:@"order.php" showHUD:YES  showMessage:@"数据更新中" parameters:loadDic success:^(id responseObject) {
             if ([responseObject[@"code"] intValue] == 200) {
                 //更新完数据库信息后改变界面数据模型
                 model.goodsNumber = [NSString stringWithFormat:@"%d",_exitEditGoodNumber];

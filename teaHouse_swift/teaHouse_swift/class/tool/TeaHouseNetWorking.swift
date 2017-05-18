@@ -9,21 +9,7 @@
 import UIKit
 import AFNetworking
 
-//public extension DispatchQueue {
-//    private static var onceToken = [String]()
-//    public class func once(_ token: String, _ block:@escaping () -> Void) {
-//        objc_sync_enter(self)
-//        defer {
-//            objc_sync_exit(self)
-//        }
-//        if onceToken.contains(token) {
-//            return
-//        }
-//        onceToken.append(token)
-//        block()
-//    }
-//
-//}
+let BaseUrl = "http://119.29.196.89/TeaAPP/"
 
 class TeaHouseNetWorking: AFHTTPSessionManager {
 //    let ShopDetailsURL = "http://192.168.1.119:8888/TeaAPP/images/original/"
@@ -37,6 +23,21 @@ class TeaHouseNetWorking: AFHTTPSessionManager {
         
         return manager!
     }()
+    
+    class func post(_ URLString: String!, parameters: Any, complete:
+        @escaping ((_ error: Bool, _ responseObject: Any?) -> Void)){
+        let url = BaseUrl + URLString
+        let manager: AFHTTPSessionManager = AFHTTPSessionManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet(objects:"text/html","text/plain","application/json","text/json","text/javascript") as! Set<AnyHashable>
+        manager.requestSerializer.timeoutInterval = 10
+        manager.post(url, parameters: parameters, success: { (task, responseObject) in
+            complete(true,responseObject)
+        }) { (task, error) in
+            if (error != nil) {
+                complete(false,nil)
+            }
+        }
+    }
     
 }
 
