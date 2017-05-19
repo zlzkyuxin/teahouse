@@ -79,13 +79,11 @@
 //数据请求
 - (void)getData{
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
-    NSString *userID = @"1";
     if (dic != nil) {
         userInfo = [LoginModel mj_objectWithKeyValues:dic];
-        userID = userInfo.userID;
     }
     NSDictionary *loadDic = [[NSDictionary alloc] init];
-    loadDic = @{@"key":@"orderFromUserID",@"userID":userID,@"orderState":@"待付款"};
+    loadDic = @{@"key":@"orderFromUserID",@"userID":userInfo.userID,@"orderState":@"待付款"};
     
     [TeaHouseNetWorking POST:@"order.php" showHUD:YES  showMessage:@"订单查询中" parameters:loadDic success:^(id responseObject) {
         if ([responseObject[@"code"] intValue] == 200) {
@@ -186,13 +184,11 @@
         [weakSelf removeRightExitEditFromSuperView];
         
         NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
-        NSString *userID = @"1";
         if (dic != nil) {
             userInfo = [LoginModel mj_objectWithKeyValues:dic];
-            userID = userInfo.userID;
         }
         NSDictionary *loadDic = [[NSDictionary alloc] init];
-        loadDic = @{@"key":@"orderFromUserID",@"userID":userID,@"orderState":@"待付款"};
+        loadDic = @{@"key":@"orderFromUserID",@"userID":userInfo.userID,@"orderState":@"待付款"};
         
         [TeaHouseNetWorking POST:@"order.php" showHUD:NO  showMessage:@"" parameters:loadDic success:^(id responseObject) {
             [weakSelf.tableView.mj_header endRefreshing];

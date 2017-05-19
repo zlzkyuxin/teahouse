@@ -73,6 +73,10 @@
 		15F4B6E7452D9ED4F03749CC /* libPods-teahouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EAA7366EDC5E414FC8246 /* libPods-teahouse.a */; };
 		191516AE1EBC5C5E00353F96 /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */; };
 		191516B01EBC689700353F96 /* ceshi.xib in Resources */ = {isa = PBXBuildFile; fileRef = 191516AF1EBC689700353F96 /* ceshi.xib */; };
+		1944D5BD1ECE9C6700220682 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1944D5BC1ECE9C6700220682 /* CollectionModel.m */; };
+		1944D5C11ECEA43200220682 /* CollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1944D5BF1ECEA43200220682 /* CollectionTableViewCell.m */; };
+		1944D5C21ECEA43200220682 /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1944D5C01ECEA43200220682 /* CollectionTableViewCell.xib */; };
+		1944D5C61ECEDA6200220682 /* GoodsDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1944D5C51ECEDA6200220682 /* GoodsDetailHeader.m */; };
 		195A2B4F1EBC114700DCF1C6 /* OrderPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */; };
 		198373791E94936100A50E5B /* RegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 198373781E94936100A50E5B /* RegistTextField.m */; };
 		1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983737B1E94D81200A50E5B /* HTTPViewController.m */; };
@@ -248,6 +252,13 @@
 		191516AC1EBC5C5E00353F96 /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
 		191516AD1EBC5C5E00353F96 /* ShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartViewController.m; sourceTree = "<group>"; };
 		191516AF1EBC689700353F96 /* ceshi.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ceshi.xib; sourceTree = "<group>"; };
+		1944D5BB1ECE9C6700220682 /* CollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionModel.h; sourceTree = "<group>"; };
+		1944D5BC1ECE9C6700220682 /* CollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionModel.m; sourceTree = "<group>"; };
+		1944D5BE1ECEA43200220682 /* CollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewCell.h; sourceTree = "<group>"; };
+		1944D5BF1ECEA43200220682 /* CollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewCell.m; sourceTree = "<group>"; };
+		1944D5C01ECEA43200220682 /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
+		1944D5C41ECEDA6200220682 /* GoodsDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailHeader.h; sourceTree = "<group>"; };
+		1944D5C51ECEDA6200220682 /* GoodsDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailHeader.m; sourceTree = "<group>"; };
 		195A2B4D1EBC114700DCF1C6 /* OrderPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPayViewController.h; sourceTree = "<group>"; };
 		195A2B4E1EBC114700DCF1C6 /* OrderPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPayViewController.m; sourceTree = "<group>"; };
 		198373771E94936100A50E5B /* RegistTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistTextField.h; sourceTree = "<group>"; };
@@ -597,6 +608,7 @@
 		12F7DCA61E0D471200B372CE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1944D5C31ECEDA3600220682 /* GoodsDetail */,
 				12FB465D1EC2042D0013B8BE /* GoodsCollection */,
 				1216D3351EA1C69C009251A7 /* HomeCell */,
 				1216D33B1EA1C69C009251A7 /* OrderCell */,
@@ -642,6 +654,8 @@
 			children = (
 				125A2AAD1E5D3F92006D15DA /* LoginModel.h */,
 				125A2AAE1E5D3F92006D15DA /* LoginModel.m */,
+				1944D5BB1ECE9C6700220682 /* CollectionModel.h */,
+				1944D5BC1ECE9C6700220682 /* CollectionModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -651,6 +665,9 @@
 			children = (
 				12D058FA1EBD77E50070493A /* UserCenterTopView.h */,
 				12D058FB1EBD77E50070493A /* UserCenterTopView.m */,
+				1944D5BE1ECEA43200220682 /* CollectionTableViewCell.h */,
+				1944D5BF1ECEA43200220682 /* CollectionTableViewCell.m */,
+				1944D5C01ECEA43200220682 /* CollectionTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -741,6 +758,15 @@
 				129E4BEA1EC4407300649335 /* CalculateAccountView.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		1944D5C31ECEDA3600220682 /* GoodsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1944D5C41ECEDA6200220682 /* GoodsDetailHeader.h */,
+				1944D5C51ECEDA6200220682 /* GoodsDetailHeader.m */,
+			);
+			name = GoodsDetail;
 			sourceTree = "<group>";
 		};
 		19BB93561EC171F900A3CFBE /* lib */ = {
@@ -915,6 +941,7 @@
 				1216D33E1EA1C69C009251A7 /* GoodsDetailTableViewCellB.xib in Resources */,
 				120213F91ECD375700DA93D1 /* MBProgressHUD.bundle in Resources */,
 				19FC4D7A1EB1823900EEE13B /* PYSearch.bundle in Resources */,
+				1944D5C21ECEA43200220682 /* CollectionTableViewCell.xib in Resources */,
 				191516B01EBC689700353F96 /* ceshi.xib in Resources */,
 				12F7DCB21E0D471200B372CE /* Info.plist in Resources */,
 				12FB46651EC2049A0013B8BE /* GoodsCollectionViewCell.xib in Resources */,
@@ -1008,12 +1035,14 @@
 				1276DD171E1B8AE50009F551 /* TeaHouseNetWorking.m in Sources */,
 				12AFBEE61E109BEE00CD3C33 /* CustiomTabBarViewController.m in Sources */,
 				12F7DCB31E0D471200B372CE /* main.m in Sources */,
+				1944D5C61ECEDA6200220682 /* GoodsDetailHeader.m in Sources */,
 				1216D33D1EA1C69C009251A7 /* GoodsDetailTableViewCellB.m in Sources */,
 				1216D3331EA1C56B009251A7 /* OrderListViewController.m in Sources */,
 				12E73AA21E63AFF9004C7388 /* NSMutableArray+AvoidCrash.m in Sources */,
 				12AFBEE91E109CB800CD3C33 /* StoreViewController.m in Sources */,
 				12E73AA61E63AFF9004C7388 /* NSObject+AvoidCrash.m in Sources */,
 				19E0CBF21E11491B00AD3836 /* NoticeViewController.m in Sources */,
+				1944D5C11ECEA43200220682 /* CollectionTableViewCell.m in Sources */,
 				1221798F1E1B5388007A2285 /* ScanResultController.m in Sources */,
 				12F9C7C61E164C800074D0CF /* ScanCodeView.m in Sources */,
 				1983737C1E94D81200A50E5B /* HTTPViewController.m in Sources */,
@@ -1053,6 +1082,7 @@
 				125A2AB51E5D74BE006D15DA /* GoodsDetailModel.m in Sources */,
 				19BB93A71EC1839900A3CFBE /* IATConfig.m in Sources */,
 				19ED47DE1EC30F0A000EF4F5 /* ShoppingCartTableViewCell.m in Sources */,
+				1944D5BD1ECE9C6700220682 /* CollectionModel.m in Sources */,
 				125A36311EBB63B8009D1BD2 /* OrderModel.m in Sources */,
 				12142A731ECD7F100025CEF5 /* TeaBaseViewController.m in Sources */,
 				12E73AA41E63AFF9004C7388 /* NSMutableDictionary+AvoidCrash.m in Sources */,

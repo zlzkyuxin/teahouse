@@ -10,4 +10,6 @@
 
 @interface CollectionInfoViewController : TeaBaseViewController
 
+@property (nonatomic , strong) NSString *userID;
+
 @end

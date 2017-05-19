@@ -22,14 +22,11 @@
     UINavigationControllerDelegate
 >
 {
-    LoginModel *userInfo;
-//    UIImageView *userIconImage;
-//    UILabel *userNameLabel;
-    
     UITableView *_tableView;
-    
     UserCenterTopView *_topView;
 }
+
+@property (nonatomic , strong) LoginModel *userInfo;
 @end
 
 @implementation UserCenterViewController
@@ -58,7 +55,7 @@
 - (void)loadData {
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     TEALog(@"%@",dic);
-    userInfo = [LoginModel mj_objectWithKeyValues:dic];
+    _userInfo = [LoginModel mj_objectWithKeyValues:dic];
 }
 
 - (void)initView {
@@ -71,16 +68,20 @@
     
     //创建头部视图
     _topView = [[UserCenterTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 2)];
-    _topView.userInfo = userInfo;
+    _topView.userInfo = _userInfo;
     WS(weakSelf)
     _topView.block = ^(NSInteger tag) {
         if (tag == 50) {
             [weakSelf userIconImageClick];
         }else if (tag == 51) {//订单按钮
-            [weakSelf.navigationController pushViewController:[OrderViewController new] animated:YES];
+            OrderViewController *nextVC = [OrderViewController new];
+            nextVC.userID = weakSelf.userInfo.userID;
+            [weakSelf.navigationController pushViewController:nextVC animated:YES];
             TEALog(@"点击了订单按钮");
         }else if (tag == 52) {//收藏按钮
-            [weakSelf.navigationController pushViewController:[CollectionInfoViewController new] animated:YES];
+            CollectionInfoViewController *nextVC = [CollectionInfoViewController new];
+            nextVC.userID = weakSelf.userInfo.userID;
+            [weakSelf.navigationController pushViewController:nextVC animated:YES];
             TEALog(@"点击了收藏按钮");
         }
     };
@@ -144,12 +145,12 @@
     //压缩图片
     UIImage *upImage = [UIImage scaleToSize:[info objectForKey:UIImagePickerControllerOriginalImage] size:CGSizeMake(60, 60)];
     //重命名图片
-    NSString *upImageName = [NSString stringWithFormat:@"%@%@.png",userInfo.userID,userInfo.userNick];
+    NSString *upImageName = [NSString stringWithFormat:@"%@%@.png",_userInfo.userID,_userInfo.userNick];
     //保存图片到沙盒中
     [UIImage savePNGImage:upImage toCachesWithName:upImageName];
     
     NSDictionary *loadDic = [[NSDictionary alloc] init];
-    loadDic = @{@"userID":userInfo.userID};
+    loadDic = @{@"userID":_userInfo.userID};
     //上传图片到服务器
     
     [TeaHouseNetWorking upload:@"images/userimage/saveimage.php" showHUD:YES parameters:loadDic upImageName:upImageName success:^(id responseObject) {

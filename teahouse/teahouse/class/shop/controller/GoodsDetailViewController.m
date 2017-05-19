@@ -12,7 +12,8 @@
 #import "GoodsDetailTableViewCellB.h"
 #import "OrderListViewController.h"
 #import "LoginViewController.h"
-//#import "LoopBanner.h"
+#import "GoodsDetailHeader.h"
+#import "LoginModel.h"
 
 @interface GoodsDetailViewController ()
 <
@@ -20,10 +21,15 @@
     UITableViewDataSource
 >
 {
+    LoginModel *userInfo;
     UIImageView *topImage;
     UITableView *_tableView;
     GoodsDetailModel *goodsDeailModel;
 }
+/** 右上角收藏按钮*/
+@property (nonatomic , strong) UIButton *collectionBtn;
+/** 是否收藏*/
+@property (nonatomic , assign) BOOL isCollection;
 
 @end
 
@@ -31,7 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = @"粟粟";
+    //查询该商品是否被收藏
+    [self checkIsCollection];
     [self initView];
     [self loadData];
 }
@@ -39,24 +46,26 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
 }
 
 - (void)initView {
     self.view.backgroundColor = [UIColor whiteColor];
-//    LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160) scrollDuration:0];
-//    loop.imageURLStrings = @[@"home1.jpg",@"home2.jpg",@"home3.jpg",@"home4.jpg"];
-//    loop.clickAction = ^(NSInteger index) {
-//        TEALog(@"点击了第%ld张图片",(long)index);
-//    };
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
-    
+    //顶部图片
     topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0)*SCREEN_HEIGHT)];
     _tableView.tableHeaderView = topImage;
+    
+    
+    
+    //右上角收藏按钮
+    _collectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    
 }
 
 //数据请求
@@ -72,8 +81,6 @@
         if ([responseObject[@"code"] intValue] == 200) {
             goodsDeailModel = [GoodsDetailModel mj_objectWithKeyValues:[responseObject[@"list"] firstObject]];
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,goodsDeailModel.goodsImageName]];
-            //            NSURL *url = [NSURL URLWithString:@"http://imgsrc.baidu.com/forum/wh%3D900%2C900/sign=e9ca6c55a0014c08196e20ac3a4b2e31/81cb39dbb6fd5266d0f8dde8a218972bd507367e.jpg" ];
-            //            NSURL *url = [NSURL URLWithString:@"http://10.37.26.26/TeaAPP/images/susu.jpg"];
             [topImage sd_setImageWithURL:url];
         }
         [_tableView reloadData];
@@ -82,6 +89,30 @@
     }];
 }
 
+//是否收藏
+- (void)checkIsCollection {
+    WS(weakSelf)
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
+    if (dic != nil) {
+        userInfo = [LoginModel mj_objectWithKeyValues:dic];
+    }
+    NSDictionary *loadDic = [[NSDictionary alloc] init];
+    loadDic = @{@"key":@"selectCollection",@"goodsID":_goodsId,@"userID":userInfo.userID};
+    [TeaHouseNetWorking POST:@"collection.php" showHUD:NO showMessage:@"" parameters:loadDic success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue] == 200) {
+            weakSelf.isCollection = YES;
+            [self changeCollection:_isCollection];
+        }else {
+            weakSelf.isCollection = NO;
+            [self changeCollection:_isCollection];
+        }
+    } failure:^(NSError *error) {
+        _isCollection = NO;
+        [self changeCollection:_isCollection];
+    }];
+}
+
+#pragma mark - UITableViewDataSource代理
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -156,98 +187,66 @@
     return 0.01f;
 }
 
+#pragma mark - tableView头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-    headerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
-    //最新价格
-    UILabel *price = [UILabel new];
-    [headerView addSubview:price];
-    [price mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(headerView).offset(10);
-        make.top.equalTo(headerView).offset(10);
-        make.bottom.equalTo(headerView).offset(-10);
-    }];
-    price.adjustsFontSizeToFitWidth = YES;
-    
-    NSString *goodsPrice = @"";
-    if ([goodsDeailModel.goodsIsDiscount intValue] == 0) {
-        goodsPrice = [NSString stringWithFormat:@"￥%.1f",[goodsDeailModel.goodsPrice floatValue]];
-    }else {
-        goodsPrice = [NSString stringWithFormat:@"￥%.2f",[goodsDeailModel.goodsPrice floatValue] * 0.75];
-    }
-    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:goodsPrice];
-    [att addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:25] range:NSMakeRange(1, att.length-1)];
-    price.attributedText = att;
-    price.textColor = [UIColor greenColor];
-    
-    //
-    UILabel *prices = [UILabel new];
-    [headerView addSubview:prices];
-    [prices mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(price.mas_right).offset(5);
-        make.top.equalTo(price);
-        make.bottom.equalTo(price);
-    }];
-    NSString *nowPrice = [NSString stringWithFormat:@"门市价:￥%.1f",[goodsDeailModel.goodsPrice floatValue]];
-    prices.adjustsFontSizeToFitWidth = YES;
-    prices.text = nowPrice;
-    prices.font = [UIFont systemFontOfSize:15];
-    prices.textColor = [UIColor lightGrayColor];
-    //是否隐藏原价
-    if ([goodsDeailModel.goodsIsDiscount intValue] == 0) {
-        prices.hidden = YES;
-    }else {
-        prices.hidden = NO;
-    }
-    
-    //立即抢购
-    UIButton *buyBtn = [UIButton new];
-    [headerView addSubview:buyBtn];
-    [buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(headerView).offset(-15);
-        make.top.equalTo(headerView).offset(15);
-        make.bottom.equalTo(headerView).offset(-15);
-    }];
-    [buyBtn setTitle:@"立即抢购" forState:UIControlStateNormal];
-    [buyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [buyBtn setBackgroundColor:[[UIColor orangeColor] colorWithAlphaComponent:1]];
-    [buyBtn.layer setCornerRadius:3];
-    [buyBtn.layer setMasksToBounds:YES];
-    [buyBtn addTarget:self action:@selector(buyBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    //
-    UILabel *line = [UILabel new];
-    [headerView addSubview:line];
-    [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(headerView);
-        make.right.equalTo(headerView);
-        make.bottom.equalTo(headerView);
-        make.height.mas_offset(@0.5);
-    }];
-    [line setBackgroundColor:[UIColor lightGrayColor]];
+    GoodsDetailHeader *headerView = [[GoodsDetailHeader alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
+    headerView.goodsDeailModel = goodsDeailModel;
+    headerView.block = ^{
+        TEALog(@"立即抢购");
+        if (![[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
+            [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
+        }else {
+            OrderListViewController *nextVC = [OrderListViewController new];
+            nextVC.title = @"提交订单";
+            nextVC.goodsID = goodsDeailModel.goodsID;
+            nextVC.goodsName = goodsDeailModel.goodsName;
+            NSString *goodPrice = @"";
+            if ([goodsDeailModel.goodsIsDiscount intValue] == 1) {
+                goodPrice = [NSString stringWithFormat:@"%.2f",[goodsDeailModel.goodsPrice floatValue] * 0.75];
+            }else {
+                goodPrice = goodsDeailModel.goodsPrice;
+            }
+            nextVC.price = goodPrice;
+            [self.navigationController pushViewController:nextVC animated:YES];
+        }
+
+    };
     return headerView;
 }
 
-
-- (void)buyBtnClick {
-    TEALog(@"立即抢购");
-    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"islogin"]) {
-        [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
-    }else {
-        OrderListViewController *nextVC = [OrderListViewController new];
-        nextVC.title = @"提交订单";
-        nextVC.goodsID = goodsDeailModel.goodsID;
-        nextVC.goodsName = goodsDeailModel.goodsName;
-        NSString *goodPrice = @"";
-        if ([goodsDeailModel.goodsIsDiscount intValue] == 1) {
-            goodPrice = [NSString stringWithFormat:@"%.2f",[goodsDeailModel.goodsPrice floatValue] * 0.75];
-        }else {
-            goodPrice = goodsDeailModel.goodsPrice;
-        }
-        nextVC.price = goodPrice;
-        [self.navigationController pushViewController:nextVC animated:YES];
+/** 收藏按钮点击事件*/
+- (void)collectionBtnClick {
+    WS(weakSelf)
+    NSDictionary *loadDic = [[NSDictionary alloc] init];
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
+    if (dic != nil) {
+        userInfo = [LoginModel mj_objectWithKeyValues:dic];
     }
+    if (!_isCollection) {//添加收藏
+        loadDic = @{@"key":@"addCollection",@"userID":userInfo.userID,@"goodsID":_goodsId};
+    }else {//取消收藏
+        loadDic = @{@"key":@"deleteCollection",@"userID":userInfo.userID,@"goodsID":_goodsId};
+    }
+    [TeaHouseNetWorking POST:@"collection.php" showHUD:YES showMessage:@"" parameters:loadDic success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue] == 200) {
+            weakSelf.isCollection = !weakSelf.isCollection;
+            [weakSelf changeCollection:weakSelf.isCollection];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
+//改变收藏按钮图片
+- (void)changeCollection:(BOOL)isCollected {
+    if (isCollected) {//收藏
+        [_collectionBtn setImage:[UIImage imageNamed:@"collectioned"] forState:UIControlStateNormal];
+    }else {
+        [_collectionBtn setImage:[UIImage imageNamed:@"notcollection"] forState:UIControlStateNormal];
+    }
+    
+    [_collectionBtn addTarget:self action:@selector(collectionBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_collectionBtn];
+}
 
 @end

@@ -10,4 +10,6 @@
 
 @interface OrderViewController : TeaBaseViewController
 
+@property (nonatomic , strong) NSString *userID;
+
 @end
