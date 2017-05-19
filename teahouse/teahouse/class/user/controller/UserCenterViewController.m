@@ -31,11 +31,11 @@
 
 @implementation UserCenterViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //初始化数据
     [self loadData];
+    //初始化界面
     [self initView];
 }
 
@@ -52,12 +52,14 @@
     [super viewWillDisappear:animated];
 }
 
+//初始化数据
 - (void)loadData {
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"list"];
     TEALog(@"%@",dic);
     _userInfo = [LoginModel mj_objectWithKeyValues:dic];
 }
 
+//初始化界面
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     

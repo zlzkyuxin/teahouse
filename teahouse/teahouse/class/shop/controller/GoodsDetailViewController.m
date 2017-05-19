@@ -23,13 +23,14 @@
 {
     LoginModel *userInfo;
     UIImageView *topImage;
-    UITableView *_tableView;
     GoodsDetailModel *goodsDeailModel;
 }
 /** 右上角收藏按钮*/
 @property (nonatomic , strong) UIButton *collectionBtn;
 /** 是否收藏*/
 @property (nonatomic , assign) BOOL isCollection;
+/** tableView*/
+@property (nonatomic , strong) UITableView *tableView;
 
 @end
 
@@ -39,8 +40,12 @@
     [super viewDidLoad];
     //查询该商品是否被收藏
     [self checkIsCollection];
+    //初始化界面
     [self initView];
+    //初始化数据
     [self loadData];
+    //集成刷新控件
+    [self setupRefresh];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,6 +54,7 @@
     
 }
 
+//初始化界面
 - (void)initView {
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -61,11 +67,8 @@
     topImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0)*SCREEN_HEIGHT)];
     _tableView.tableHeaderView = topImage;
     
-    
-    
     //右上角收藏按钮
     _collectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    
 }
 
 //数据请求
@@ -78,6 +81,7 @@
     }
     
     [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES  showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
+        [_tableView.mj_header endRefreshing];
         if ([responseObject[@"code"] intValue] == 200) {
             goodsDeailModel = [GoodsDetailModel mj_objectWithKeyValues:[responseObject[@"list"] firstObject]];
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/original/%@.png",ImageURL,goodsDeailModel.goodsImageName]];
@@ -85,8 +89,36 @@
         }
         [_tableView reloadData];
     } failure:^(NSError *error) {
+        [_tableView.mj_header endRefreshing];
         [self createBackgroundImage:[UIImage imageNamed:@"failurelode"] title:@"" withResponseResult:TeaResponseError onView:self.view];
     }];
+}
+
+//集成刷新控件
+- (void)setupRefresh {
+//    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        
+//    }];
+    
+    
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    
+    // 设置普通状态的动画图片
+    NSArray *idleImages = @[[UIImage imageNamed:@"icon_tab1_normal"],[UIImage imageNamed:@"icon_tab2_normal"],[UIImage imageNamed:@"icon_tab3_normal"]];
+    [header setImages:idleImages forState:MJRefreshStateIdle];
+    [header setTitle:@"新商品已就位" forState:MJRefreshStateIdle];
+    
+    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+    NSArray *pullingImages = @[[UIImage imageNamed:@"icon_tab1_normal"],[UIImage imageNamed:@"icon_tab2_normal"],[UIImage imageNamed:@"icon_tab3_normal"]];
+    [header setImages:pullingImages forState:MJRefreshStatePulling];
+    [header setTitle:@"你确定不看看新的商品？" forState:MJRefreshStatePulling];
+    
+    // 设置正在刷新状态的动画图片
+    NSArray *refreshingImages = @[[UIImage imageNamed:@"icon_tab1_normal"],[UIImage imageNamed:@"icon_tab2_normal"],[UIImage imageNamed:@"icon_tab3_normal"]];
+    [header setImages:refreshingImages forState:MJRefreshStateRefreshing];
+    [header setTitle:@"新商品加载中" forState:MJRefreshStateRefreshing];
+    // 设置 header
+    self.tableView.mj_header = header;
 }
 
 //是否收藏
