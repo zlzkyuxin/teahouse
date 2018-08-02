@@ -19,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (void)createBackgroundImage:(UIImage *)bgImage title:(NSString *)title withResponseResult:(TeaResponseResult)result onView:(UIView *)view{

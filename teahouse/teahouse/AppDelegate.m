@@ -11,7 +11,7 @@
 #import "CustiomTabBarViewController.h"
 #import "LoginViewController.h"
 #import <iflyMSC/iflyMSC.h>
-
+//讯飞语音api的appID
 #define APPID_VALUE           @"591136fb"
 
 @interface AppDelegate ()

@@ -56,7 +56,7 @@
 
 //初始化界面
 - (void)initView {
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor whiteColor];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     _tableView.delegate = self;
@@ -68,7 +68,7 @@
     _tableView.tableHeaderView = topImage;
     
     //右上角收藏按钮
-    _collectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    _collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 }
 
 //数据请求
@@ -80,7 +80,7 @@
         loadDic = @{@"key":@"goodsDetails",@"goodsID":self.goodsId};
     }
     
-    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:YES  showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
+    [TeaHouseNetWorking POST:@"shopgoods.php" showHUD:NO  showMessage:@"商品查询中" parameters:loadDic success:^(id responseObject) {
         [_tableView.mj_header endRefreshing];
         if ([responseObject[@"code"] intValue] == 200) {
             goodsDeailModel = [GoodsDetailModel mj_objectWithKeyValues:[responseObject[@"list"] firstObject]];
@@ -271,13 +271,19 @@
 
 //改变收藏按钮图片
 - (void)changeCollection:(BOOL)isCollected {
+    
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"collectioned"] style:UIBarButtonItemStyleBordered target:self action:@selector(collectionBtnClick)];
+    
     if (isCollected) {//收藏
-        [_collectionBtn setImage:[UIImage imageNamed:@"collectioned"] forState:UIControlStateNormal];
+        
+        [_collectionBtn setImage:[UIImage scaleToSize:[UIImage imageNamed:@"collectioned"] size:CGSizeMake(30, 30)] forState:UIControlStateNormal];
     }else {
-        [_collectionBtn setImage:[UIImage imageNamed:@"notcollection"] forState:UIControlStateNormal];
+        
+        [_collectionBtn setImage:[UIImage scaleToSize:[UIImage imageNamed:@"notcollection"] size:CGSizeMake(30, 30)] forState:UIControlStateNormal];
     }
     
     [_collectionBtn addTarget:self action:@selector(collectionBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_collectionBtn];
 }
 

@@ -24,6 +24,7 @@
 
 @implementation ScanViewController
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _scanCodeView = [[ScanCodeView alloc] initWithFrame:self.view.frame outsideViewLayer:self.view.layer];

@@ -12,6 +12,7 @@
 #import "StoreViewController.h"
 #import "ShoppingCartViewController.h"
 #import "UserCenterViewController.h"
+#import "UIImage+Addition.h"
 @interface CustomNavigationController ()
 
 @end
@@ -29,9 +30,16 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     if (self.viewControllers.count > 0) {
-        UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [back setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
+//        back.mj_size = CGSizeMake(60, 60);
+        [back setImage:[UIImage scaleToSize:[UIImage imageNamed:@"back"] size:CGSizeMake(30, 30)] forState:UIControlStateNormal];
+//        [back setBackgroundImage:[UIImage scaleToSize:[UIImage imageNamed:@"back"] size:CGSizeMake(30, 30)] forState:UIControlStateNormal];
+        
+        //按钮内部所以内容左对齐
+        back.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        
         [back addTarget:self action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+//        back.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:back];
 
     }
@@ -47,12 +55,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 @end

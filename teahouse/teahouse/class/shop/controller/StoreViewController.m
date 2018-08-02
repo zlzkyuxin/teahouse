@@ -176,11 +176,11 @@
 /** 每组cell的个数*/
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (menuArray.count > 0) {
-    ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(leftSelectInteger)];
-    NSArray *menuModelArray = goodsMenu.goodsMenu;
-    GoodsMenumModel *menuModel = [menuModelArray ARRAY_OBJ_AT(section)];
-    NSArray *thirdModelArray = menuModel.thirdMenu;
-    return [thirdModelArray COUNT];
+        ShopGoodMenuModel *goodsMenu = [menuArray ARRAY_OBJ_AT(leftSelectInteger)];
+        NSArray *menuModelArray = goodsMenu.goodsMenu;
+        GoodsMenumModel *menuModel = [menuModelArray ARRAY_OBJ_AT(section)];
+        NSArray *thirdModelArray = menuModel.thirdMenu;
+        return [thirdModelArray COUNT];
     }
     return 0;
 }

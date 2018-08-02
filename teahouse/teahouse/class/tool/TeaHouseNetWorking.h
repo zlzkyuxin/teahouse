@@ -13,10 +13,10 @@
 
 #ifdef TEST
 
-#define BaseUrl @"http://119.29.196.89/TeaAPP/"
-#define ShopDetailsURL @"http://119.29.196.89/TeaAPP/images/category/"
-#define ImageURL @"http://119.29.196.89/TeaAPP/images/"
-#define HTTPAgreement @"http://119.29.196.89/TeaAPP/http.html"
+#define BaseUrl @"https://www.yxdream.cn/TeaAPP/"//@"http://119.29.196.89/TeaAPP/"
+#define ShopDetailsURL @"https://www.yxdream.cn/TeaAPP/images/category/"//@"http://119.29.196.89/TeaAPP/images/category/"
+#define ImageURL @"https://www.yxdream.cn/TeaAPP/images/"//@"http://119.29.196.89/TeaAPP/images/"
+#define HTTPAgreement @"https://www.yxdream.cn/TeaAPP/http.html"//@"http://119.29.196.89/TeaAPP/http.html"
 
 #else
 

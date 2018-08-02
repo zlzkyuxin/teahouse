@@ -28,6 +28,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 
+#define NAV_FRAME (self.navigationController.navigationBar.frame.size)
+#define STATUS_FRAME ([[UIApplication sharedApplication] statusBarFrame])
+#define TOP_HEIGHT 64
+
 @interface HomeViewController ()
 <
     UITableViewDelegate,
@@ -38,7 +42,9 @@
 >
 {
     UITableView *homeTableView;
+    
     TopView *topView;
+    
     BOOL isChanged;
     
     NSMutableArray *dataArray;
@@ -73,7 +79,20 @@
  */
 - (void)initView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_TABBARHEIGHT)];
+    
+
+    homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, TOP_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_TABBARHEIGHT - TOP_HEIGHT)];
+//    if (@available(iOS 11.0 , *)) {
+//
+//        //解决ios11带来的新问题，没有导航栏，状态栏会在tableView滑动后消失引起的UI失配。
+//        homeTableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0 );
+//
+//    } else {
+//
+//        //iOS11以下，解决tableView偏移量下移20问题
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//
+//    }
     homeTableView.delegate = self;
     homeTableView.dataSource = self;
     homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -81,7 +100,7 @@
     self.automaticallyAdjustsScrollViewInsets = false;//去掉顶部的留白
     
     
-    LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0)*SCREEN_HEIGHT) scrollDuration:5.f];
+    LoopBanner *loop = [[LoopBanner alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (160.0/568.0) * SCREEN_HEIGHT) scrollDuration:5.f];
     loop.imageURLStrings = @[@"home1.jpg",@"home2.jpg",@"home3.jpg",@"home4.jpg"];
     loop.clickAction = ^(NSInteger index) {
         TEALog(@"点击了第%ld张图片",(long)index);
@@ -111,13 +130,14 @@
     }];
     
 }
-#pragma mark 自定义naviagtionbar
+#pragma mark 自定义头部视图
 - (void)replaceNavigationBar {
-    topView = [[TopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-    [topView setBackgroundColor:[UIColor clearColor]];
+    topView = [[TopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TOP_HEIGHT)];
+    [topView setBackgroundColor:[UIColor orangeColor]];
     topView.delegate = self;
     [self.view addSubview:topView];
 }
+
 #pragma mark topView的代理方法
 - (void)scanBtnClick {
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

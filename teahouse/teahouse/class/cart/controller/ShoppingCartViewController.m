@@ -113,24 +113,25 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStyleGrouped];
         _bottomView.frame = CGRectMake(0, SCREEN_HEIGHT  - 44, SCREEN_WIDTH, 44);
     }else {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44 - 49) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT - 44 - 49) style:UITableViewStyleGrouped];
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, - 40, 0);
         _bottomView.frame = CGRectMake(0, SCREEN_HEIGHT  - 44 - 49, SCREEN_WIDTH, 44);
     }
     _tableView.delegate = self;
     _tableView.dataSource = self;
     //设置行高
-    if (iPhone5SE) {
-        _tableView.rowHeight = 80;
-    }else if (iPhone6_6s) {
-        _tableView.rowHeight = 94;
-    }else if (iPhone6Plus_6sPlus) {
-        _tableView.rowHeight = 103.5;
-    }
+    _tableView.rowHeight = 80;
+    
     //去掉底部多余分割线
     _tableView.tableFooterView = [UIView new];
     [self.view addSubview:_tableView];
     
+    if (@available(iOS 11.0, *)) {
+        //ios MJ刷新上下跳bug修复
+        _tableView.contentInsetAdjustmentBehavior =UIScrollViewContentInsetAdjustmentNever;
+        _tableView.contentInset =UIEdgeInsetsMake(20,0,0,0);//64和49自己看效果，是否应该改成0
+        _tableView.scrollIndicatorInsets =_tableView.contentInset;
+    }
     
     _bottomView.block = ^() {
         if (weakSelf.accountIsSelect) {//选中状态
@@ -169,6 +170,7 @@
         TEALog(@"%@",[weakSelf.bottomView.totalLabel.text substringWithRange:NSMakeRange(1, weakSelf.bottomView.totalLabel.text.length - 1)]);
     };
     [self.view addSubview:_bottomView];
+    
     
 }
 
@@ -295,6 +297,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0.01f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [UIView new];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [UIView new];
 }
 
 #pragma mark - UITableViewDelegate代理
